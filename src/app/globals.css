@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
+/*
+ * Design tokens — tiered surface/text/border system inspired by dense
+ * observability-tool UIs (Datadog/Honeycomb-style), with a 7-hue palette
+ * for failure categories so each reads as a distinct color, not a bucket.
+ * Dark is the reference palette; light is a hand-tuned equivalent, not an
+ * inversion, so contrast and "feel" hold up in both directions.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0a0b0c;
+  --surface: #0c0d0f;
+  --card: #0e0f11;
+  --inset: #101215;
+  --hover: #141719;
+  --border: #1b1e22;
+  --border-strong: #23272c;
+  --divider: #15181b;
+
+  --text: #e6e7e9;
+  --dim: #9aa1a9;
+  --faint: #5d646c;
+  --mute: #4d545b;
+
+  --accent: #7fd1c8;
+  --red: #f08a7a;
+  --green: #6ecf9a;
+  --amber: #e0b070;
+  --violet: #a596e0;
+  --orange: #e2975a;
+  --blue: #7fa8d1;
+  --pink: #c9a0c0;
+}
+
+:root[data-theme="light"] {
+  --bg: #f8f7f4;
+  --surface: #f1f0ec;
+  --card: #ffffff;
+  --inset: #f4f3ef;
+  --hover: #ececE7;
+  --border: #e2e0da;
+  --border-strong: #cfccc4;
+  --divider: #ebe9e4;
+
+  --text: #1a1b1d;
+  --dim: #52565c;
+  --faint: #797f86;
+  --mute: #9aa0a6;
+
+  --accent: #157a6e;
+  --red: #c2483a;
+  --green: #1f8f5a;
+  --amber: #a5721f;
+  --violet: #6d4fc4;
+  --orange: #b8641f;
+  --blue: #2f6ba8;
+  --pink: #a8548f;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-inset: var(--inset);
+  --color-hover: var(--hover);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-divider: var(--divider);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-text: var(--text);
+  --color-dim: var(--dim);
+  --color-faint: var(--faint);
+  --color-mute: var(--mute);
+
+  --color-accent: var(--accent);
+  --color-red: var(--red);
+  --color-green: var(--green);
+  --color-amber: var(--amber);
+  --color-violet: var(--violet);
+  --color-orange: var(--orange);
+  --color-blue: var(--blue);
+  --color-pink: var(--pink);
+
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+/* ThemeToggle renders both icons; only the one matching the live theme shows. */
+.theme-icon-light {
+  display: none;
+}
+:root[data-theme="light"] .theme-icon-light {
+  display: block;
+}
+:root[data-theme="light"] .theme-icon-dark {
+  display: none;
 }

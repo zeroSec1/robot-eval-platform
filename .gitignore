@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local copies of dataset videos (re-fetch with scripts/download-videos.mjs)
+/public/videos/
+/guide-shots/
