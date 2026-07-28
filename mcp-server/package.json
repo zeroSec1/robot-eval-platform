@@ -1,0 +1,25 @@
+{
+  "name": "robot-eval-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server exposing the Robot Eval platform's episodes, datasets, stats, and policy comparisons as tools for an AI agent.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "robot-eval-mcp-server": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
