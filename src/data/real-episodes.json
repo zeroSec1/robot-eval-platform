@@ -12634,5 +12634,335 @@
     "recordedAt": "2025-04-13T21:45:01.000Z",
     "coverage": 0.8,
     "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00039/episode.hdf5"
+  },
+  {
+    "episodeId": "mcap_laundry_ep_00000",
+    "datasetId": "mcap-roboturk-reencoded",
+    "sourceFormat": "ros2_bag",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "eef_pose_topic"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 198.1,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-19T01:48:46.895434Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/mcap-roboturk-reencoded/mcap_laundry_ep_00000/telemetry.mcap"
+  },
+  {
+    "episodeId": "mcap_laundry_ep_00001",
+    "datasetId": "mcap-roboturk-reencoded",
+    "sourceFormat": "ros2_bag",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "eef_pose_topic"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 177.4,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-19T19:43:08.561917Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/mcap-roboturk-reencoded/mcap_laundry_ep_00001/telemetry.mcap"
+  },
+  {
+    "episodeId": "mcap_laundry_ep_00002",
+    "datasetId": "mcap-roboturk-reencoded",
+    "sourceFormat": "ros2_bag",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "eef_pose_topic"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 157.8,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-20T03:55:02.234914Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/mcap-roboturk-reencoded/mcap_laundry_ep_00002/telemetry.mcap"
+  },
+  {
+    "episodeId": "mcap_laundry_ep_00003",
+    "datasetId": "mcap-roboturk-reencoded",
+    "sourceFormat": "ros2_bag",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "eef_pose_topic"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 161.4,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-21T02:35:05.688822Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/mcap-roboturk-reencoded/mcap_laundry_ep_00003/telemetry.mcap"
+  },
+  {
+    "episodeId": "mcap_laundry_ep_00004",
+    "datasetId": "mcap-roboturk-reencoded",
+    "sourceFormat": "ros2_bag",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "eef_pose_topic"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 134.5,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-22T02:43:47.713596Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/mcap-roboturk-reencoded/mcap_laundry_ep_00004/telemetry.mcap"
+  },
+  {
+    "episodeId": "mcap_laundry_ep_00005",
+    "datasetId": "mcap-roboturk-reencoded",
+    "sourceFormat": "ros2_bag",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "eef_pose_topic"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 78.1,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-22T03:02:05.662200Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/mcap-roboturk-reencoded/mcap_laundry_ep_00005/telemetry.mcap"
+  },
+  {
+    "episodeId": "mcap_laundry_ep_00006",
+    "datasetId": "mcap-roboturk-reencoded",
+    "sourceFormat": "ros2_bag",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "eef_pose_topic"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 122.9,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-22T07:51:21.605114Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/mcap-roboturk-reencoded/mcap_laundry_ep_00006/telemetry.mcap"
+  },
+  {
+    "episodeId": "mcap_laundry_ep_00007",
+    "datasetId": "mcap-roboturk-reencoded",
+    "sourceFormat": "ros2_bag",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "eef_pose_topic"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 107.1,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-22T18:54:37.233436Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/mcap-roboturk-reencoded/mcap_laundry_ep_00007/telemetry.mcap"
+  },
+  {
+    "episodeId": "mcap_laundry_ep_00008",
+    "datasetId": "mcap-roboturk-reencoded",
+    "sourceFormat": "ros2_bag",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "eef_pose_topic"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 155.2,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-23T01:39:48.358649Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/mcap-roboturk-reencoded/mcap_laundry_ep_00008/telemetry.mcap"
+  },
+  {
+    "episodeId": "mcap_laundry_ep_00009",
+    "datasetId": "mcap-roboturk-reencoded",
+    "sourceFormat": "ros2_bag",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "eef_pose_topic"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 49.7,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-24T20:47:46.210486Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/mcap-roboturk-reencoded/mcap_laundry_ep_00009/telemetry.mcap"
   }
 ]
