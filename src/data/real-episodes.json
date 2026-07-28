@@ -11314,5 +11314,1325 @@
       "sourceUrl": "http://downloads.cs.stanford.edu/downloads/roboturk_real_dataset/SawyerLaundryLayout_mini_dataset.zip"
     },
     "rawSourceUrl": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00009/telemetry.csv"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00000",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.95,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00000/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00001",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.9,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00001/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00002",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.7,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00002/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00003",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.5,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00003/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00004",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.4,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00004/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00005",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.4,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00005/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00006",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.3,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00006/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00007",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.9,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00007/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00008",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.0,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00008/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00009",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.45,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00009/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00010",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.25,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00010/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00011",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.8,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00011/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00012",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.1,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00012/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00013",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 1.9,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00013/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00014",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.4,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00014/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00015",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 1.8,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00015/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00016",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.0,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00016/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00017",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.3,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00017/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00018",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.1,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00018/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00019",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.3,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00019/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00020",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.35,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00020/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00021",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.75,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00021/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00022",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.25,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00022/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00023",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.45,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00023/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00024",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 3.15,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00024/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00025",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.75,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00025/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00026",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.5,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00026/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00027",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.7,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00027/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00028",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.45,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00028/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00029",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.25,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00029/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00030",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.3,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00030/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00031",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.25,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00031/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00032",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.15,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00032/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00033",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.1,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00033/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00034",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.4,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00034/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00035",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.6,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00035/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00036",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.75,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00036/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00037",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.95,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00037/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00038",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.55,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00038/episode.hdf5"
+  },
+  {
+    "episodeId": "robomimic_lift_ep_00039",
+    "datasetId": "robomimic-lift-panda",
+    "sourceFormat": "hdf5",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Lift cube (robosuite/Panda)",
+      "languageInstruction": "Lift the cube above the table using the gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm (sim)",
+      "model": "Franka Emika Panda (robosuite/MuJoCo)",
+      "dof": 7,
+      "sensors": [
+        "proprioception"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode-final sparse reward == 1.0 (robosuite Lift task success criterion)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 2.7,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-04-13T21:45:01.000Z",
+    "coverage": 0.8,
+    "rawSourceUrl": "/raw/robomimic-lift-panda/robomimic_lift_ep_00039/episode.hdf5"
   }
 ]

@@ -84,7 +84,7 @@ export function ObservationPreview({
       {hasVideo ? <PlayIcon compact={compact} /> : <NoVideoIcon compact={compact} />}
       {!compact && !hasVideo ? (
         <span className="px-4 text-center text-[13px] text-white/60">
-          No video recorded — synthetic demo episode
+          No video in source dataset
         </span>
       ) : null}
       {!compact ? (
