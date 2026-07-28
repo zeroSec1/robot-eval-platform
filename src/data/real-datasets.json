@@ -64,5 +64,11 @@
     "name": "PushT sim replay buffer (Diffusion Policy, native Zarr)",
     "sourceFormat": "zarr",
     "ingestedAt": "2026-07-28T06:39:47.462415Z"
+  },
+  {
+    "datasetId": "graspgen-franka-webdataset",
+    "name": "GraspGen Franka Panda grasp evaluations (NVIDIA, real WebDataset shards)",
+    "sourceFormat": "webdataset",
+    "ingestedAt": "2026-07-28T06:51:31.115408Z"
   }
 ]

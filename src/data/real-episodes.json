@@ -14092,5 +14092,500 @@
       "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
     },
     "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00019/episode_zarr.zip"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00000",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: 96f87b33e0884fd599ef1a1c83ec5f8c",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (1686/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00000/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00001",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: 459ce5b99da947438d3ea11d7c0d4225",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": false,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (815/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00001/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00002",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: d15b3e6d7ca548c3b3705d29db16a412",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (1418/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00002/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00003",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: 455a5ed487e7450b8a52f39897193ddf",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (1803/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00003/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00004",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: 1f06ed1e3ea6420fa2032a87f4cb30ee",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (1249/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00004/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00005",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: 8907f8c7c21842b7bf059b077ff99a35",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": false,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (684/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00005/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00006",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: 23447a79169f49a196ac6a71158d4c4e",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": false,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (749/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00006/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00007",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: fe533dcb116d4d35bf55fcf5c0bfb008",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (1118/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00007/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00008",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: 55bffef8dc834b98b40296b935e903d5",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (1669/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00008/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00009",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: 6d193c12639849d9a096f4c35ad50209",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (1694/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00009/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00010",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: a1e36c54df3d4bc49c0a08f5f00618fd",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (1273/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00010/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00011",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: e37ba665f10e4c42ac07b682f1a21436",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (1274/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00011/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00012",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: 640b33ee7d784da68c25208c843b5419",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (1663/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00012/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00013",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: 8d15db8f8b654522b91b083c231ad710",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (1531/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00013/grasps.json"
+  },
+  {
+    "episodeId": "graspgen_franka_ep_00014",
+    "datasetId": "graspgen-franka-webdataset",
+    "sourceFormat": "webdataset",
+    "schemaVersion": "1.0",
+    "policyVersion": "sim-grasp-sampler",
+    "task": {
+      "name": "Grasp object: 54fe5d415ab745aa9428ed99d65ea537",
+      "languageInstruction": "Grasp and lift the target object with a parallel-jaw gripper",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed gripper (sim)",
+      "model": "Franka Panda parallel-jaw gripper",
+      "dof": 1,
+      "sensors": [
+        "grasp_pose_sampler"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: majority vote across 2000 real simulated grasp candidates (1810/2000 succeeded)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": null,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2025-03-13T20:17:12.000Z",
+    "coverage": 0.6,
+    "rawSourceUrl": "/raw/graspgen-franka-webdataset/graspgen_franka_ep_00014/grasps.json"
   }
 ]

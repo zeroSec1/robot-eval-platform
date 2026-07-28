@@ -2,7 +2,7 @@
 // in the project handoff. Every optional field reflects a real dataset
 // where that data simply isn't recorded ("ingest permissively").
 
-export type SourceFormat = "lerobot" | "ros2_bag" | "csv_video" | "hdf5" | "rlds" | "zarr";
+export type SourceFormat = "lerobot" | "ros2_bag" | "csv_video" | "hdf5" | "rlds" | "zarr" | "webdataset";
 
 export const SOURCE_FORMAT_LABEL: Record<SourceFormat, string> = {
   lerobot: "LeRobot",
@@ -11,6 +11,7 @@ export const SOURCE_FORMAT_LABEL: Record<SourceFormat, string> = {
   hdf5: "HDF5",
   rlds: "RLDS",
   zarr: "Zarr",
+  webdataset: "WebDataset",
 };
 
 export type FailureCategory =
