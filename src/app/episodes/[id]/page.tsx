@@ -57,14 +57,24 @@ export default async function EpisodeDetailPage({
                   </Badge>
                 ))}
               </div>
-              <button
-                type="button"
-                disabled
-                title="Raw source archive not wired to a backend yet"
-                className="cursor-not-allowed rounded-sm border border-border-strong px-2.5 py-1.5 text-[13px] font-medium text-mute"
-              >
-                View raw source
-              </button>
+              {episode.rawSourceUrl ? (
+                <a
+                  href={episode.rawSourceUrl}
+                  download
+                  className="rounded-sm border border-border-strong px-2.5 py-1.5 text-[13px] font-medium text-dim hover:text-text"
+                >
+                  View raw source
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  title="Raw source archive not wired to a backend yet"
+                  className="cursor-not-allowed rounded-sm border border-border-strong px-2.5 py-1.5 text-[13px] font-medium text-mute"
+                >
+                  View raw source
+                </button>
+              )}
             </div>
           </Card>
 

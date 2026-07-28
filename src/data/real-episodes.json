@@ -20,7 +20,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -59,7 +59,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -98,7 +98,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -137,7 +137,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -176,7 +176,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -215,7 +215,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -254,7 +254,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -293,7 +293,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -332,7 +332,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -371,7 +371,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -410,7 +410,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -449,7 +449,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -488,7 +488,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -527,7 +527,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -566,7 +566,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -605,7 +605,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -644,7 +644,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -683,7 +683,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -722,7 +722,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -761,7 +761,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -800,7 +800,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -839,7 +839,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -878,7 +878,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -917,7 +917,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -956,7 +956,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -995,7 +995,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1034,7 +1034,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1073,7 +1073,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1112,7 +1112,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1151,7 +1151,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1190,7 +1190,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1229,7 +1229,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1268,7 +1268,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1307,7 +1307,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1346,7 +1346,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1385,7 +1385,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1424,7 +1424,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1463,7 +1463,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1502,7 +1502,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1541,7 +1541,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1580,7 +1580,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1619,7 +1619,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1658,7 +1658,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1697,7 +1697,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1736,7 +1736,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1775,7 +1775,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1814,7 +1814,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1853,7 +1853,7 @@
     },
     "outcome": {
       "success": false,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1892,7 +1892,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1931,7 +1931,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -1970,7 +1970,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -2009,7 +2009,7 @@
     },
     "outcome": {
       "success": true,
-      "methodOfDetermination": "automatic: max coverage reward ≥ 0.9"
+      "methodOfDetermination": "automatic: max coverage reward \u2265 0.9"
     },
     "failure": null,
     "metrics": {
@@ -6134,8 +6134,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6175,8 +6175,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6216,8 +6216,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6257,8 +6257,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6298,8 +6298,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6339,8 +6339,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6380,8 +6380,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6421,8 +6421,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6462,8 +6462,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6503,8 +6503,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6544,8 +6544,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6585,8 +6585,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6626,8 +6626,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6667,8 +6667,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6708,8 +6708,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6749,8 +6749,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6790,8 +6790,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -6831,8 +6831,8 @@
     "schemaVersion": "1.0",
     "policyVersion": "human-teleop",
     "task": {
-      "name": "Sauté and serve shrimp",
-      "languageInstruction": "Sauté the raw shrimp on both sides, then serve it in the bowl.",
+      "name": "Saut\u00e9 and serve shrimp",
+      "languageInstruction": "Saut\u00e9 the raw shrimp on both sides, then serve it in the bowl.",
       "benchmarkPack": "mobile-manipulation"
     },
     "embodiment": {
@@ -10914,5 +10914,405 @@
       "toS": 13.7,
       "sourceUrl": "https://huggingface.co/datasets/BensoAI/eval_ACT_RJ45_piper_20260113_ckpt40k_ensemble_50runs/resolve/main/videos/chunk-000/observation.images.pika_fisheye_cam/episode_000049.mp4"
     }
+  },
+  {
+    "episodeId": "roboturk_laundry_ep_00000",
+    "datasetId": "roboturk-sawyer-laundry-layout",
+    "sourceFormat": "csv_video",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "usb_front"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 198.1,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-19T01:48:46.895434Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00000/observation.mp4",
+      "camera": "usb_front",
+      "fromS": 0,
+      "toS": 198.1,
+      "sourceUrl": "http://downloads.cs.stanford.edu/downloads/roboturk_real_dataset/SawyerLaundryLayout_mini_dataset.zip"
+    },
+    "rawSourceUrl": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00000/telemetry.csv"
+  },
+  {
+    "episodeId": "roboturk_laundry_ep_00001",
+    "datasetId": "roboturk-sawyer-laundry-layout",
+    "sourceFormat": "csv_video",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "usb_front"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 177.4,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-19T19:43:08.561917Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00001/observation.mp4",
+      "camera": "usb_front",
+      "fromS": 0,
+      "toS": 177.4,
+      "sourceUrl": "http://downloads.cs.stanford.edu/downloads/roboturk_real_dataset/SawyerLaundryLayout_mini_dataset.zip"
+    },
+    "rawSourceUrl": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00001/telemetry.csv"
+  },
+  {
+    "episodeId": "roboturk_laundry_ep_00002",
+    "datasetId": "roboturk-sawyer-laundry-layout",
+    "sourceFormat": "csv_video",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "usb_front"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 157.8,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-20T03:55:02.234914Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00002/observation.mp4",
+      "camera": "usb_front",
+      "fromS": 0,
+      "toS": 157.8,
+      "sourceUrl": "http://downloads.cs.stanford.edu/downloads/roboturk_real_dataset/SawyerLaundryLayout_mini_dataset.zip"
+    },
+    "rawSourceUrl": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00002/telemetry.csv"
+  },
+  {
+    "episodeId": "roboturk_laundry_ep_00003",
+    "datasetId": "roboturk-sawyer-laundry-layout",
+    "sourceFormat": "csv_video",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "usb_front"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 161.4,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-21T02:35:05.688822Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00003/observation.mp4",
+      "camera": "usb_front",
+      "fromS": 0,
+      "toS": 161.4,
+      "sourceUrl": "http://downloads.cs.stanford.edu/downloads/roboturk_real_dataset/SawyerLaundryLayout_mini_dataset.zip"
+    },
+    "rawSourceUrl": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00003/telemetry.csv"
+  },
+  {
+    "episodeId": "roboturk_laundry_ep_00004",
+    "datasetId": "roboturk-sawyer-laundry-layout",
+    "sourceFormat": "csv_video",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "usb_front"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 134.5,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-22T02:43:47.713596Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00004/observation.mp4",
+      "camera": "usb_front",
+      "fromS": 0,
+      "toS": 134.5,
+      "sourceUrl": "http://downloads.cs.stanford.edu/downloads/roboturk_real_dataset/SawyerLaundryLayout_mini_dataset.zip"
+    },
+    "rawSourceUrl": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00004/telemetry.csv"
+  },
+  {
+    "episodeId": "roboturk_laundry_ep_00005",
+    "datasetId": "roboturk-sawyer-laundry-layout",
+    "sourceFormat": "csv_video",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "usb_front"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 78.1,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-22T03:02:05.662200Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00005/observation.mp4",
+      "camera": "usb_front",
+      "fromS": 0,
+      "toS": 78.1,
+      "sourceUrl": "http://downloads.cs.stanford.edu/downloads/roboturk_real_dataset/SawyerLaundryLayout_mini_dataset.zip"
+    },
+    "rawSourceUrl": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00005/telemetry.csv"
+  },
+  {
+    "episodeId": "roboturk_laundry_ep_00006",
+    "datasetId": "roboturk-sawyer-laundry-layout",
+    "sourceFormat": "csv_video",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "usb_front"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 122.9,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-22T07:51:21.605114Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00006/observation.mp4",
+      "camera": "usb_front",
+      "fromS": 0,
+      "toS": 122.9,
+      "sourceUrl": "http://downloads.cs.stanford.edu/downloads/roboturk_real_dataset/SawyerLaundryLayout_mini_dataset.zip"
+    },
+    "rawSourceUrl": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00006/telemetry.csv"
+  },
+  {
+    "episodeId": "roboturk_laundry_ep_00007",
+    "datasetId": "roboturk-sawyer-laundry-layout",
+    "sourceFormat": "csv_video",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "usb_front"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 107.1,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-22T18:54:37.233436Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00007/observation.mp4",
+      "camera": "usb_front",
+      "fromS": 0,
+      "toS": 107.1,
+      "sourceUrl": "http://downloads.cs.stanford.edu/downloads/roboturk_real_dataset/SawyerLaundryLayout_mini_dataset.zip"
+    },
+    "rawSourceUrl": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00007/telemetry.csv"
+  },
+  {
+    "episodeId": "roboturk_laundry_ep_00008",
+    "datasetId": "roboturk-sawyer-laundry-layout",
+    "sourceFormat": "csv_video",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "usb_front"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 155.2,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-23T01:39:48.358649Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00008/observation.mp4",
+      "camera": "usb_front",
+      "fromS": 0,
+      "toS": 155.2,
+      "sourceUrl": "http://downloads.cs.stanford.edu/downloads/roboturk_real_dataset/SawyerLaundryLayout_mini_dataset.zip"
+    },
+    "rawSourceUrl": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00008/telemetry.csv"
+  },
+  {
+    "episodeId": "roboturk_laundry_ep_00009",
+    "datasetId": "roboturk-sawyer-laundry-layout",
+    "sourceFormat": "csv_video",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Sawyer laundry layout",
+      "languageInstruction": "Flatten and lay out a cloth/fabric item using push, pull, and pick-and-place motions",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Rethink Robotics Sawyer",
+      "dof": 7,
+      "sensors": [
+        "usb_front"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw human teleop, no scoring)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 49.7,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2019-02-24T20:47:46.210486Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00009/observation.mp4",
+      "camera": "usb_front",
+      "fromS": 0,
+      "toS": 49.7,
+      "sourceUrl": "http://downloads.cs.stanford.edu/downloads/roboturk_real_dataset/SawyerLaundryLayout_mini_dataset.zip"
+    },
+    "rawSourceUrl": "/videos/roboturk-sawyer-laundry-layout/roboturk_laundry_ep_00009/telemetry.csv"
   }
 ]

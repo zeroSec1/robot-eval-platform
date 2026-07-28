@@ -90,6 +90,8 @@ export interface Episode {
   coverage: number;
   /** Real observation video, when the source dataset provides one. */
   video?: VideoRef;
+  /** Link to this episode's raw underlying data file (e.g. a telemetry CSV), when the adapter kept one. */
+  rawSourceUrl?: string;
 }
 
 export interface Dataset {
