@@ -52,5 +52,11 @@
     "name": "Sawyer laundry layout, MCAP re-encoding (adapter round-trip test on real RoboTurk values)",
     "sourceFormat": "ros2_bag",
     "ingestedAt": "2026-07-28T06:05:21.647551Z"
+  },
+  {
+    "datasetId": "oxe-columbia-pusht-real",
+    "name": "PushT real robot (UR5, Open X-Embodiment / Diffusion Policy)",
+    "sourceFormat": "rlds",
+    "ingestedAt": "2026-07-28T06:25:01.722242Z"
   }
 ]

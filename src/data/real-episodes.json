@@ -12964,5 +12964,333 @@
     "recordedAt": "2019-02-24T20:47:46.210486Z",
     "coverage": 0.8,
     "rawSourceUrl": "/raw/mcap-roboturk-reencoded/mcap_laundry_ep_00009/telemetry.mcap"
+  },
+  {
+    "episodeId": "oxe_pusht_real_ep_00000",
+    "datasetId": "oxe-columbia-pusht-real",
+    "sourceFormat": "rlds",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (real UR5)",
+      "languageInstruction": "The task requires pushing a T-shaped block (gray) to a fixed target (green) with a circular end-effector (blue). Both observation and control frequencies are 10Hz.",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Universal Robots UR5",
+      "dof": 6,
+      "sensors": [
+        "image",
+        "wrist_image"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode reward reaches 1.0 (RLDS success pulse)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 22.3,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-10-10T19:29:10.133Z",
+    "coverage": 1.0,
+    "video": {
+      "url": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00000/observation.mp4",
+      "camera": "image",
+      "fromS": 0,
+      "toS": 22.3,
+      "sourceUrl": "https://storage.googleapis.com/gdm-robotics-open-x-embodiment/columbia_cairlab_pusht_real/0.1.0/columbia_cairlab_pusht_real-test.tfrecord-00000-of-00004"
+    },
+    "rawSourceUrl": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00000/episode.tfrecord"
+  },
+  {
+    "episodeId": "oxe_pusht_real_ep_00001",
+    "datasetId": "oxe-columbia-pusht-real",
+    "sourceFormat": "rlds",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (real UR5)",
+      "languageInstruction": "The task requires pushing a T-shaped block (gray) to a fixed target (green) with a circular end-effector (blue). Both observation and control frequencies are 10Hz.",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Universal Robots UR5",
+      "dof": 6,
+      "sensors": [
+        "image",
+        "wrist_image"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode reward reaches 1.0 (RLDS success pulse)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 27.3,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-10-10T19:29:10.133Z",
+    "coverage": 1.0,
+    "video": {
+      "url": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00001/observation.mp4",
+      "camera": "image",
+      "fromS": 0,
+      "toS": 27.3,
+      "sourceUrl": "https://storage.googleapis.com/gdm-robotics-open-x-embodiment/columbia_cairlab_pusht_real/0.1.0/columbia_cairlab_pusht_real-test.tfrecord-00000-of-00004"
+    },
+    "rawSourceUrl": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00001/episode.tfrecord"
+  },
+  {
+    "episodeId": "oxe_pusht_real_ep_00002",
+    "datasetId": "oxe-columbia-pusht-real",
+    "sourceFormat": "rlds",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (real UR5)",
+      "languageInstruction": "The task requires pushing a T-shaped block (gray) to a fixed target (green) with a circular end-effector (blue). Both observation and control frequencies are 10Hz.",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Universal Robots UR5",
+      "dof": 6,
+      "sensors": [
+        "image",
+        "wrist_image"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode reward reaches 1.0 (RLDS success pulse)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 30.7,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-10-10T19:27:24.347Z",
+    "coverage": 1.0,
+    "video": {
+      "url": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00002/observation.mp4",
+      "camera": "image",
+      "fromS": 0,
+      "toS": 30.7,
+      "sourceUrl": "https://storage.googleapis.com/gdm-robotics-open-x-embodiment/columbia_cairlab_pusht_real/0.1.0/columbia_cairlab_pusht_real-test.tfrecord-00001-of-00004"
+    },
+    "rawSourceUrl": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00002/episode.tfrecord"
+  },
+  {
+    "episodeId": "oxe_pusht_real_ep_00003",
+    "datasetId": "oxe-columbia-pusht-real",
+    "sourceFormat": "rlds",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (real UR5)",
+      "languageInstruction": "The task requires pushing a T-shaped block (gray) to a fixed target (green) with a circular end-effector (blue). Both observation and control frequencies are 10Hz.",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Universal Robots UR5",
+      "dof": 6,
+      "sensors": [
+        "image",
+        "wrist_image"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode reward reaches 1.0 (RLDS success pulse)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 20.4,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-10-10T19:27:24.347Z",
+    "coverage": 1.0,
+    "video": {
+      "url": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00003/observation.mp4",
+      "camera": "image",
+      "fromS": 0,
+      "toS": 20.4,
+      "sourceUrl": "https://storage.googleapis.com/gdm-robotics-open-x-embodiment/columbia_cairlab_pusht_real/0.1.0/columbia_cairlab_pusht_real-test.tfrecord-00001-of-00004"
+    },
+    "rawSourceUrl": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00003/episode.tfrecord"
+  },
+  {
+    "episodeId": "oxe_pusht_real_ep_00004",
+    "datasetId": "oxe-columbia-pusht-real",
+    "sourceFormat": "rlds",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (real UR5)",
+      "languageInstruction": "The task requires pushing a T-shaped block (gray) to a fixed target (green) with a circular end-effector (blue). Both observation and control frequencies are 10Hz.",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Universal Robots UR5",
+      "dof": 6,
+      "sensors": [
+        "image",
+        "wrist_image"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode reward reaches 1.0 (RLDS success pulse)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 20.7,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-10-10T19:28:11.095Z",
+    "coverage": 1.0,
+    "video": {
+      "url": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00004/observation.mp4",
+      "camera": "image",
+      "fromS": 0,
+      "toS": 20.7,
+      "sourceUrl": "https://storage.googleapis.com/gdm-robotics-open-x-embodiment/columbia_cairlab_pusht_real/0.1.0/columbia_cairlab_pusht_real-test.tfrecord-00002-of-00004"
+    },
+    "rawSourceUrl": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00004/episode.tfrecord"
+  },
+  {
+    "episodeId": "oxe_pusht_real_ep_00005",
+    "datasetId": "oxe-columbia-pusht-real",
+    "sourceFormat": "rlds",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (real UR5)",
+      "languageInstruction": "The task requires pushing a T-shaped block (gray) to a fixed target (green) with a circular end-effector (blue). Both observation and control frequencies are 10Hz.",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Universal Robots UR5",
+      "dof": 6,
+      "sensors": [
+        "image",
+        "wrist_image"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode reward reaches 1.0 (RLDS success pulse)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 17.4,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-10-10T19:28:11.095Z",
+    "coverage": 1.0,
+    "video": {
+      "url": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00005/observation.mp4",
+      "camera": "image",
+      "fromS": 0,
+      "toS": 17.4,
+      "sourceUrl": "https://storage.googleapis.com/gdm-robotics-open-x-embodiment/columbia_cairlab_pusht_real/0.1.0/columbia_cairlab_pusht_real-test.tfrecord-00002-of-00004"
+    },
+    "rawSourceUrl": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00005/episode.tfrecord"
+  },
+  {
+    "episodeId": "oxe_pusht_real_ep_00006",
+    "datasetId": "oxe-columbia-pusht-real",
+    "sourceFormat": "rlds",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (real UR5)",
+      "languageInstruction": "The task requires pushing a T-shaped block (gray) to a fixed target (green) with a circular end-effector (blue). Both observation and control frequencies are 10Hz.",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Universal Robots UR5",
+      "dof": 6,
+      "sensors": [
+        "image",
+        "wrist_image"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode reward reaches 1.0 (RLDS success pulse)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 16.0,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-10-10T19:28:11.095Z",
+    "coverage": 1.0,
+    "video": {
+      "url": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00006/observation.mp4",
+      "camera": "image",
+      "fromS": 0,
+      "toS": 16.0,
+      "sourceUrl": "https://storage.googleapis.com/gdm-robotics-open-x-embodiment/columbia_cairlab_pusht_real/0.1.0/columbia_cairlab_pusht_real-test.tfrecord-00002-of-00004"
+    },
+    "rawSourceUrl": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00006/episode.tfrecord"
+  },
+  {
+    "episodeId": "oxe_pusht_real_ep_00007",
+    "datasetId": "oxe-columbia-pusht-real",
+    "sourceFormat": "rlds",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (real UR5)",
+      "languageInstruction": "The task requires pushing a T-shaped block (gray) to a fixed target (green) with a circular end-effector (blue). Both observation and control frequencies are 10Hz.",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "Fixed-base arm",
+      "model": "Universal Robots UR5",
+      "dof": 6,
+      "sensors": [
+        "image",
+        "wrist_image"
+      ]
+    },
+    "outcome": {
+      "success": true,
+      "methodOfDetermination": "automatic: episode reward reaches 1.0 (RLDS success pulse)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 18.0,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-10-10T19:28:11.095Z",
+    "coverage": 1.0,
+    "video": {
+      "url": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00007/observation.mp4",
+      "camera": "image",
+      "fromS": 0,
+      "toS": 18.0,
+      "sourceUrl": "https://storage.googleapis.com/gdm-robotics-open-x-embodiment/columbia_cairlab_pusht_real/0.1.0/columbia_cairlab_pusht_real-test.tfrecord-00002-of-00004"
+    },
+    "rawSourceUrl": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00007/episode.tfrecord"
   }
 ]
