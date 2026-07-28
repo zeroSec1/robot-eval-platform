@@ -13292,5 +13292,805 @@
       "sourceUrl": "https://storage.googleapis.com/gdm-robotics-open-x-embodiment/columbia_cairlab_pusht_real/0.1.0/columbia_cairlab_pusht_real-test.tfrecord-00002-of-00004"
     },
     "rawSourceUrl": "/videos/oxe-columbia-pusht-real/oxe_pusht_real_ep_00007/episode.tfrecord"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00000",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 16.1,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00000/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 16.1,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00000/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00001",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 18.8,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00001/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 18.8,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00001/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00002",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 14.2,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00002/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 14.2,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00002/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00003",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 8.4,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00003/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 8.4,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00003/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00004",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 13.9,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00004/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 13.9,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00004/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00005",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 6.9,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00005/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 6.9,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00005/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00006",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 6.0,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00006/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 6.0,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00006/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00007",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 18.6,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00007/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 18.6,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00007/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00008",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 11.7,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00008/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 11.7,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00008/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00009",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 10.9,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00009/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 10.9,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00009/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00010",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 11.7,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00010/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 11.7,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00010/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00011",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 13.1,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00011/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 13.1,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00011/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00012",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 6.5,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00012/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 6.5,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00012/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00013",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 15.2,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00013/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 15.2,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00013/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00014",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 11.2,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00014/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 11.2,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00014/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00015",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 11.3,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00015/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 11.3,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00015/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00016",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 14.7,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00016/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 14.7,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00016/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00017",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 13.0,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00017/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 13.0,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00017/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00018",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 17.0,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00018/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 17.0,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00018/episode_zarr.zip"
+  },
+  {
+    "episodeId": "dp_pusht_zarr_ep_00019",
+    "datasetId": "dp-pusht-zarr",
+    "sourceFormat": "zarr",
+    "schemaVersion": "1.0",
+    "policyVersion": "human-teleop",
+    "task": {
+      "name": "Push T-block to target (sim)",
+      "languageInstruction": "Push the T-shaped block onto the fixed target region",
+      "benchmarkPack": "manipulation-tabletop"
+    },
+    "embodiment": {
+      "robotType": "2D pusher (sim)",
+      "model": "PushT env",
+      "dof": 2,
+      "sensors": [
+        "img"
+      ]
+    },
+    "outcome": {
+      "success": null,
+      "methodOfDetermination": "not recorded in source dataset (raw replay buffer has no reward/coverage field)"
+    },
+    "failure": null,
+    "metrics": {
+      "durationS": 20.4,
+      "interventions": null,
+      "collisions": null
+    },
+    "recordedAt": "2023-03-06T00:00:00.000Z",
+    "coverage": 0.8,
+    "video": {
+      "url": "/videos/dp-pusht-zarr/dp_pusht_zarr_ep_00019/observation.mp4",
+      "camera": "img",
+      "fromS": 0,
+      "toS": 20.4,
+      "sourceUrl": "https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip"
+    },
+    "rawSourceUrl": "/raw/dp-pusht-zarr/dp_pusht_zarr_ep_00019/episode_zarr.zip"
   }
 ]

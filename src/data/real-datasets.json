@@ -58,5 +58,11 @@
     "name": "PushT real robot (UR5, Open X-Embodiment / Diffusion Policy)",
     "sourceFormat": "rlds",
     "ingestedAt": "2026-07-28T06:25:01.722242Z"
+  },
+  {
+    "datasetId": "dp-pusht-zarr",
+    "name": "PushT sim replay buffer (Diffusion Policy, native Zarr)",
+    "sourceFormat": "zarr",
+    "ingestedAt": "2026-07-28T06:39:47.462415Z"
   }
 ]
