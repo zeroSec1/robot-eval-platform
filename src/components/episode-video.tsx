@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { VideoRef } from "@/lib/types";
 
 function fmt(s: number) {
@@ -37,6 +37,37 @@ export function EpisodeVideo({ video }: { video: VideoRef }) {
   }, [video, segLen]);
 
   const [srcIndex, setSrcIndex] = useState(0);
+
+  // The action & state timeline dispatches this event with an
+  // episode-relative time; clicking it seeks the video to that moment.
+  useEffect(() => {
+    const onSeek = (e: Event) => {
+      const t = (e as CustomEvent<number>).detail;
+      const el = ref.current;
+      if (!el || typeof t !== "number" || Number.isNaN(t)) return;
+      const clamped = Math.min(Math.max(0, t), segLen);
+      // WebKit pauses a playing video once the seek completes, so resuming
+      // immediately is too early; resume on the seeked event instead.
+      const wasPlaying = !el.paused;
+      el.currentTime = (candidates[Math.min(srcIndexRef.current, candidates.length - 1)]?.fromS ?? 0) + clamped;
+      if (wasPlaying) {
+        const resume = () => {
+          el.removeEventListener("seeked", resume);
+          void el.play();
+        };
+        el.addEventListener("seeked", resume);
+        void el.play();
+      }
+      setT(clamped);
+      el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    };
+    window.addEventListener("robot-eval:seek", onSeek);
+    return () => window.removeEventListener("robot-eval:seek", onSeek);
+  }, [candidates, segLen]);
+  const srcIndexRef = useRef(0);
+  useEffect(() => {
+    srcIndexRef.current = srcIndex;
+  }, [srcIndex]);
   const [playing, setPlaying] = useState(false);
   const [t, setT] = useState(0); // episode-relative seconds
   const active = candidates[Math.min(srcIndex, candidates.length - 1)];
@@ -59,7 +90,9 @@ export function EpisodeVideo({ video }: { video: VideoRef }) {
     const el = ref.current;
     if (!el) return;
     if (el.paused) {
-      if (el.currentTime < active.fromS || el.currentTime >= active.toS) {
+      // Within a whisker of the end counts as "at the end": pressing play
+      // there should replay from the start, not play the last few frames.
+      if (el.currentTime < active.fromS || el.currentTime >= active.toS - 0.15) {
         el.currentTime = active.fromS;
       }
       el.play();
