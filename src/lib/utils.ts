@@ -14,20 +14,29 @@ export function formatDuration(seconds: number | null) {
   return `${m}m ${s}s`;
 }
 
+// Fixed locale + timeZone (rather than the runtime default) so this renders
+// identical text on the server and in the browser — otherwise a server
+// running in a different timezone than the visitor causes a real hydration
+// mismatch (React error #418) on any client-rendered page using these.
+const DATE_LOCALE = "en-US";
+const DATE_TIME_ZONE = "UTC";
+
 export function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString(undefined, {
+  return new Date(iso).toLocaleDateString(DATE_LOCALE, {
     year: "numeric",
     month: "short",
     day: "numeric",
+    timeZone: DATE_TIME_ZONE,
   });
 }
 
 export function formatDateTime(iso: string) {
-  return new Date(iso).toLocaleString(undefined, {
+  return new Date(iso).toLocaleString(DATE_LOCALE, {
     year: "numeric",
     month: "short",
     day: "numeric",
     hour: "numeric",
     minute: "2-digit",
+    timeZone: DATE_TIME_ZONE,
   });
 }
