@@ -79,6 +79,9 @@ export interface Metrics {
 export interface VideoRef {
   /** URL the app plays — a local /videos/… path once downloaded, else remote. */
   url: string;
+  /** Per-episode H.264 clip (starts at 0s) for browsers that can't decode the
+   * source codec — WebKit/Safari has no AV1 support. Tried first when present. */
+  clipUrl?: string;
   camera: string;
   /** Segment of the file belonging to this episode, in seconds. */
   fromS: number;

@@ -2,7 +2,8 @@ export function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-export function formatPercent(fraction: number, digits = 0) {
+export function formatPercent(fraction: number | null, digits = 0) {
+  if (fraction === null) return "—";
   return `${(fraction * 100).toFixed(digits)}%`;
 }
 
