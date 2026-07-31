@@ -39,11 +39,13 @@ export function UploadDataset() {
 
   return (
     <div className="flex flex-wrap items-center gap-2.5">
+      {/* sr-only, not `hidden` (display:none) — some browsers refuse to open
+          a file picker via .click() on a fully display:none input. */}
       <input
         ref={inputRef}
         type="file"
         accept=".json,.csv,application/json,text/csv"
-        className="hidden"
+        className="sr-only"
         onChange={(e) => onFile(e.target.files?.[0])}
       />
       <button
