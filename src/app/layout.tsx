@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nav } from "@/components/nav";
+import { ThemeReassert } from "@/components/theme-reassert";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,11 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning className="h-full antialiased">
+    // data-theme is intentionally NOT server-rendered: the pre-paint script
+    // owns it. A hardcoded value gets reconciled back during React hydration,
+    // stomping the visitor's stored choice (light flash, then dark).
+    <html lang="en" suppressHydrationWarning className="h-full antialiased">
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>
       <body className="flex min-h-full flex-col bg-bg text-text md:flex-row">
+        <ThemeReassert />
         <Nav />
         <main className="min-w-0 flex-1 px-4 py-4 md:px-6 md:py-6">{children}</main>
       </body>
