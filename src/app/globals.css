@@ -33,19 +33,19 @@
 }
 
 :root[data-theme="light"] {
-  --bg: #f8f7f4;
-  --surface: #f1f0ec;
+  --bg: #ffffff;
+  --surface: #f7f8f9;
   --card: #ffffff;
-  --inset: #f4f3ef;
-  --hover: #ececE7;
-  --border: #e2e0da;
-  --border-strong: #cfccc4;
-  --divider: #ebe9e4;
+  --inset: #f3f4f6;
+  --hover: #ebedef;
+  --border: #e3e5e8;
+  --border-strong: #ced1d6;
+  --divider: #eceef0;
 
-  --text: #1a1b1d;
-  --dim: #52565c;
-  --faint: #797f86;
-  --mute: #9aa0a6;
+  --text: #111318;
+  --dim: #43484f;
+  --faint: #656c75;
+  --mute: #878e97;
 
   --accent: #157a6e;
   --red: #c2483a;
