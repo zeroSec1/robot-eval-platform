@@ -1,3 +1,6 @@
+"use client";
+
+import { useMemo } from "react";
 import Link from "next/link";
 import { Card, CardHeader } from "@/components/ui/card";
 import { StatTile, StatTileRow } from "@/components/ui/stat-tile";
@@ -9,7 +12,6 @@ import {
   DEFAULT_BASELINE,
   DEFAULT_CANDIDATE,
   EPISODES,
-  POLICY_VERSIONS,
   compareVersions,
   computeStats,
 } from "@/lib/mock-data";
@@ -18,24 +20,46 @@ import { FAILURE_CATEGORY_BAR_CLASS } from "@/lib/failure-colors";
 import { computeDailyTrend } from "@/lib/timeseries";
 import { TrendChart, TrendLegend } from "@/components/charts/trend-chart";
 import { formatDateTime, formatDuration, formatPercent } from "@/lib/utils";
+import { useUserDataset, useUserEpisodes } from "@/lib/user-data";
+import { UploadDataset } from "@/components/upload-dataset";
 
 export default function DashboardPage() {
-  const stats = computeStats(EPISODES);
+  const userEpisodes = useUserEpisodes();
+  const userDataset = useUserDataset();
+  const allEpisodes = useMemo(() => [...EPISODES, ...userEpisodes], [userEpisodes]);
+  const allDatasets = useMemo(
+    () => (userEpisodes.length ? [...DATASETS, userDataset] : DATASETS),
+    [userEpisodes.length, userDataset],
+  );
+  const allPolicyVersions = useMemo(
+    () => Array.from(new Set(allEpisodes.map((e) => e.policyVersion))),
+    [allEpisodes],
+  );
 
-  const baselineVersion = DEFAULT_BASELINE;
-  const candidateVersion = DEFAULT_CANDIDATE;
-  const { regressions } = compareVersions(EPISODES, baselineVersion, candidateVersion);
+  const stats = computeStats(allEpisodes);
+
+  // Default compare versions only make sense against the bundled data; once
+  // a visitor's own upload introduces new policy versions, default to
+  // comparing their two most recent instead of a baseline that may not exist
+  // in their data at all.
+  const baselineVersion = allPolicyVersions.includes(DEFAULT_BASELINE)
+    ? DEFAULT_BASELINE
+    : (allPolicyVersions[0] ?? DEFAULT_BASELINE);
+  const candidateVersion = allPolicyVersions.includes(DEFAULT_CANDIDATE)
+    ? DEFAULT_CANDIDATE
+    : (allPolicyVersions[allPolicyVersions.length - 1] ?? DEFAULT_CANDIDATE);
+  const { regressions } = compareVersions(allEpisodes, baselineVersion, candidateVersion);
   const worstRegression = regressions[0];
 
   const maxFailureCount = Math.max(1, ...FAILURE_CATEGORIES.map((c) => stats.byFailureCategory[c]));
 
-  const recentEpisodes = [...EPISODES]
+  const recentEpisodes = [...allEpisodes]
     .sort((a, b) => +new Date(b.recordedAt) - +new Date(a.recordedAt))
     .slice(0, 6);
 
   const datasetCoverage = Object.fromEntries(
-    DATASETS.map((d) => {
-      const eps = EPISODES.filter((e) => e.datasetId === d.datasetId);
+    allDatasets.map((d) => {
+      const eps = allEpisodes.filter((e) => e.datasetId === d.datasetId);
       const avgCov = eps.length ? eps.reduce((s, e) => s + e.coverage, 0) / eps.length : 0;
       return [d.datasetId, { count: eps.length, avgCov }];
     }),
@@ -43,10 +67,12 @@ export default function DashboardPage() {
 
   return (
     <div className="flex flex-col gap-4">
+      <UploadDataset />
+
       <div>
         <h1 className="text-[20px] font-semibold text-text">Overview</h1>
         <p className="mt-0.5 text-[13px] text-faint">
-          All datasets · {DATASETS.length} sources · {stats.total.toLocaleString()} episodes
+          All datasets · {allDatasets.length} sources · {stats.total.toLocaleString()} episodes
         </p>
       </div>
 
@@ -102,7 +128,7 @@ export default function DashboardPage() {
           action={<TrendLegend />}
         />
         <div className="px-3.5 py-3">
-          <TrendChart buckets={computeDailyTrend(EPISODES)} />
+          <TrendChart buckets={computeDailyTrend(allEpisodes)} />
         </div>
       </Card>
 
@@ -139,7 +165,7 @@ export default function DashboardPage() {
           <CardHeader
             title="Datasets"
             subtitle="Ingested via format adapters — canonical schema underneath"
-            action={<Badge tone="info">{POLICY_VERSIONS.length} policy versions tracked</Badge>}
+            action={<Badge tone="info">{allPolicyVersions.length} policy versions tracked</Badge>}
           />
           <div className="overflow-x-auto px-3.5 py-3">
             <table className="w-full text-[15px]">
@@ -153,7 +179,7 @@ export default function DashboardPage() {
                 </tr>
               </thead>
               <tbody>
-                {DATASETS.map((d) => (
+                {allDatasets.map((d) => (
                   <tr key={d.datasetId} className="border-t border-divider">
                     <td className="py-2 pr-2">
                       <Link

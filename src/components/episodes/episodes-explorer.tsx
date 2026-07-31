@@ -8,7 +8,7 @@ import { OutcomeBadge, FailureBadge } from "@/components/failure-badge";
 import { ObservationPreview } from "@/components/observation-preview";
 import { CoverageBar } from "@/components/coverage-bar";
 import { Badge } from "@/components/ui/badge";
-import { DATASETS, EPISODES, POLICY_VERSIONS } from "@/lib/mock-data";
+import { DATASETS, EPISODES } from "@/lib/mock-data";
 import {
   FAILURE_CATEGORIES,
   FAILURE_CATEGORY_LABEL,
@@ -17,8 +17,8 @@ import {
 } from "@/lib/types";
 import { applyFilters, filtersToParams, isEmpty, parseFilters } from "@/lib/episode-filters";
 import { cn, formatDuration } from "@/lib/utils";
-
-const BENCHMARK_PACKS = Array.from(new Set(EPISODES.map((e) => e.task.benchmarkPack)));
+import { useUserDataset, useUserEpisodes } from "@/lib/user-data";
+import { UploadDataset } from "@/components/upload-dataset";
 
 const CHIP_ACTIVE_CLASS: Record<FailureCategory, string> = {
   grasp_slipped: "bg-red/15 text-red ring-red/40",
@@ -34,6 +34,22 @@ export function EpisodesExplorer() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const filters = useMemo(() => parseFilters(searchParams), [searchParams]);
+
+  const userEpisodes = useUserEpisodes();
+  const userDataset = useUserDataset();
+  const allEpisodes = useMemo(() => [...EPISODES, ...userEpisodes], [userEpisodes]);
+  const allDatasets = useMemo(
+    () => (userEpisodes.length ? [...DATASETS, userDataset] : DATASETS),
+    [userEpisodes.length, userDataset],
+  );
+  const allPolicyVersions = useMemo(
+    () => Array.from(new Set(allEpisodes.map((e) => e.policyVersion))),
+    [allEpisodes],
+  );
+  const benchmarkPacks = useMemo(
+    () => Array.from(new Set(allEpisodes.map((e) => e.task.benchmarkPack))),
+    [allEpisodes],
+  );
 
   const pushFilters = useCallback(
     (next: typeof filters) => {
@@ -66,45 +82,47 @@ export function EpisodesExplorer() {
   const setQuery = (q: string) => pushFilters({ ...filters, q });
   const clearAll = () => router.push("/episodes", { scroll: false });
 
-  const filtered = useMemo(() => applyFilters(EPISODES, filters), [filters]);
+  const filtered = useMemo(() => applyFilters(allEpisodes, filters), [allEpisodes, filters]);
 
   const failureCounts = useMemo(() => {
     const counts = Object.fromEntries(FAILURE_CATEGORIES.map((c) => [c, 0])) as Record<
       FailureCategory,
       number
     >;
-    for (const e of EPISODES) if (e.failure) counts[e.failure.category] += 1;
+    for (const e of allEpisodes) if (e.failure) counts[e.failure.category] += 1;
     return counts;
-  }, []);
+  }, [allEpisodes]);
 
-  const datasetOptions = DATASETS.map((d) => ({
+  const datasetOptions = allDatasets.map((d) => ({
     value: d.datasetId,
     label: d.name,
-    count: EPISODES.filter((e) => e.datasetId === d.datasetId).length,
+    count: allEpisodes.filter((e) => e.datasetId === d.datasetId).length,
   }));
-  const formatOptions = Array.from(new Set(EPISODES.map((e) => e.sourceFormat))).map((f) => ({
+  const formatOptions = Array.from(new Set(allEpisodes.map((e) => e.sourceFormat))).map((f) => ({
     value: f,
     label: SOURCE_FORMAT_LABEL[f],
-    count: EPISODES.filter((e) => e.sourceFormat === f).length,
+    count: allEpisodes.filter((e) => e.sourceFormat === f).length,
   }));
-  const policyOptions = POLICY_VERSIONS.map((v) => ({
+  const policyOptions = allPolicyVersions.map((v) => ({
     value: v,
     label: v,
-    count: EPISODES.filter((e) => e.policyVersion === v).length,
+    count: allEpisodes.filter((e) => e.policyVersion === v).length,
   }));
-  const packOptions = BENCHMARK_PACKS.map((p) => ({
+  const packOptions = benchmarkPacks.map((p) => ({
     value: p,
     label: p,
-    count: EPISODES.filter((e) => e.task.benchmarkPack === p).length,
+    count: allEpisodes.filter((e) => e.task.benchmarkPack === p).length,
   }));
 
   return (
     <div className="flex flex-col gap-4">
+      <UploadDataset />
+
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h1 className="text-[20px] font-semibold text-text">Episodes</h1>
           <p className="mt-0.5 text-[13px] text-faint">
-            {filtered.length.toLocaleString()} of {EPISODES.length.toLocaleString()} episodes
+            {filtered.length.toLocaleString()} of {allEpisodes.length.toLocaleString()} episodes
           </p>
         </div>
         <div className="flex w-full max-w-sm items-center gap-2 rounded-sm border border-border-strong bg-inset px-2.5 py-1.5">
