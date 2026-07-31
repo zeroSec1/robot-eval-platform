@@ -11,6 +11,8 @@ import { CoverageBar } from "@/components/coverage-bar";
 import { SchemaJson } from "@/components/episodes/schema-json";
 import { WaveformTimeline } from "@/components/charts/waveform-timeline";
 import { DATASETS, EPISODES } from "@/lib/mock-data";
+import TELEMETRY from "@/data/real-telemetry.json";
+import { EpisodeTelemetry } from "@/lib/types";
 import { SOURCE_FORMAT_LABEL } from "@/lib/types";
 import { formatDateTime, formatDuration } from "@/lib/utils";
 import { USER_DATASET_ID, useUserDataset, useUserEpisodes } from "@/lib/user-data";
@@ -97,7 +99,10 @@ export default function EpisodeDetailPage() {
             </div>
           </Card>
 
-          <WaveformTimeline episode={episode} />
+          <WaveformTimeline
+            episode={episode}
+            telemetry={(TELEMETRY as Record<string, EpisodeTelemetry>)[episode.episodeId] ?? null}
+          />
 
           {episode.failure ? (
             <Card>
