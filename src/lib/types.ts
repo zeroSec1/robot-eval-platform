@@ -116,3 +116,18 @@ export interface Dataset {
   sourceFormat: SourceFormat;
   ingestedAt: string;
 }
+
+export interface TelemetryTrack {
+  name: string;
+  /** Downsampled, 0..1-normalized bar heights over the episode's duration. */
+  bars: number[];
+}
+
+/** Real per-episode signal series extracted from the source dataset, plus a
+ * genuinely detected anomaly moment for failed episodes (null otherwise). */
+export interface EpisodeTelemetry {
+  hz: number;
+  tracks: TelemetryTrack[];
+  anomalyS: number | null;
+  anomalyMethod: string | null;
+}

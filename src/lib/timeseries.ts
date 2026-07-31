@@ -39,7 +39,6 @@ export function computeDailyTrend(episodes: Episode[], days = 14): DayBucket[] {
 export interface WaveformTrack {
   name: string;
   bars: number[]; // 0..1 heights
-  anomalyIndex: number | null;
 }
 
 function mulberry32(seed: number) {
@@ -73,25 +72,17 @@ const TRACK_NAMES_BY_ROBOT_TYPE: Record<string, string[]> = {
 export function generateWaveformTracks(episode: Episode, barsPerTrack = 140): WaveformTrack[] {
   const rand = mulberry32(seedFromString(episode.episodeId));
   const names = TRACK_NAMES_BY_ROBOT_TYPE[episode.embodiment.robotType] ?? TRACK_NAMES_BY_ROBOT_TYPE["Tabletop arm"];
-  // Anomaly window only for episodes that actually FAILED — unscored
-  // (success === null) episodes have no known failure moment.
-  const failureIndex =
-    episode.outcome.success === false
-      ? Math.floor(barsPerTrack * (0.45 + rand() * 0.35))
-      : null;
-
+  // No fabricated anomalies: real anomaly detection lives in the extracted
+  // telemetry (see scripts/extract-pusht-telemetry.py); the synthetic preview
+  // is background texture only.
   return names.map((name) => {
     let level = 0.3 + rand() * 0.2;
     const bars: number[] = [];
     for (let i = 0; i < barsPerTrack; i++) {
       level += (rand() - 0.5) * 0.11;
       level = Math.max(0.08, Math.min(0.95, level));
-      let h = level;
-      if (failureIndex !== null && Math.abs(i - failureIndex) <= 3) {
-        h = Math.min(1, h + 0.4 + rand() * 0.3);
-      }
-      bars.push(h);
+      bars.push(level);
     }
-    return { name, bars, anomalyIndex: failureIndex };
+    return { name, bars };
   });
 }

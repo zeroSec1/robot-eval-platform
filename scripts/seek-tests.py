@@ -1,4 +1,5 @@
 from playwright.sync_api import sync_playwright
+import re
 
 BASE = "http://localhost:3001"
 results = []
@@ -71,15 +72,15 @@ with sync_playwright() as p:
         # 6. anomaly click on a failure episode (user's exact scenario)
         page.goto(f"{BASE}/episodes/pusht_ep_00016", wait_until="networkidle")
         anomaly_text = page.locator("text=/Anomaly at/").text_content()
-        anomaly_t = float(anomaly_text.split("~")[1].replace("s", ""))
-        dur = float(page.locator("text=/synthetic signal preview/").text_content().split("→")[1].split("s")[0].strip())
+        anomaly_t = float(re.search(r"~([\d.]+)s", anomaly_text).group(1))
+        dur = float(page.locator("text=/0.0s \u2192/").text_content().split("→")[1].split("s")[0].strip())
         click_timeline(page, anomaly_t / dur)
         s = video_state(page)
         check(f"{engine_name}/anomaly-click", abs(s["t"] - anomaly_t) < 0.8, f"clicked~{anomaly_t}s got t={s['t']:.2f}")
 
         # 7. long video, no clip tier (roboturk, ~198s)
         page.goto(f"{BASE}/episodes/roboturk_laundry_ep_00000", wait_until="networkidle")
-        axis_dur = float(page.locator("text=/synthetic signal preview/").text_content().split("\u2192")[1].split("s")[0].strip())
+        axis_dur = float(page.locator("text=/0.0s \u2192/").text_content().split("\u2192")[1].split("s")[0].strip())
         click_timeline(page, 0.5)
         page.wait_for_timeout(1500)
         s = video_state(page)

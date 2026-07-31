@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Card, CardHeader } from "@/components/ui/card";
-import { Episode } from "@/lib/types";
+import { Episode, EpisodeTelemetry } from "@/lib/types";
 import { generateWaveformTracks } from "@/lib/timeseries";
 import { cn } from "@/lib/utils";
 
@@ -13,37 +13,58 @@ function fmtTime(t: number) {
   return `${m}m ${s.toFixed(1)}s`;
 }
 
-/** Per-signal bar "waveform" tracks with the failure window highlighted,
- * the mockup's action & state timeline. Data is deterministic per episode.
- * The x axis is episode time, the same clock as the video player above it;
- * hovering shows a cursor line with the time at that position. */
-export function WaveformTimeline({ episode }: { episode: Episode }) {
-  const tracks = generateWaveformTracks(episode);
+/** Per-signal bar tracks on the episode's clock (same as the video player;
+ * hovering shows the time, clicking seeks the video).
+ *
+ * With real telemetry (PushT: coverage reward, agent speed, tracking error
+ * extracted from the LeRobot parquet at 10 Hz) the bars are real data and
+ * the anomaly marker is genuinely detected: the first sustained drop below
+ * the coverage envelope of successful trials (execution-monitoring style;
+ * see scripts/extract-pusht-telemetry.py). Without telemetry the bars are a
+ * clearly-labeled synthetic preview and no anomaly is shown. */
+export function WaveformTimeline({
+  episode,
+  telemetry,
+}: {
+  episode: Episode;
+  telemetry?: EpisodeTelemetry | null;
+}) {
   const duration = episode.metrics.durationS;
-  const anomalyIndex = tracks[0]?.anomalyIndex ?? null;
-  const barsPerTrack = tracks[0]?.bars.length ?? 48;
-  const anomalyTime =
-    anomalyIndex !== null && duration !== null
-      ? ((anomalyIndex / barsPerTrack) * duration).toFixed(1)
+  const real = telemetry ?? null;
+  const tracks = real ? real.tracks : generateWaveformTracks(episode);
+  const barsPerTrack = tracks[0]?.bars.length ?? 140;
+
+  const anomalyS = real?.anomalyS ?? null;
+  const anomalyIndex =
+    anomalyS !== null && duration !== null && duration > 0
+      ? Math.min(barsPerTrack - 1, Math.round((anomalyS / duration) * barsPerTrack))
       : null;
 
   const [hoverFrac, setHoverFrac] = useState<number | null>(null);
   const hoverTime = hoverFrac !== null && duration !== null ? hoverFrac * duration : null;
 
+  const subtitle =
+    duration !== null
+      ? `0.0s → ${duration.toFixed(1)}s · ${real ? "real telemetry (10 Hz)" : "synthetic signal preview"} · click to seek the video`
+      : "Duration not recorded · synthetic signal preview";
+
   return (
     <Card>
       <CardHeader
         title="Action & state timeline"
-        subtitle={
-          duration !== null
-            ? `0.0s → ${duration.toFixed(1)}s · synthetic signal preview · click to seek the video`
-            : "Duration not recorded · synthetic signal preview"
-        }
+        subtitle={subtitle}
         action={
-          anomalyTime !== null ? (
-            <span className="text-[12px] text-red">Anomaly at ~{anomalyTime}s</span>
-          ) : (
+          anomalyS !== null ? (
+            <span className="text-[12px] text-red" title={real?.anomalyMethod ?? undefined}>
+              Anomaly at ~{anomalyS.toFixed(1)}s ·{" "}
+              {real?.anomalyMethod?.includes("envelope")
+                ? "diverged from success envelope"
+                : "coverage peak"}
+            </span>
+          ) : real ? (
             <span className="text-[12px] text-faint">No anomaly detected</span>
+          ) : (
+            <span className="text-[12px] text-faint">No telemetry to analyze</span>
           )
         }
       />
@@ -53,7 +74,7 @@ export function WaveformTimeline({ episode }: { episode: Episode }) {
             {tracks.map((track) => (
               <div
                 key={track.name}
-                className="flex h-8 items-center justify-end font-mono text-[12px] text-dim"
+                className="flex h-8 items-center justify-end truncate font-mono text-[11px] text-dim md:text-[12px]"
               >
                 {track.name}
               </div>
@@ -79,8 +100,7 @@ export function WaveformTimeline({ episode }: { episode: Episode }) {
               <div key={track.name} className="relative h-8 overflow-hidden rounded-sm bg-inset">
                 <div className="absolute inset-0 flex items-end gap-px px-px">
                   {track.bars.map((h, i) => {
-                    const inAnomaly =
-                      track.anomalyIndex !== null && Math.abs(i - track.anomalyIndex) <= 3;
+                    const inAnomaly = anomalyIndex !== null && Math.abs(i - anomalyIndex) <= 3;
                     return (
                       <div
                         key={i}
@@ -93,10 +113,10 @@ export function WaveformTimeline({ episode }: { episode: Episode }) {
                     );
                   })}
                 </div>
-                {track.anomalyIndex !== null ? (
+                {anomalyIndex !== null ? (
                   <div
                     className="absolute top-0 bottom-0 w-px bg-red"
-                    style={{ left: `${((track.anomalyIndex + 0.5) / track.bars.length) * 100}%` }}
+                    style={{ left: `${((anomalyIndex + 0.5) / barsPerTrack) * 100}%` }}
                   />
                 ) : null}
               </div>
