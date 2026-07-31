@@ -42,18 +42,6 @@
     "ingestedAt": "2026-07-28T05:20:50.851515Z"
   },
   {
-    "datasetId": "robomimic-lift-panda",
-    "name": "Lift cube, proficient human (robomimic, real sim teleop)",
-    "sourceFormat": "hdf5",
-    "ingestedAt": "2026-07-28T05:47:32.770203Z"
-  },
-  {
-    "datasetId": "mcap-roboturk-reencoded",
-    "name": "Sawyer laundry layout, MCAP re-encoding (adapter round-trip test on real RoboTurk values)",
-    "sourceFormat": "ros2_bag",
-    "ingestedAt": "2026-07-28T06:05:21.647551Z"
-  },
-  {
     "datasetId": "oxe-columbia-pusht-real",
     "name": "PushT real robot (UR5, Open X-Embodiment / Diffusion Policy)",
     "sourceFormat": "rlds",
@@ -64,11 +52,5 @@
     "name": "PushT sim replay buffer (Diffusion Policy, native Zarr)",
     "sourceFormat": "zarr",
     "ingestedAt": "2026-07-28T06:39:47.462415Z"
-  },
-  {
-    "datasetId": "graspgen-franka-webdataset",
-    "name": "GraspGen Franka Panda grasp evaluations (NVIDIA, real WebDataset shards)",
-    "sourceFormat": "webdataset",
-    "ingestedAt": "2026-07-28T06:51:31.115408Z"
   }
 ]
