@@ -169,7 +169,7 @@ export function EpisodesExplorer() {
       </div>
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-[196px_1fr]">
-        <aside className="flex flex-col gap-5">
+        <aside className="flex min-w-0 flex-col gap-5">
           <div>
             <p className="mb-1.5 text-[11px] tracking-[0.1em] text-mute uppercase">outcome</p>
             <div className="flex gap-1">
@@ -215,7 +215,7 @@ export function EpisodesExplorer() {
           />
         </aside>
 
-        <div className="min-w-0">
+        <div className="min-w-0 min-w-0">
           {filtered.length === 0 ? (
             <div className="flex flex-col items-center justify-center rounded-md border border-dashed border-border py-16 text-center">
               <p className="text-[15px] font-medium text-dim">No episodes match these filters</p>

@@ -101,7 +101,7 @@ export function TrendChart({ buckets }: { buckets: DayBucket[] }) {
 
 export function TrendLegend() {
   return (
-    <div className="flex items-center gap-4 text-[12px] text-faint">
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] text-faint">
       <span className="flex items-center gap-1.5">
         <span className="h-2 w-2 rounded-[1px] bg-green opacity-75" /> success
       </span>

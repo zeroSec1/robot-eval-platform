@@ -24,9 +24,9 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>
-      <body className="flex min-h-full bg-bg text-text">
+      <body className="flex min-h-full flex-col bg-bg text-text md:flex-row">
         <Nav />
-        <main className="min-w-0 flex-1 px-6 py-6">{children}</main>
+        <main className="min-w-0 flex-1 px-4 py-4 md:px-6 md:py-6">{children}</main>
       </body>
     </html>
   );
