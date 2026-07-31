@@ -1,0 +1,40 @@
+# .vercelignore fully overrides .gitignore for `vercel` CLI deploys, so this
+# repeats the standard excludes plus the video-mirror trimming below.
+
+# dependencies (Vercel reinstalls these itself)
+node_modules
+
+# next.js build output (Vercel rebuilds from source)
+.next
+out
+build
+
+# git
+.git
+
+# download/build caches, not needed at runtime
+.cache
+coverage
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+guide-shots/
+
+# separate MCP server sub-package — not part of the web app being deployed
+mcp-server
+
+# Locally-mirrored LeRobot video copies: these formats have a real remote
+# fallback (video.sourceUrl points to a playable HF-hosted mp4 — see
+# src/components/episode-video.tsx onError), so shipping the local mirror
+# is redundant and this is ~2.1GB of the app's footprint.
+# NOT excluded: public/videos/roboturk-*, oxe-columbia-pusht-real,
+# dp-pusht-zarr — those formats' sourceUrl is a raw dataset archive
+# (.zip/.tfrecord), not playable video, so their local copy is load-bearing.
+public/videos/lerobot-*
+public/videos/BensoAI-*

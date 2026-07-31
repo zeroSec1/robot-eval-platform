@@ -1,7 +1,7 @@
 [
   {
     "datasetId": "lerobot-pusht",
-    "name": "PushT \u2014 T-block pushing (LeRobot community)",
+    "name": "PushT - T-block pushing (LeRobot community)",
     "sourceFormat": "lerobot",
     "ingestedAt": "2025-09-27T11:40:03.000Z"
   },
@@ -19,19 +19,19 @@
   },
   {
     "datasetId": "lerobot-aloha_mobile_shrimp",
-    "name": "Mobile ALOHA \u2014 cook shrimp (Stanford)",
+    "name": "Mobile ALOHA - cook shrimp (Stanford)",
     "sourceFormat": "lerobot",
     "ingestedAt": "2026-03-10T18:44:51.000Z"
   },
   {
     "datasetId": "lerobot-aloha_mobile_wash_pan",
-    "name": "Mobile ALOHA \u2014 wash pan (Stanford)",
+    "name": "Mobile ALOHA - wash pan (Stanford)",
     "sourceFormat": "lerobot",
     "ingestedAt": "2025-09-27T11:40:21.000Z"
   },
   {
     "datasetId": "BensoAI-eval_ACT_RJ45_piper_20260113_ckpt40k_ensemble_50runs",
-    "name": "RJ45 cable insertion \u2014 ACT policy eval (Piper)",
+    "name": "RJ45 cable insertion - ACT policy eval (Piper)",
     "sourceFormat": "lerobot",
     "ingestedAt": "2026-01-14T09:14:45.000Z"
   },

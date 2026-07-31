@@ -62,7 +62,7 @@ export function ObservationPreview({
         <div className="flex items-center justify-between bg-inset px-2 py-1 text-[11px] text-faint">
           <span className="font-mono">{episode.video.camera}</span>
           <span>
-            real footage · {episode.video.fromS}s–{episode.video.toS}s of source file
+            real footage · {episode.video.fromS}s to {episode.video.toS}s of source file
           </span>
         </div>
       </div>

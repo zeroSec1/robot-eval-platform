@@ -103,8 +103,7 @@ export default function DashboardPage() {
                 dropped {formatPercent(Math.abs(worstRegression.delta))}
                 {worstRegression.topFailureCategoryCandidate ? (
                   <>
-                    {" "}
-                    — driven mostly by{" "}
+                    , driven mostly by{" "}
                     <FailureBadge category={worstRegression.topFailureCategoryCandidate} />
                   </>
                 ) : null}
@@ -164,7 +163,7 @@ export default function DashboardPage() {
         <Card className="lg:col-span-3">
           <CardHeader
             title="Datasets"
-            subtitle="Ingested via format adapters — canonical schema underneath"
+            subtitle="Ingested via format adapters, canonical schema underneath"
             action={<Badge tone="info">{allPolicyVersions.length} policy versions tracked</Badge>}
           />
           <div className="overflow-x-auto px-3.5 py-3">
@@ -250,7 +249,7 @@ export default function DashboardPage() {
                     {e.failure ? (
                       <FailureBadge category={e.failure.category} />
                     ) : (
-                      <span className="text-mute">—</span>
+                      <span className="text-mute">-</span>
                     )}
                   </td>
                   <td className="py-2 text-faint">{formatDateTime(e.recordedAt)}</td>

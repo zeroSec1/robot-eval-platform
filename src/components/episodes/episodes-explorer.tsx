@@ -268,7 +268,7 @@ export function EpisodesExplorer() {
                         {e.failure ? (
                           <FailureBadge category={e.failure.category} />
                         ) : (
-                          <span className="text-mute">—</span>
+                          <span className="text-mute">-</span>
                         )}
                       </td>
                       <td className="py-1.5 pl-3 tabular-nums text-dim">
