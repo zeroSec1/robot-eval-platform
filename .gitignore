@@ -49,3 +49,4 @@ next-env.d.ts
 
 # Downloaded source archives for data adapters (re-fetch with scripts/fetch-roboturk.py, fetch-robomimic.py)
 /.cache/
+/public/videos-h264/

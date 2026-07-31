@@ -2,7 +2,7 @@
 
 import { useCallback, useMemo } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { FilterGroup } from "@/components/filter-group";
 import { OutcomeBadge, FailureBadge } from "@/components/failure-badge";
 import { ObservationPreview } from "@/components/observation-preview";
@@ -31,7 +31,6 @@ const CHIP_ACTIVE_CLASS: Record<FailureCategory, string> = {
 };
 
 export function EpisodesExplorer() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const filters = useMemo(() => parseFilters(searchParams), [searchParams]);
 
@@ -51,14 +50,15 @@ export function EpisodesExplorer() {
     [allEpisodes],
   );
 
-  const pushFilters = useCallback(
-    (next: typeof filters) => {
-      const params = filtersToParams(next);
-      const qs = params.toString();
-      router.push(qs ? `/episodes?${qs}` : "/episodes", { scroll: false });
-    },
-    [router],
-  );
+  const pushFilters = useCallback((next: typeof filters) => {
+    const params = filtersToParams(next);
+    const qs = params.toString();
+    // Filtering is purely client-side, so use the native History API (which
+    // Next syncs into useSearchParams) instead of router.push: in production
+    // builds, a same-pathname router.push with an empty query is reconciled
+    // back to the current URL, so filters could never be cleared.
+    window.history.pushState(null, "", qs ? `/episodes?${qs}` : "/episodes");
+  }, []);
 
   const toggleInSet = useCallback(
     (key: "failure" | "dataset" | "sourceFormat" | "policyVersion" | "pack", value: string) => {
@@ -80,7 +80,7 @@ export function EpisodesExplorer() {
 
   const setOutcome = (outcome: typeof filters.outcome) => pushFilters({ ...filters, outcome });
   const setQuery = (q: string) => pushFilters({ ...filters, q });
-  const clearAll = () => router.push("/episodes", { scroll: false });
+  const clearAll = () => window.history.pushState(null, "", "/episodes");
 
   const filtered = useMemo(() => applyFilters(allEpisodes, filters), [allEpisodes, filters]);
 

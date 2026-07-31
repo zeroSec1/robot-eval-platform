@@ -30,8 +30,9 @@ export interface Stats {
   scoredCount: number;
   unscoredCount: number;
   successCount: number;
-  /** Success rate over SCORED episodes only — unscored episodes are not failures. */
-  successRate: number;
+  /** Success rate over SCORED episodes only — unscored episodes are not failures.
+   * null when nothing is scored: no data is not a 0% success rate. */
+  successRate: number | null;
   avgDurationS: number | null;
   avgInterventions: number | null;
   collisionRate: number;
@@ -61,7 +62,7 @@ export function computeStats(episodes: Episode[]): Stats {
     scoredCount: scored.length,
     unscoredCount: total - scored.length,
     successCount,
-    successRate: scored.length ? successCount / scored.length : 0,
+    successRate: scored.length ? successCount / scored.length : null,
     avgDurationS: durations.length ? avg(durations) : null,
     avgInterventions: interventions.length ? avg(interventions) : null,
     collisionRate: withCollisionData.length

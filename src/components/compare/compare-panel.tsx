@@ -94,7 +94,11 @@ export function ComparePanel() {
               label="Success rate"
               value={formatPercent(candidateStats.successRate)}
               hint={`baseline ${formatPercent(baselineStats.successRate)}`}
-              delta={candidateStats.successRate - baselineStats.successRate}
+              delta={
+                candidateStats.successRate !== null && baselineStats.successRate !== null
+                  ? candidateStats.successRate - baselineStats.successRate
+                  : undefined
+              }
             />
             <StatTile
               label="Avg. duration"
