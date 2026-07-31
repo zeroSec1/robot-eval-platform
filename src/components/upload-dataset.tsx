@@ -56,7 +56,7 @@ export function UploadDataset() {
       >
         {busy ? "Reading…" : "Upload your dataset"}
       </button>
-      <span className="text-[12px] text-faint">.json or .csv — stays in your browser, never uploaded to a server</span>
+      <span className="text-[12px] text-faint">.json or .csv</span>
 
       {uploaded.length > 0 ? (
         <>
