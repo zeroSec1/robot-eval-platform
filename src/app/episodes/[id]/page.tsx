@@ -1,5 +1,8 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import { Card, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { OutcomeBadge, FailureBadge } from "@/components/failure-badge";
@@ -7,20 +10,36 @@ import { ObservationPreview } from "@/components/observation-preview";
 import { CoverageBar } from "@/components/coverage-bar";
 import { SchemaJson } from "@/components/episodes/schema-json";
 import { WaveformTimeline } from "@/components/charts/waveform-timeline";
-import { getDatasetById, getEpisodeById } from "@/lib/mock-data";
+import { DATASETS, EPISODES } from "@/lib/mock-data";
 import { SOURCE_FORMAT_LABEL } from "@/lib/types";
 import { formatDateTime, formatDuration } from "@/lib/utils";
+import { USER_DATASET_ID, useUserDataset, useUserEpisodes } from "@/lib/user-data";
 
-export default async function EpisodeDetailPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
-  const episode = getEpisodeById(id);
+export default function EpisodeDetailPage() {
+  const { id } = useParams<{ id: string }>();
+  const userEpisodes = useUserEpisodes();
+  const userDataset = useUserDataset();
+
+  // Uploaded episodes only exist in localStorage, which is unreadable during
+  // the initial server-rendered pass. Wait for the client mount (when
+  // useUserEpisodes' real snapshot is guaranteed available) before deciding
+  // an id is genuinely missing — otherwise a freshly-uploaded episode's own
+  // detail link would 404 on that first render, before hydration catches up.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const episode = useMemo(
+    () => [...EPISODES, ...userEpisodes].find((e) => e.episodeId === id),
+    [userEpisodes, id],
+  );
+  const dataset = useMemo(() => {
+    if (!episode) return undefined;
+    if (episode.datasetId === USER_DATASET_ID) return userDataset;
+    return DATASETS.find((d) => d.datasetId === episode.datasetId);
+  }, [episode, userDataset]);
+
+  if (!mounted) return null;
   if (!episode) notFound();
-
-  const dataset = getDatasetById(episode.datasetId);
 
   return (
     <div className="flex flex-col gap-4">

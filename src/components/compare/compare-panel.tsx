@@ -11,16 +11,24 @@ import {
   DEFAULT_BASELINE,
   DEFAULT_CANDIDATE,
   EPISODES,
-  POLICY_VERSIONS,
   compareVersions,
 } from "@/lib/mock-data";
 import { FAILURE_CATEGORIES, FAILURE_CATEGORY_LABEL } from "@/lib/types";
 import { FAILURE_CATEGORY_BAR_CLASS } from "@/lib/failure-colors";
 import { cn, formatDuration, formatPercent } from "@/lib/utils";
+import { useUserEpisodes } from "@/lib/user-data";
+import { UploadDataset } from "@/components/upload-dataset";
 
 export function ComparePanel() {
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  const userEpisodes = useUserEpisodes();
+  const allEpisodes = useMemo(() => [...EPISODES, ...userEpisodes], [userEpisodes]);
+  const allPolicyVersions = useMemo(
+    () => Array.from(new Set(allEpisodes.map((e) => e.policyVersion))),
+    [allEpisodes],
+  );
 
   const baseline = searchParams.get("baseline") ?? DEFAULT_BASELINE;
   const candidate = searchParams.get("candidate") ?? DEFAULT_CANDIDATE;
@@ -33,8 +41,8 @@ export function ComparePanel() {
   };
 
   const { baselineStats, candidateStats, regressions } = useMemo(
-    () => compareVersions(EPISODES, baseline, candidate),
-    [baseline, candidate],
+    () => compareVersions(allEpisodes, baseline, candidate),
+    [allEpisodes, baseline, candidate],
   );
 
   const maxFailure = Math.max(
@@ -48,6 +56,8 @@ export function ComparePanel() {
 
   return (
     <div className="flex flex-col gap-4">
+      <UploadDataset />
+
       <div>
         <h1 className="text-[20px] font-semibold text-text">Compare policies</h1>
         <p className="mt-0.5 text-[13px] text-faint">
@@ -56,11 +66,21 @@ export function ComparePanel() {
       </div>
 
       <div className="flex flex-wrap items-center gap-3">
-        <VersionSelect label="Baseline" value={baseline} onChange={(v) => setVersion("baseline", v)} />
+        <VersionSelect
+          label="Baseline"
+          value={baseline}
+          onChange={(v) => setVersion("baseline", v)}
+          options={allPolicyVersions}
+        />
         <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4 shrink-0 text-mute">
           <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-        <VersionSelect label="Candidate" value={candidate} onChange={(v) => setVersion("candidate", v)} />
+        <VersionSelect
+          label="Candidate"
+          value={candidate}
+          onChange={(v) => setVersion("candidate", v)}
+          options={allPolicyVersions}
+        />
       </div>
 
       {same ? (
@@ -209,10 +229,12 @@ function VersionSelect({
   label,
   value,
   onChange,
+  options,
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
+  options: string[];
 }) {
   return (
     <label className="flex items-center gap-2 rounded-sm border border-border-strong bg-inset px-2.5 py-1.5 text-[15px]">
@@ -222,7 +244,7 @@ function VersionSelect({
         onChange={(e) => onChange(e.target.value)}
         className="bg-transparent text-text focus:outline-none"
       >
-        {POLICY_VERSIONS.map((v) => (
+        {options.map((v) => (
           <option key={v} value={v} className="bg-inset text-text">
             {v}
           </option>
