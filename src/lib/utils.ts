@@ -3,12 +3,12 @@ export function cn(...classes: Array<string | false | null | undefined>) {
 }
 
 export function formatPercent(fraction: number | null, digits = 0) {
-  if (fraction === null) return "—";
+  if (fraction === null) return "-";
   return `${(fraction * 100).toFixed(digits)}%`;
 }
 
 export function formatDuration(seconds: number | null) {
-  if (seconds === null) return "—";
+  if (seconds === null) return "-";
   if (seconds < 60) return `${seconds.toFixed(1)}s`;
   const m = Math.floor(seconds / 60);
   const s = Math.round(seconds % 60);

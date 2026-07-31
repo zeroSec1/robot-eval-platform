@@ -66,7 +66,7 @@ export function WaveformTimeline({ episode }: { episode: Episode }) {
         ))}
         <div className="flex justify-between pl-35 text-[11px] text-mute">
           <span>0.0s</span>
-          {duration !== null ? <span>{duration.toFixed(1)}s</span> : <span>—</span>}
+          {duration !== null ? <span>{duration.toFixed(1)}s</span> : <span>-</span>}
         </div>
       </div>
     </Card>

@@ -14,14 +14,14 @@ const SOURCES = [
   {
     repo: "lerobot/pusht",
     idPrefix: "pusht",
-    datasetName: "PushT — T-block pushing (LeRobot community)",
+    datasetName: "PushT - T-block pushing (LeRobot community)",
     taskName: "Push T-block to target",
     robotType: "2D pusher (sim)",
     model: "PushT env",
     benchmarkPack: "manipulation-tabletop",
     cap: 60,
     // The env's own success bool never fires in these demos (needs >95%
-    // coverage), so score strictly from the recorded coverage reward — a
+    // coverage), so score strictly from the recorded coverage reward - a
     // standard PushT eval rule, recorded in method_of_determination.
     rewardSuccessThreshold: 0.9,
   },
@@ -48,7 +48,7 @@ const SOURCES = [
   {
     repo: "lerobot/aloha_mobile_shrimp",
     idPrefix: "shrimp",
-    datasetName: "Mobile ALOHA — cook shrimp (Stanford)",
+    datasetName: "Mobile ALOHA - cook shrimp (Stanford)",
     taskName: "Sauté and serve shrimp",
     robotType: "Mobile bimanual",
     model: "Mobile ALOHA",
@@ -58,7 +58,7 @@ const SOURCES = [
   {
     repo: "lerobot/aloha_mobile_wash_pan",
     idPrefix: "wash_pan",
-    datasetName: "Mobile ALOHA — wash pan (Stanford)",
+    datasetName: "Mobile ALOHA - wash pan (Stanford)",
     taskName: "Wash pan at sink",
     robotType: "Mobile bimanual",
     model: "Mobile ALOHA",
@@ -68,7 +68,7 @@ const SOURCES = [
   {
     repo: "BensoAI/eval_ACT_RJ45_piper_20260113_ckpt40k_ensemble_50runs",
     idPrefix: "rj45",
-    datasetName: "RJ45 cable insertion — ACT policy eval (Piper)",
+    datasetName: "RJ45 cable insertion - ACT policy eval (Piper)",
     taskName: "Insert RJ45 cable into port",
     robotType: "Industrial arm",
     model: "AgileX Piper",

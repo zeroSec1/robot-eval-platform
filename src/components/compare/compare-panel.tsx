@@ -85,7 +85,7 @@ export function ComparePanel() {
 
       {same ? (
         <Card className="border-amber/30 bg-amber/[0.04] px-4 py-3 text-[15px] text-amber">
-          Baseline and candidate are the same version — pick two different versions to see a diff.
+          Baseline and candidate are the same version. Pick two different versions to see a diff.
         </Card>
       ) : (
         <>
@@ -107,8 +107,8 @@ export function ComparePanel() {
             />
             <StatTile
               label="Avg. interventions"
-              value={candidateStats.avgInterventions?.toFixed(2) ?? "—"}
-              hint={`baseline ${baselineStats.avgInterventions?.toFixed(2) ?? "—"}`}
+              value={candidateStats.avgInterventions?.toFixed(2) ?? "-"}
+              hint={`baseline ${baselineStats.avgInterventions?.toFixed(2) ?? "-"}`}
             />
             <StatTile
               label="Collision rate"
@@ -171,7 +171,7 @@ export function ComparePanel() {
                   {regressions.length === 0 ? (
                     <tr className="border-t border-divider">
                       <td colSpan={6} className="py-6 text-center text-[13px] text-faint">
-                        No tasks with scored episodes in both versions — nothing to diff.
+                        No tasks with scored episodes in both versions, so nothing to diff.
                       </td>
                     </tr>
                   ) : null}

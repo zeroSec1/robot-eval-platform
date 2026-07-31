@@ -71,4 +71,4 @@ for (const url of urls) {
   console.log(`   progress: ${done}/${urls.length} files`);
 }
 
-console.log(`\nAll ${urls.length} videos local under public/videos/ — episode JSON updated.`);
+console.log(`\nAll ${urls.length} videos local under public/videos/ - episode JSON updated.`);

@@ -144,10 +144,10 @@ export default function EpisodeDetailPage() {
                 <span className="tabular-nums text-dim">{formatDuration(episode.metrics.durationS)}</span>
               </Row>
               <Row label="interventions">
-                <span className="tabular-nums text-dim">{episode.metrics.interventions ?? "—"}</span>
+                <span className="tabular-nums text-dim">{episode.metrics.interventions ?? "-"}</span>
               </Row>
               <Row label="collisions">
-                <span className="tabular-nums text-dim">{episode.metrics.collisions ?? "—"}</span>
+                <span className="tabular-nums text-dim">{episode.metrics.collisions ?? "-"}</span>
               </Row>
             </div>
           </Card>

@@ -30,7 +30,7 @@ export function StatTile({
               isGood === null ? "text-faint" : isGood ? "text-green" : "text-red",
             )}
           >
-            {delta > 0 ? "▲" : delta < 0 ? "▼" : "–"} {Math.abs(delta * 100).toFixed(1)}pp
+            {delta > 0 ? "▲" : delta < 0 ? "▼" : "-"} {Math.abs(delta * 100).toFixed(1)}pp
           </span>
         ) : null}
       </div>
