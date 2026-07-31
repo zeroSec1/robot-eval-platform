@@ -138,7 +138,7 @@ export function ComparePanel() {
                   </span>
                 </div>
               ))}
-              <div className="mt-1 flex items-center gap-4 text-[15px] text-faint">
+              <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-[15px] text-faint">
                 <span className="flex items-center gap-1.5">
                   <span className="h-2 w-2 rounded-[1px] bg-faint" /> {baseline}
                 </span>

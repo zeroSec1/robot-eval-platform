@@ -44,30 +44,38 @@ export function Nav() {
   const pathname = usePathname();
 
   return (
-    <aside className="sticky top-0 flex h-screen w-[212px] shrink-0 flex-col border-r border-border bg-surface">
-      {/* Logo */}
-      <Link href="/" className="flex flex-col gap-2 border-b border-border px-4 pt-5 pb-4">
-        <span className="flex h-9 w-9 items-center justify-center rounded-md bg-accent/15">
-          <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 text-accent">
-            <path
-              d="M12 2 3 7v10l9 5 9-5V7l-9-5Z"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinejoin="round"
-            />
-            <path d="M3 7l9 5 9-5M12 12v10" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-          </svg>
+    <aside className="flex w-full flex-col border-b border-border bg-surface md:sticky md:top-0 md:h-screen md:w-[212px] md:shrink-0 md:border-r md:border-b-0">
+      {/* Logo: compact horizontal row on phones, stacked block on md+ */}
+      <div className="flex items-center gap-2.5 px-4 pt-3 pb-1 md:block md:border-b md:border-border md:px-0 md:pt-0 md:pb-0">
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 md:flex-col md:items-start md:gap-2 md:px-4 md:pt-5 md:pb-4"
+        >
+          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-accent/15">
+            <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 text-accent">
+              <path
+                d="M12 2 3 7v10l9 5 9-5V7l-9-5Z"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinejoin="round"
+              />
+              <path d="M3 7l9 5 9-5M12 12v10" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+            </svg>
+          </span>
+          <span className="flex items-baseline gap-1.5">
+            <span className="text-[16px] font-bold tracking-wide text-text">Robot Eval</span>
+            <span className="rounded-[2px] border border-border-strong px-1 text-[11px] text-faint">0.1.0</span>
+          </span>
+          <span className="hidden text-[12px] text-faint md:block">robot eval &amp; failure monitor</span>
+        </Link>
+        <span className="ml-auto md:hidden">
+          <ThemeToggle />
         </span>
-        <span className="flex items-baseline gap-1.5">
-          <span className="text-[16px] font-bold tracking-wide text-text">Robot Eval</span>
-          <span className="rounded-[2px] border border-border-strong px-1 text-[11px] text-faint">0.1.0</span>
-        </span>
-        <span className="text-[12px] text-faint">robot eval &amp; failure monitor</span>
-      </Link>
+      </div>
 
-      {/* Nav */}
-      <nav className="flex flex-col gap-0.5 px-2 py-3">
-        <p className="px-2 pb-1.5 text-[11px] tracking-[0.12em] text-mute uppercase">Views</p>
+      {/* Nav: horizontal tab row on phones, vertical list on md+ */}
+      <nav className="flex flex-row gap-0.5 overflow-x-auto px-2 py-2 md:flex-col md:py-3">
+        <p className="hidden px-2 pb-1.5 text-[11px] tracking-[0.12em] text-mute uppercase md:block">Views</p>
         {LINKS.map((link) => {
           const active = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
           return (
@@ -75,7 +83,7 @@ export function Nav() {
               key={link.href}
               href={link.href}
               className={cn(
-                "flex items-center gap-2.5 rounded-md px-2 py-1.5 text-[14px] transition-colors",
+                "flex shrink-0 items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[14px] whitespace-nowrap transition-colors md:px-2",
                 active ? "bg-hover text-text" : "text-dim hover:bg-hover hover:text-text",
               )}
             >
@@ -86,8 +94,8 @@ export function Nav() {
         })}
       </nav>
 
-      {/* Footer */}
-      <div className="mt-auto flex flex-col gap-2.5 border-t border-border px-4 py-4">
+      {/* Footer: desktop only; the mobile top bar keeps its own theme toggle */}
+      <div className="mt-auto hidden flex-col gap-2.5 border-t border-border px-4 py-4 md:flex">
         <span className="flex items-center gap-1.5 text-[12px] text-dim">
           <span className="h-1.5 w-1.5 rounded-full bg-green" />
           LeRobot adapter online

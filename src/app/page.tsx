@@ -132,7 +132,7 @@ export default function DashboardPage() {
       </Card>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-5">
-        <Card className="lg:col-span-2">
+        <Card className="min-w-0 lg:col-span-2">
           <CardHeader title="Failures by category" subtitle="All episodes, all versions" />
           <div className="flex flex-col gap-2.5 px-3.5 py-3">
             {FAILURE_CATEGORIES.map((cat) => {
@@ -160,7 +160,7 @@ export default function DashboardPage() {
           </div>
         </Card>
 
-        <Card className="lg:col-span-3">
+        <Card className="min-w-0 lg:col-span-3">
           <CardHeader
             title="Datasets"
             subtitle="Ingested via format adapters, canonical schema underneath"
