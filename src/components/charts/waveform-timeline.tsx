@@ -36,7 +36,7 @@ export function WaveformTimeline({ episode }: { episode: Episode }) {
         title="Action & state timeline"
         subtitle={
           duration !== null
-            ? `0.0s → ${duration.toFixed(1)}s · synthetic signal preview`
+            ? `0.0s → ${duration.toFixed(1)}s · synthetic signal preview · click to seek the video`
             : "Duration not recorded · synthetic signal preview"
         }
         action={
@@ -66,6 +66,14 @@ export function WaveformTimeline({ episode }: { episode: Episode }) {
               setHoverFrac(Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)));
             }}
             onMouseLeave={() => setHoverFrac(null)}
+            onClick={(e) => {
+              if (duration === null) return;
+              const r = e.currentTarget.getBoundingClientRect();
+              const frac = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+              window.dispatchEvent(
+                new CustomEvent("robot-eval:seek", { detail: frac * duration }),
+              );
+            }}
           >
             {tracks.map((track) => (
               <div key={track.name} className="relative h-8 overflow-hidden rounded-sm bg-inset">
