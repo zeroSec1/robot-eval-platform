@@ -23,7 +23,7 @@ const QUESTIONS: Q[] = [
   },
   {
     q: "What was throughput in month three, not day one?",
-    why: "Operation slowdowns after launch are a documented pain [1].",
+    why: "Operation slowdowns during rollout are a documented pain [1].",
     good: "Month-three numbers from the last three deployments, not the best one.",
   },
   {
@@ -33,7 +33,7 @@ const QUESTIONS: Q[] = [
   },
   {
     q: "How long to connect to my WMS, and who does the work?",
-    why: "Integration is the leading cause of unmet expectations [3]. At DHL, integrations took up to six to eight weeks before middleware [4].",
+    why: "Integration is a leading cause of unmet expectations [3]. At DHL, integrations took up to six to eight weeks before middleware [4].",
     good: "A named connector for your WMS, a week count, and who pays if it runs over.",
   },
   {
@@ -43,7 +43,7 @@ const QUESTIONS: Q[] = [
   },
   {
     q: "Can you show the payback math with MY wages and volumes?",
-    why: "80% of buyers expected payback within three years in 2024 [1]. Average warehouse pay is $26.66 an hour and rising [6].",
+    why: "80% of buyers expected payback within three years in 2024, and 61% now want it inside 12 months [1]. Average warehouse pay is $26.66 an hour and rising [6].",
     good: "A model built on your numbers, editable, not a national average.",
   },
   {

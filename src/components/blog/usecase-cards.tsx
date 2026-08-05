@@ -35,7 +35,7 @@ const USE_CASES: UseCase[] = [
     robot: "Cube storage robots (AutoStore, Exotec class)",
     cost: "Large upfront cost. A ten-year commitment.",
     level: 3,
-    proof: "About 1,900 AutoStore systems run in 65 countries [3].",
+    proof: "More than 1,950 AutoStore systems run in over 65 countries [3].",
     demand: "Proof the vendor will still exist in year ten (see vendor health).",
   },
   {

@@ -108,8 +108,8 @@ export function OutcomesFigure() {
     );
     y += 18;
     for (const [kind, count, color] of [
-      ["success", d.success, SUCCESS],
-      ["failure", d.failure, FAILURE],
+      ["passed our bar", d.success, SUCCESS],
+      ["below our bar", d.failure, FAILURE],
     ] as const) {
       const w = Math.max((count / max) * plotW, count === 0 ? 2 : 6);
       const yy = y;
@@ -134,9 +134,9 @@ export function OutcomesFigure() {
     <FigureShell
       tipRef={ref}
       tip={tip}
-      caption="Figure 1. Scored outcomes in the two auto-scorable datasets. Success criterion: max coverage reward of at least 0.9. The remaining 248 of 308 episodes have no automatic success signal and stay unscored rather than guessed."
+      caption="Figure 1. Scored outcomes in the two auto-scorable datasets. The two were scored by different rules: the PushT sim set at a peak coverage reward of at least 0.9, which is our own bar and looser than the benchmark's, and the real-robot set at a reward pulse reaching 1.0, which is stricter. The two bars are not comparable. The remaining 248 of 308 episodes have no automatic success signal and stay unscored."
     >
-      <LegendRow items={[{ color: SUCCESS, label: "success" }, { color: FAILURE, label: "failure" }]} />
+      <LegendRow items={[{ color: SUCCESS, label: "passed our bar" }, { color: FAILURE, label: "below our bar" }]} />
       <svg viewBox={`0 0 ${FIG_W} ${y}`} className="h-auto w-full" role="img"
         aria-label="Bar chart of scored episode outcomes per dataset">
         {rows}
@@ -180,12 +180,12 @@ export function EnvelopeFigure() {
     <FigureShell
       tipRef={ref}
       tip={tip}
-      caption={`Figure 2. Coverage over time. The violet line is the 10th-percentile envelope of the 25 successful trials; the teal line is their median. The red line is failed episode ${f.exemplarId}, flagged at ${f.exemplarAnomalyS.toFixed(1)} s, the first moment it stays below the envelope for 0.5 s.`}
+      caption={`Figure 2. Coverage over time. The violet line is the 10th-percentile envelope of the 25 passing trials; the teal line is their median. The red line is failed episode ${f.exemplarId}, flagged at ${f.exemplarAnomalyS.toFixed(1)} s, the first moment it stays below the envelope for 0.5 s.`}
     >
       <LegendRow
         items={[
-          { color: ENVELOPE, label: "envelope (P10 of successes)" },
-          { color: SUCCESS, label: "success median (P50)" },
+          { color: ENVELOPE, label: "envelope (P10 of passing trials)" },
+          { color: SUCCESS, label: "passing median (P50)" },
           { color: FAILURE, label: `failed episode ${f.exemplarId}` },
         ]}
       />
