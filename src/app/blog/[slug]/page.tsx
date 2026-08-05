@@ -5,6 +5,7 @@ import { EnvelopeFigure, OutcomesFigure, TimingFigure } from "@/components/blog/
 import { UseCaseCards } from "@/components/blog/usecase-cards";
 import { VendorQuestions } from "@/components/blog/vendor-questions";
 import { BreakevenChart, BreakevenGrid } from "@/components/blog/raas-figures";
+import { BankruptcyClauses } from "@/components/blog/bankruptcy-clauses";
 import { BLOG_POSTS, formatPostDate, getPost, type BlogBlock } from "@/data/blog-posts";
 
 // Client components must be imported as named exports to stay valid
@@ -18,6 +19,7 @@ const FIGURES = {
   questions: VendorQuestions,
   "raas-chart": BreakevenChart,
   "raas-grid": BreakevenGrid,
+  bankruptcy: BankruptcyClauses,
 } as const;
 
 export function generateStaticParams() {

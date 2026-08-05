@@ -10,7 +10,7 @@ export type BlogBlock =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
-  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" };
+  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" };
 
 export type BlogPost = {
   slug: string;
@@ -22,6 +22,60 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "vendor-bankruptcy-checklist",
+    title: "The vendor bankruptcy checklist: 7 contract clauses that protect you when your robot company folds",
+    date: "2026-08-05",
+    summary:
+      "Two warehouse robot vendors left the market in two years. The clause most buyers rely on is unenforceable in bankruptcy. Here are seven that are worth more, each cited to statute so your counsel can check it.",
+    tags: ["buyer-guide", "contracts", "vendor-risk"],
+    body: [
+      { type: "p", text: "Two warehouse robot vendors left the market in two years. Attabotics filed for creditor protection in July 2025, days after Export Development Canada moved to enforce its security. It had just terminated 192 of 203 staff [5]. Customers with systems already installed included Gordon Food Service, Pan Pacific Pet and Modern Beauty [7]. Zebra bought Fetch for $301M in 2021 and sold the business for $20M in 2026 [4]. If your vendor is next, the only thing protecting you is a contract you signed years ago." },
+      { type: "p", text: "Here are seven clauses worth putting in front of your legal team. Read them as a starting point for that conversation, not as advice. We are not lawyers, the summaries are simplified, and what applies to your deal depends on facts we do not know." },
+      { type: "h2", text: "First, a warning about which country's law applies" },
+      { type: "p", text: "The statutory points below are United States bankruptcy law. Attabotics filed in Canada, under the Bankruptcy and Insolvency Act [5]. Many robot vendors are foreign, so the rules governing an insolvency may not be the ones in your contract." },
+      { type: "p", text: "That cuts both ways, and it is worth knowing before you assume the worst. Canada has close equivalents to two of the clauses below. Its Act blocks a counterparty from terminating an agreement by reason only of the insolvency or the filing. It also preserves a licensee's right to use intellectual property despite a disclaimer, so long as that party keeps performing [8]. On that second point Canadian law is broader than US law. It carries no definition excluding trademarks. Ask your counsel which country's insolvency law would apply before relying on any of this." },
+      { type: "h2", text: "The seven clauses" },
+      { type: "figure", figure: "bankruptcy" },
+      { type: "h2", text: "Why the termination clause is weaker than you think, and stronger too" },
+      { type: "p", text: "Most technology contracts say the deal ends if the other side becomes insolvent. In a US bankruptcy that language stops working. But only from a specific moment. The Code blocks termination based on such a clause at any time after the case begins [1]. Before a filing, and outside bankruptcy altogether, the clause generally works under state law. So keep it. Just do not treat it as your plan." },
+      { type: "p", text: "Two things the rule also does. It has exceptions, including where other law excuses a party from accepting performance from a trustee, and contracts to lend money [1]. And it protects you in reverse: if your own company files, your vendor cannot terminate on you for that reason alone, subject to the same exceptions." },
+      { type: "h2", text: "The licence election, and what it does not buy" },
+      { type: "p", text: "Say a bankrupt licensor rejects your software licence. US law lets you elect to keep your rights for the rest of the term, provided you keep paying [2]. That is the strongest protection on this list. It is also narrower than it sounds." },
+      { type: "p", text: "The statute preserves your rights as they existed immediately before the case began, and expressly excludes any right to specific performance [2]. In plain terms: you keep the software you already had. No future versions, no bug fixes, no support calls. You must pay all royalties due, and you waive setoff [2]. So you pay full price for a frozen copy, and cannot deduct the value of the support that stopped. The election protects your ability to keep running today's code. It does not keep the vendor alive." },
+      { type: "p", text: "Two more limits. The provision applies where the debtor is a licensor, so a purely hosted service may fall outside it. It also keys payment to royalties, so a contract calling the same money a subscription fee invites an argument. Finally, the Code defines intellectual property as trade secrets, patents, patent applications, copyrighted works, plant varieties and mask works, each to the extent protected by other law. Trademarks are not on that list [3]." },
+      { type: "h2", text: "What the Supreme Court actually decided" },
+      { type: "p", text: "In 2019 the Court held that rejecting a contract in bankruptcy is a breach, not a cancellation. Rights already granted survive [6]. The scope is worth getting right, because it is easy to state backwards. That case concerned a trademark licence. It was decided under the general rule for rejected contracts, not under the licence election above. The Court refused to read the special IP provisions as implying anything narrower. It said in terms that no negative inference arises, and placed trademark licences alongside most other contracts under the general rule [6]. So the breach principle is broad. It is not a trademark workaround." },
+      { type: "h2", text: "What escrow does and does not do" },
+      { type: "p", text: "Source code escrow is the standard answer and it is worth having. The common drafting mistake is the release trigger. Say release is conditioned on the vendor's bankruptcy. That condition is itself an insolvency-triggered provision, and a trustee may argue it is unenforceable for the reason set out above [9]. Tie release to events you can prove instead: missed response times, a declared end of support, or failure to supply parts." },
+      { type: "p", text: "There is a way to strengthen escrow that most contracts miss. The licence election extends to any agreement supplementary to the licence, and it bars the trustee from interfering with your right to obtain the software from another entity [2]. Draft the escrow as supplementary to an express IP licence and the escrow agent is that other entity. The legislative history says escrow was exactly what Congress had in mind [2]." },
+      { type: "p", text: "Escrow still solves only half the problem. A warehouse robot is hardware, and source code will not build you a drive motor. Ask whether your escrow covers the bill of materials, the mechanical drawings and the named suppliers, and negotiate a minimum spares holding while the vendor is healthy." },
+      { type: "h2", text: "The exit nobody drafts for" },
+      { type: "p", text: "Vendors leave by being sold more often than by collapsing. Zebra did not go bankrupt. It paid $301M for Fetch in 2021. In late 2025 it decided to exit the business, and in March 2026 it sold to Skild AI for $20M of total consideration [4]. That is roughly a 93% write-down, and it is on the public record in Zebra's own filings. From a customer's chair the question is the same either way: who answers the phone next year, and what must they do? An acquirer buys assets and takes on only the duties it agrees to." },
+      { type: "h2", text: "Do the diligence before the contract" },
+      { type: "ul", items: [
+        "Ask for audited financials, or an explanation of why you cannot have them.",
+        "Ask who the secured lenders are. Attabotics filed after its largest secured creditor served notice to enforce [5], and secured creditors rank ahead of you.",
+        "Prefer robot categories where several vendors are interchangeable, so switching is a commercial decision rather than a rebuild.",
+        "Weigh the balance sheet as heavily as the demo [10].",
+      ] },
+      { type: "h2", text: "What this is not" },
+      { type: "p", text: "This is not legal advice, and we are not lawyers. It is a checklist for the conversation with the people who are. Each point is cited so your counsel can start there rather than from scratch. The summaries are simplified and statutes get amended. What applies to your deal depends on where your vendor is incorporated, what your contract says, and facts we do not know." },
+      { type: "h2", text: "Sources" },
+      { type: "ol", items: [
+        "11 U.S. Code section 365(e)(1): an executory contract of the debtor may not be terminated or modified 'at any time after the commencement of the case' solely because of a provision conditioned on the debtor's insolvency or on the commencement of the case. Section 365(e)(2) sets out exceptions, including where applicable law excuses the other party from accepting performance from the trustee and that party does not consent, and contracts to make a loan or extend financial accommodations. uscode.house.gov, title 11 section 365",
+        "11 U.S. Code section 365(n): a licensee may elect to retain its rights under the contract and 'any agreement supplementary to such contract', to the intellectual property, 'as such rights existed immediately before the case commenced', but 'excluding any other right under applicable nonbankruptcy law to specific performance'. Section 365(n)(2) requires the licensee to make all royalty payments due and to waive setoff rights and claims under section 503(b). Sections 365(n)(3)(B) and (4)(B) bar the trustee from interfering with the licensee obtaining the intellectual property 'from another entity'. The Senate Report accompanying the 1988 amendment states the escrow agent was contemplated as such an entity, and that the licensee is protected in the intellectual property 'as it existed at the time of the filing'. S. Rep. No. 100-505 (1988). uscode.house.gov, title 11 section 365",
+        "11 U.S. Code section 101(35A) defines intellectual property as trade secret; invention, process, design or plant protected under title 35; patent application; plant variety; work of authorship protected under title 17; or mask work, 'to the extent protected by applicable nonbankruptcy law'. Trademarks, service marks and trade names are not listed. uscode.house.gov, title 11 section 101",
+        "Zebra Technologies FY2021 Form 10-K: Fetch Robotics acquired August 9 2021 for total purchase consideration of $301 million, consisting of $290 million cash net of cash acquired plus $11 million for an existing minority interest. FY2025 Form 10-K, Note 9: in Q4 2025 the company decided to dispose of or exit the robotics automation business, incurring about $55 million of one-time costs. Q1 2026 Form 10-Q, Note 7: sale to Skild AI completed March 27 2026 for total consideration of $20 million ($9M cash, $9M investment, $2M indemnification escrow), net gain $5 million. Announced April 15 2026. sec.gov EDGAR, CIK 877212",
+        "Attabotics Inc. filed a Notice of Intention to Make a Proposal under subsection 50.4(1) of Canada's Bankruptcy and Insolvency Act on July 2 2025, with Richter Inc. as Licensed Insolvency Trustee (Calgary Court No. 25-095559). Export Development Canada, the single largest creditor, issued a Notice of Intention to Enforce Security on June 18 2025. The affidavit of Edna Conway sworn July 3 2025 states 192 of 203 employees were terminated on June 30 2025. The proceeding later converted to bankruptcy in October 2025. richter.ca/insolvencycase/attabotics-inc",
+        "Mission Product Holdings, Inc. v. Tempnology, LLC, 587 U.S. ___ (2019), decided May 20 2019, 8-1, opinion by Justice Kagan: rejection of an executory contract 'has the same effect as a breach of that contract outside bankruptcy' and 'cannot rescind rights that the contract previously granted'. The Court expressly rejected the argument that sections 365(h), (i) and (n) support a negative inference, stating 'no negative inference arises', and held that trademark licences fall 'along with most other contracts' within the general rule of section 365(g). supremecourt.gov, opinion 17-1657",
+        "First Report of the Proposal Trustee dated July 4 2025, Appendix E cash-flow forecast, distinguishes Attabotics customers with installed systems (Gordon Food Service, Pan Pacific Pet, Modern Beauty, and a US Marine Corps site) from contracted-but-not-installed systems (including Tesco). richter.ca/insolvencycase/attabotics-inc",
+        "Canada, Bankruptcy and Insolvency Act section 65.1(1): where a notice of intention or proposal has been filed, no person may terminate or amend an agreement by reason only of the insolvency or the filing. Section 65.11(7): where the debtor has granted a right to use intellectual property, a disclaimer does not affect the counterparty's right to use it for the term of the agreement, as long as that party continues to perform its obligations. Unlike US law, this is not narrowed by a definition excluding trademarks. laws-lois.justice.gc.ca, B-3",
+        "On the risk that a bankruptcy-triggered escrow release is itself an unenforceable insolvency provision: Raymond, source code escrow analysis, Pepperdine Journal of Business, Entrepreneurship and the Law, vol. 1, noting a trustee may assert that access to source code was not a right protected by section 365(n) because the trigger violates section 365(e). law.pepperdine.edu/jbel",
+        "Robot Eval, Which robot should you buy? A use-case guide for warehouse operators (this site), on treating vendor viability as part of the specification",
+      ] },
+    ],
+  },
   {
     slug: "rent-vs-buy-raas-math",
     title: "Rent vs. buy: the real math on Robots-as-a-Service",
@@ -54,7 +108,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "ul", items: [
         "The cost of capital. $590,000 spent on robots is money not spent elsewhere, and if you borrow it you pay interest. Rent spreads the cost with no upfront hit.",
         "Obsolescence. You own a six-year-old robot at the end. Renters get newer fleets as vendors upgrade.",
-        "Vendor failure. Zebra sold off its robot unit in 2026 and Attabotics went bankrupt in 2025 [8]. If you own the hardware you keep the asset but may lose the support. If you rent, the service can simply stop.",
+        "Vendor failure. Zebra sold off its robot unit in 2026 and Attabotics filed for creditor protection in 2025 [8]. If you own the hardware you keep the asset but may lose the support. If you rent, the service can simply stop.",
         "Seasonality. If your peak is twice your baseline, owning for the peak means paying for idle robots eleven months a year. Renting lets you scale up and hand them back [5].",
         "Residual value. A working six-year-old robot is worth something. That favours buying, and we left it out.",
       ] },
@@ -80,7 +134,7 @@ export const BLOG_POSTS: BlogPost[] = [
         "RaaS structural arguments (opex instead of capex, seasonal flex, bundled maintenance): Locus Robotics, What Is RaaS, locusrobotics.com/blog/what-is-raas-in-the-warehouse ; Automated Warehouse, Robots as a Service, automatedwarehouseonline.com/robots-as-a-service (note: the first is a vendor selling RaaS)",
         "Purchase-favours-long-horizon analyses: PickTheRobot 2026 cost guide (buy yields the lowest total cost over 4-6 years if utilisation stays high; RaaS monthly fees are usually higher over 3+ years but include support and faster fleet changes)",
         "DHL Supply Chain Insight 2030 survey, Nov 2025 (350 senior leaders): only 34% of VP-level leaders fully satisfied with warehouse robotics deployments, warehouseautomation.ca/news/dhl-report",
-        "Vendor exits and failures cited: DC Velocity, Zebra sells off its Fetch AMR division, Apr 2026 ; Global News, Attabotics bankruptcy, Jul 2025",
+        "Vendor exits and failures cited: DC Velocity, Zebra sells off its Fetch AMR division, Apr 2026 ; Global News and The Globe and Mail, Attabotics filed a Notice of Intention under Canada's Bankruptcy and Insolvency Act, Jul 2 2025 (a restructuring proceeding, not a bankruptcy assignment)",
         "Robot Eval, Ten questions to ask a robot vendor before you sign (this site)",
           "Service life and the conflicting maintenance figure: AutomationInside, Total Cost of Ownership for Robots and AMRs, Oct 2025, automationinside.com/article/total-cost-of-ownership-for-robots-and-amrs (plan for 5-7 years of service; an AMR with a $40k purchase price typically incurs $15k/year in operating costs). The 12-20% and 15-25% maintenance percentages come from Cleverence, Warehouse Automation Costs in 2026, cleverence.com/articles/business-blogs/cost-2026-warehouse-automation-4728",
           "Longer service-life claim (8-10 years with proper maintenance): NovusHi Tech AGV and AMR FAQ guide, novushitech.com/50-agv-amr-faqs-guide",
@@ -112,8 +166,8 @@ export const BLOG_POSTS: BlogPost[] = [
         "DHL Group press release, Mar 17 2026: before the technology-neutral software layer, new automation solutions took up to six to eight weeks to initiate; one integration later completed in three hours: group.dhl.com",
         "RoboticsTomorrow, May 2026, and Robotics & Automation News interview with Plus One Robotics, Jun 2026: fleet performance does not scale linearly; pilots that work with two units can fail with twenty",
         "US Bureau of Labor Statistics, series CES4349300003: $26.66/hour in May 2026 against $25.46 a year earlier, a 4.7% rise. All-employee average; production and nonsupervisory workers averaged $25.92",
-        "DC Velocity, Zebra sells off its Fetch AMR division (to Skild AI), Apr 2026",
-        "Global News, Attabotics bankruptcy, Jul 2025 (raised over $165M)",
+        "Zebra Technologies SEC filings (CIK 877212): FY2021 10-K, Fetch acquired Aug 9 2021 for total consideration of $301M ($290M cash plus $11M for an existing minority interest); FY2025 10-K, decision to exit the robotics business in Q4 2025; Q1 2026 10-Q, sale to Skild AI completed Mar 27 2026 for $20M total consideration, announced Apr 15 2026",
+        "Global News and The Globe and Mail, Attabotics filed a Notice of Intention under Canada's Bankruptcy and Insolvency Act, Jul 2 2025 (a restructuring proceeding, not a bankruptcy assignment) (raised over $165M)",
         "Robot Eval, Evaluation #1: when do robot failures actually begin? (this site): fix the pass mark before the trial",
       ] },
     ],
@@ -138,7 +192,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "Check the vendor's health" },
       { type: "p", text: "Robot companies are failing while demand grows. In the last 14 months:" },
       { type: "ul", items: [
-        "Zebra wound down and then sold the Fetch robot unit it had bought for $290M in 2021, completing the exit in April 2026 on undisclosed terms [11]",
+        "Zebra paid $301M for Fetch in 2021, then wound it down and sold the business in March 2026 for $20M of total consideration, about a 93% write-down [11]",
         "Attabotics filed for bankruptcy protection in July 2025, after raising over $165M [12]",
         "One tracker counted about $16M across two disclosed AMR rounds in early 2026, even as robotics venture funding overall hit a record [13]",
         "Geek+ became the first listed AMR company [14]",
@@ -165,8 +219,8 @@ export const BLOG_POSTS: BlogPost[] = [
         "Gartner press release, Jan 21 2026: through 2028, fewer than 20 companies will go live in production for supply chain and manufacturing use cases (this counts adopting companies, not vendors): gartner.com/en/newsroom",
         "Interact Analysis Mobile Robots Buyer Survey, published Jul 27, 2024 (300 buyers), therobotreport.com/what-do-customers-expect-from-mobile-robots. Superseded in part by Interact Analysis Voice of Market, May 2026: 61% now expect payback within 12 months",
         "US Bureau of Labor Statistics, series CES4349300003 (NAICS 493 average hourly earnings, all employees): $25.46 in May 2025 and $26.66 in May 2026, a 4.7% rise. Note this is the all-employee average; production and nonsupervisory workers averaged $25.92",
-        "DC Velocity, Zebra sells off its Fetch AMR division (to Skild AI), Apr 2026",
-        "Global News, Attabotics bankruptcy, Jul 2025",
+        "Zebra Technologies SEC filings (CIK 877212): FY2021 10-K, Fetch acquired Aug 9 2021 for total consideration of $301M ($290M cash plus $11M for an existing minority interest); FY2025 10-K, decision to exit the robotics business in Q4 2025; Q1 2026 10-Q, sale to Skild AI completed Mar 27 2026 for $20M total consideration, announced Apr 15 2026",
+        "Global News and The Globe and Mail, Attabotics filed a Notice of Intention under Canada's Bankruptcy and Insolvency Act, Jul 2 2025 (a restructuring proceeding, not a bankruptcy assignment)",
         "New Market Pitch AMR funding tracker (aggregator, treat as directional), 2026",
         "TMTPost, Geek+ lists on HKEX main board, Jul 2025",
         "DHL Supply Chain Insight 2030 survey, Nov 2025: only 34% of VP-level leaders fully satisfied with warehouse robotics deployments: warehouseautomation.ca/news/dhl-report",

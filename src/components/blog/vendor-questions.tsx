@@ -53,7 +53,7 @@ const QUESTIONS: Q[] = [
   },
   {
     q: "What happens to my robots if you shut down?",
-    why: "Zebra sold off its robot unit in 2026 [7]. Attabotics went bankrupt in 2025 [8].",
+    why: "Zebra sold off its robot unit in 2026 [7]. Attabotics filed for creditor protection in 2025 [8].",
     good: "Code and spare-parts escrow, plus support clauses that survive an acquisition.",
   },
 ];
