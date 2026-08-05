@@ -45,6 +45,14 @@ def main():
     telemetry = json.loads((DATA / "real-telemetry.json").read_text())
     df = pd.read_parquet(PARQUET)
 
+    # Honesty inputs: how our chosen bar compares to the benchmark's own.
+    all_eps = df["episode_index"].nunique()
+    max_reward = df.groupby("episode_index")["next.reward"].max()
+    ships_success_flag = "next.success" in df.columns
+    flag_true = int(df.groupby("episode_index")["next.success"].max().sum()) if ships_success_flag else None
+    standard_bar = int((max_reward >= 0.95).sum())   # gym-pusht: coverage > 0.95
+    our_bar_all = int((max_reward >= 0.9).sum())
+
     pusht = [e for e in episodes if e["datasetId"] == "lerobot-pusht"]
     outcome = {e["episodeId"]: e["outcome"]["success"] for e in pusht}
     duration = {e["episodeId"]: e["metrics"]["durationS"] for e in pusht}
@@ -158,7 +166,17 @@ def main():
             "successes": len(successes),
             "failures": len(failures),
             "successRatePct": round(100 * len(successes) / len(pusht), 1),
-            "successCriterion": "max coverage reward >= 0.9 (automatic)",
+            "successCriterion": "max coverage reward >= 0.9 (our bar, looser than the benchmark's)",
+            "benchmarkComparison": {
+                "episodesInSourceDataset": all_eps,
+                "datasetShipsSuccessFlag": ships_success_flag,
+                "episodesWhereDatasetFlagTrue": flag_true,
+                "standardBarSuccesses": standard_bar,
+                "standardBarNote": "gym-pusht terminates on coverage > 0.95; reward is coverage/0.95 clipped, so reward 0.9 is about 0.855 coverage",
+                "ourBarSuccessesFullDataset": our_bar_all,
+                "ourBarRateFullDatasetPct": round(100 * our_bar_all / all_eps, 1),
+                "maxRewardObserved": round(float(max_reward.max()), 3),
+            },
             "medianDurationSuccessS": round(st.median(duration[k] for k in successes), 1),
             "medianDurationFailureS": round(st.median(duration[k] for k in failures), 1),
         },
@@ -213,6 +231,9 @@ def main():
     print(f"peak-fallback median fraction "
           f"{report['detection']['peakFallback']['fractionOfEpisode']['median']}")
     print(f"exemplar: {exemplar} anomaly at {recomputed[exemplar]}s")
+    print(f"benchmark check: dataset success flag true for {flag_true}/{all_eps} episodes; "
+          f"standard bar (>=0.95) clears {standard_bar}; our bar (>=0.9) clears {our_bar_all} "
+          f"({round(100*our_bar_all/all_eps,1)}%); max reward observed {round(float(max_reward.max()),3)}")
 
 
 if __name__ == "__main__":

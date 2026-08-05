@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EnvelopeFigure, OutcomesFigure, TimingFigure } from "@/components/blog/eval-figures";
+import { UseCaseCards } from "@/components/blog/usecase-cards";
+import { VendorQuestions } from "@/components/blog/vendor-questions";
+import { BreakevenChart, BreakevenGrid } from "@/components/blog/raas-figures";
 import { BLOG_POSTS, formatPostDate, getPost, type BlogBlock } from "@/data/blog-posts";
 
 // Client components must be imported as named exports to stay valid
@@ -11,6 +14,10 @@ const FIGURES = {
   outcomes: OutcomesFigure,
   envelope: EnvelopeFigure,
   timing: TimingFigure,
+  usecases: UseCaseCards,
+  questions: VendorQuestions,
+  "raas-chart": BreakevenChart,
+  "raas-grid": BreakevenGrid,
 } as const;
 
 export function generateStaticParams() {

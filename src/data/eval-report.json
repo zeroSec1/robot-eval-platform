@@ -28,7 +28,17 @@
   "successes": 25,
   "failures": 27,
   "successRatePct": 48.1,
-  "successCriterion": "max coverage reward >= 0.9 (automatic)",
+  "successCriterion": "max coverage reward >= 0.9 (our bar, looser than the benchmark's)",
+  "benchmarkComparison": {
+   "episodesInSourceDataset": 206,
+   "datasetShipsSuccessFlag": true,
+   "episodesWhereDatasetFlagTrue": 0,
+   "standardBarSuccesses": 0,
+   "standardBarNote": "gym-pusht terminates on coverage > 0.95; reward is coverage/0.95 clipped, so reward 0.9 is about 0.855 coverage",
+   "ourBarSuccessesFullDataset": 92,
+   "ourBarRateFullDatasetPct": 44.7,
+   "maxRewardObserved": 0.949
+  },
   "medianDurationSuccessS": 13.6,
   "medianDurationFailureS": 10.5
  },

@@ -1,0 +1,340 @@
+{
+ "generatedBy": "scripts/build-raas-model.py",
+ "assumptions": {
+  "unitPriceUSD": {
+   "low": 30000,
+   "mid": 55000,
+   "high": 80000
+  },
+  "monthlyRentPerRobotUSD": {
+   "low": 2000,
+   "mid": 3000,
+   "high": 4000,
+   "ceiling": 8000
+  },
+  "annualMaintenanceShareOfCapex": 0.15,
+  "oneTimeIntegrationUSD": 40000,
+  "serviceLifeMonths": 72,
+  "note": "All inputs are published industry estimates, not audited vendor prices."
+ },
+ "byFleet": [
+  {
+   "fleet": 3,
+   "breakevenMonths": 29.5,
+   "beyondServiceLife": false
+  },
+  {
+   "fleet": 5,
+   "breakevenMonths": 27.2,
+   "beyondServiceLife": false
+  },
+  {
+   "fleet": 10,
+   "breakevenMonths": 25.5,
+   "beyondServiceLife": false
+  },
+  {
+   "fleet": 20,
+   "breakevenMonths": 24.6,
+   "beyondServiceLife": false
+  },
+  {
+   "fleet": 50,
+   "breakevenMonths": 24.1,
+   "beyondServiceLife": false
+  }
+ ],
+ "horizons": {
+  "6y": {
+   "months": 72,
+   "buyUSD": 1085000,
+   "rentUSD": 2160000,
+   "rentMinusBuyUSD": 1075000
+  },
+  "8y": {
+   "months": 96,
+   "buyUSD": 1250000,
+   "rentUSD": 2880000,
+   "rentMinusBuyUSD": 1630000
+  },
+  "10y": {
+   "months": 120,
+   "buyUSD": 1415000,
+   "rentUSD": 3600000,
+   "rentMinusBuyUSD": 2185000
+  }
+ },
+ "grid": [
+  [
+   {
+    "priceKey": "low",
+    "rentKey": "low",
+    "price": 30000,
+    "rent": 2000,
+    "breakevenMonths": 20.9,
+    "beyondServiceLife": false
+   },
+   {
+    "priceKey": "low",
+    "rentKey": "mid",
+    "price": 30000,
+    "rent": 3000,
+    "breakevenMonths": 13.0,
+    "beyondServiceLife": false
+   },
+   {
+    "priceKey": "low",
+    "rentKey": "high",
+    "price": 30000,
+    "rent": 4000,
+    "breakevenMonths": 9.4,
+    "beyondServiceLife": false
+   },
+   {
+    "priceKey": "low",
+    "rentKey": "ceiling",
+    "price": 30000,
+    "rent": 8000,
+    "breakevenMonths": 4.5,
+    "beyondServiceLife": false
+   }
+  ],
+  [
+   {
+    "priceKey": "mid",
+    "rentKey": "low",
+    "price": 55000,
+    "rent": 2000,
+    "breakevenMonths": 45.0,
+    "beyondServiceLife": false
+   },
+   {
+    "priceKey": "mid",
+    "rentKey": "mid",
+    "price": 55000,
+    "rent": 3000,
+    "breakevenMonths": 25.5,
+    "beyondServiceLife": false
+   },
+   {
+    "priceKey": "mid",
+    "rentKey": "high",
+    "price": 55000,
+    "rent": 4000,
+    "breakevenMonths": 17.8,
+    "beyondServiceLife": false
+   },
+   {
+    "priceKey": "mid",
+    "rentKey": "ceiling",
+    "price": 55000,
+    "rent": 8000,
+    "breakevenMonths": 8.1,
+    "beyondServiceLife": false
+   }
+  ],
+  [
+   {
+    "priceKey": "high",
+    "rentKey": "low",
+    "price": 80000,
+    "rent": 2000,
+    "breakevenMonths": 84.0,
+    "beyondServiceLife": true
+   },
+   {
+    "priceKey": "high",
+    "rentKey": "mid",
+    "price": 80000,
+    "rent": 3000,
+    "breakevenMonths": 42.0,
+    "beyondServiceLife": false
+   },
+   {
+    "priceKey": "high",
+    "rentKey": "high",
+    "price": 80000,
+    "rent": 4000,
+    "breakevenMonths": 28.0,
+    "beyondServiceLife": false
+   },
+   {
+    "priceKey": "high",
+    "rentKey": "ceiling",
+    "price": 80000,
+    "rent": 8000,
+    "breakevenMonths": 12.0,
+    "beyondServiceLife": false
+   }
+  ]
+ ],
+ "gridSummary": {
+  "cells": 12,
+  "solvedCells": 12,
+  "neverBreakEven": 0,
+  "withinServiceLife": 11,
+  "beyondServiceLife": 1,
+  "fastestMonths": 4.5,
+  "slowestMonths": 84.0
+ },
+ "figure": {
+  "fleet": 10,
+  "price": 55000,
+  "rent": 3000,
+  "horizonMonths": 72,
+  "buyCumulative": [
+   590000,
+   596875,
+   603750,
+   610625,
+   617500,
+   624375,
+   631250,
+   638125,
+   645000,
+   651875,
+   658750,
+   665625,
+   672500,
+   679375,
+   686250,
+   693125,
+   700000,
+   706875,
+   713750,
+   720625,
+   727500,
+   734375,
+   741250,
+   748125,
+   755000,
+   761875,
+   768750,
+   775625,
+   782500,
+   789375,
+   796250,
+   803125,
+   810000,
+   816875,
+   823750,
+   830625,
+   837500,
+   844375,
+   851250,
+   858125,
+   865000,
+   871875,
+   878750,
+   885625,
+   892500,
+   899375,
+   906250,
+   913125,
+   920000,
+   926875,
+   933750,
+   940625,
+   947500,
+   954375,
+   961250,
+   968125,
+   975000,
+   981875,
+   988750,
+   995625,
+   1002500,
+   1009375,
+   1016250,
+   1023125,
+   1030000,
+   1036875,
+   1043750,
+   1050625,
+   1057500,
+   1064375,
+   1071250,
+   1078125,
+   1085000
+  ],
+  "rentCumulative": [
+   0,
+   30000,
+   60000,
+   90000,
+   120000,
+   150000,
+   180000,
+   210000,
+   240000,
+   270000,
+   300000,
+   330000,
+   360000,
+   390000,
+   420000,
+   450000,
+   480000,
+   510000,
+   540000,
+   570000,
+   600000,
+   630000,
+   660000,
+   690000,
+   720000,
+   750000,
+   780000,
+   810000,
+   840000,
+   870000,
+   900000,
+   930000,
+   960000,
+   990000,
+   1020000,
+   1050000,
+   1080000,
+   1110000,
+   1140000,
+   1170000,
+   1200000,
+   1230000,
+   1260000,
+   1290000,
+   1320000,
+   1350000,
+   1380000,
+   1410000,
+   1440000,
+   1470000,
+   1500000,
+   1530000,
+   1560000,
+   1590000,
+   1620000,
+   1650000,
+   1680000,
+   1710000,
+   1740000,
+   1770000,
+   1800000,
+   1830000,
+   1860000,
+   1890000,
+   1920000,
+   1950000,
+   1980000,
+   2010000,
+   2040000,
+   2070000,
+   2100000,
+   2130000,
+   2160000
+  ],
+  "breakevenMonths": 25.5,
+  "sixYearBuyUSD": 1085000,
+  "sixYearRentUSD": 2160000,
+  "sixYearDifferenceUSD": 1075000
+ }
+}

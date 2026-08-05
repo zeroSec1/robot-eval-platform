@@ -68,7 +68,7 @@ check("exemplar is an envelope-drop failure",
 
 print("== 3. post prose quotes exactly what the report says ==")
 src = POSTS.read_text()
-post = src[src.index('"evaluation-1-failure-timing"'):src.index('"real-anomaly-markers"')]
+post = src[src.index('"evaluation-1-failure-timing"'):src.index('export function getPost')]
 p = r["pusht"]
 oxe = r["scoredDatasets"]["oxe-columbia-pusht-real"]
 expected = {
