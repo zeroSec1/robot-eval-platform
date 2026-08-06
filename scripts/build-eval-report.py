@@ -116,6 +116,26 @@ def main():
     # Measured false-positive check: envelope-drop rule applied to successes.
     flagged_successes = [k for k in successes if detect_drop(reward[k]) is not None]
 
+    # Discrimination. This is the comparison that decides whether the rule
+    # works at all, and the first version of this report did not compute it.
+    tp = sum(1 for k in failures if detect_drop(reward[k]) is not None)
+    fp = len(flagged_successes)
+    tpr = tp / len(failures)
+    fpr = fp / len(successes)
+    precision = tp / (tp + fp) if (tp + fp) else 0.0
+    base_rate = len(failures) / (len(failures) + len(successes))
+
+    # Peak-reward distribution, to show whether the pass mark separates two
+    # populations or splits one.
+    peaks = np.array([reward[k].max() for k in successes + failures])
+    peak_stats = {
+        "mean": round(float(peaks.mean()), 4),
+        "std": round(float(peaks.std(ddof=1)), 4),
+        "min": round(float(peaks.min()), 4),
+        "max": round(float(peaks.max()), 4),
+        "barPercentile": round(float((peaks < 0.9).mean() * 100)),
+    }
+
     drop_eps = sorted((k for k in failures if method[k] == "envelope-drop"),
                       key=lambda k: recomputed[k])
     peak_eps = sorted((k for k in failures if method[k] == "peak-fallback"),
@@ -189,6 +209,17 @@ def main():
             },
             "successesFlaggedByDropRule": len(flagged_successes),
             "successesTotal": len(successes),
+            "discrimination": {
+                "truePositives": tp,
+                "falsePositives": fp,
+                "tprPct": round(100 * tpr, 1),
+                "fprPct": round(100 * fpr, 1),
+                "precisionPct": round(100 * precision, 1),
+                "baseRatePct": round(100 * base_rate, 1),
+                "discriminates": bool(tpr > fpr),
+                "note": "The rule fires more often on passing trials than failing ones, so it has no discriminative power on this data.",
+            },
+            "peakRewardDistribution": peak_stats,
             "envelopeDrop": {
                 "timesS": {"min": drop_times[0],
                            "median": round(st.median(drop_times), 1),
@@ -226,6 +257,11 @@ def main():
           f"({report['pusht']['successRatePct']}%)")
     print(f"methods: envelope-drop {len(drop_eps)}, peak-fallback {len(peak_eps)}")
     print(f"successes flagged by drop rule: {len(flagged_successes)}/{len(successes)}")
+    print(f"DISCRIMINATION: TPR {100*tpr:.1f}% vs FPR {100*fpr:.1f}% -> "
+          f"{'discriminates' if tpr > fpr else 'NO DISCRIMINATION'}; "
+          f"precision {100*precision:.1f}% vs base rate {100*base_rate:.1f}%")
+    print(f"peak reward: mean {peak_stats['mean']} sd {peak_stats['std']}, "
+          f"0.9 bar sits at the {peak_stats['barPercentile']}th percentile")
     print(f"envelope-drop times s: {report['detection']['envelopeDrop']['timesS']}, "
           f"median fraction {report['detection']['envelopeDrop']['fractionOfEpisode']['median']}")
     print(f"peak-fallback median fraction "

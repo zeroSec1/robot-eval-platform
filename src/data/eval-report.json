@@ -51,6 +51,23 @@
   },
   "successesFlaggedByDropRule": 10,
   "successesTotal": 25,
+  "discrimination": {
+   "truePositives": 8,
+   "falsePositives": 10,
+   "tprPct": 29.6,
+   "fprPct": 40.0,
+   "precisionPct": 44.4,
+   "baseRatePct": 51.9,
+   "discriminates": false,
+   "note": "The rule fires more often on passing trials than failing ones, so it has no discriminative power on this data."
+  },
+  "peakRewardDistribution": {
+   "mean": 0.8935,
+   "std": 0.0249,
+   "min": 0.8282,
+   "max": 0.9489,
+   "barPercentile": 52
+  },
   "envelopeDrop": {
    "timesS": {
     "min": 5.0,
