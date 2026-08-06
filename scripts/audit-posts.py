@@ -37,11 +37,15 @@ def posts():
 
 print("== 1. citation integrity ==")
 for slug, body in posts():
-    src_block = re.search(r'\{ type: "ol", items: \[(.*?)\n\s*\] \}', body, re.S)
+    # The Sources list is the ordered list that FOLLOWS the "Sources" heading.
+    # Any other ol in the body is article content, not a bibliography.
+    head = body.find('text: "Sources"')
+    tail = body[head:] if head != -1 else ""
+    src_block = re.search(r'\{ type: "ol", items: \[(.*?)\n\s*\] \}', tail, re.S)
     if not src_block:
-        src_block = re.search(r'"ol",\s*items:\s*\[(.*?)\]\s*\}', body, re.S)
+        src_block = re.search(r'"ol",\s*items:\s*\[(.*?)\]\s*\}', tail, re.S)
     n_sources = len(re.findall(r'\n\s+"', src_block.group(1))) if src_block else 0
-    prose = body[: body.index('type: "ol"')] if 'type: "ol"' in body else body
+    prose = body[:head] if head != -1 else body
     # Citation markers also live in the figure components a post renders.
     # Resolve figure key -> component name from the page's FIGURES map, then
     # find the file that exports that component.
