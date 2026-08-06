@@ -10,7 +10,7 @@ export type BlogBlock =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
-  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" | "funding" | "scorecard" | "comparison" | "record" | "detectability" | "claims" | "rate-questions" | "heights" | "floors" };
+  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" | "funding" | "scorecard" | "comparison" | "record" | "detectability" | "claims" | "rate-questions" | "heights" | "floors" | "hinge" | "clauses" };
 
 export type BlogPost = {
   slug: string;
@@ -22,6 +22,53 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "robot-pilot-contract",
+    title: "How to write a robot pilot contract: the clause that decides who eats the loss",
+    date: "2026-08-06",
+    summary:
+      "Acceptance is the hinge. Before it, the vendor must prove the system works; after it, you must prove it does not, and you can lose that right by staying quiet. Six clauses drawn from real filed agreements, plus a 2025 case where a buyer paid $129,725, never received the machine, and recovered only what it had paid.",
+    tags: ["buyer-guide", "warehouse-robotics", "contracts"],
+    body: [
+      { type: "p", text: "We are not lawyers and this is not legal advice. Get a lawyer to write your contract. What follows is source material to take to that lawyer, drawn from statute, from real agreements filed with the SEC, and from a 2025 court decision, all quoted directly so you can check every word." },
+      { type: "p", text: "We are writing it because pilot contracts are where robot deployments quietly go wrong. The technology arguments happen in the open. The clause that decides who absorbs a failed pilot is signed months earlier, usually without much argument at all." },
+      { type: "h2", text: "One moment decides almost everything" },
+      { type: "p", text: "In United States law, a pilot where you may return conforming equipment is a 'sale on approval'. That phrase carries real consequences. Under the default rules, title and risk of loss stay with the vendor until you accept [1][2]." },
+      { type: "p", text: "Acceptance is therefore the hinge. Everything about who carries the loss flips at that one moment." },
+      { type: "figure", figure: "hinge" },
+      { type: "p", text: "Look closely at the third row, because it is the trap most operators walk into. Running the robots during the trial is not acceptance. But failing to tell the vendor in time that you are sending them back is acceptance [2]. Silence is the thing that binds you, not use." },
+      { type: "p", text: "The fifth row matters just as much. Once you have accepted, the burden is on you to establish any breach [3]. Before acceptance the vendor has to show the system works. After it, you must prove it does not. You do that using whatever records you happened to keep. That asymmetry is the whole reason to keep a proper trial log, which is a subject we have written about separately." },
+      { type: "h2", text: "Your test protocol is probably exclusive" },
+      { type: "p", text: "Here is a detail worth the price of a lawyer on its own. Under the default rules, a place or method of inspection fixed by the parties is presumed to be exclusive [4]." },
+      { type: "p", text: "Read that in the context of a pilot. If your contract defines an acceptance test, that test is presumed to be the only test. Say it measures throughput but never measures how often a person has to step in. You have not merely failed to test for intervention rate. You may have contracted away the right to raise it." },
+      { type: "p", text: "So the acceptance test is not paperwork to be finalised later. It is the specification. Write it before you sign, and make it measure the things that would actually make the system useless to you." },
+      { type: "h2", text: "Six clauses, taken from contracts that really exist" },
+      { type: "p", text: "Rather than invent a template, we pulled language from agreements filed publicly with the SEC: Walmart's automation agreement with Symbotic [6], and Target's with Berkshire Grey [7]. These are what large operators with real leverage actually negotiated." },
+      { type: "figure", figure: "clauses" },
+      { type: "p", text: "Two of them deserve extra attention." },
+      { type: "p", text: "The manual fulfillment clause is the sharpest thing we found. If the system misses its go-live milestone, the vendor reimburses the cost of shipping orders by hand until it works [7]. It answers a question operators rarely put in writing: who pays for the labour you could not release. Note that two conditions attached to this obligation are redacted in the filing, so we cannot see what limits it." },
+      { type: "p", text: "The data clause is the one we would most want a buyer to read twice. In the Walmart agreement the vendor owns all right, title and interest in the data the system generates inside Walmart's own buildings [6]. Walmart negotiated back one narrow carve-out: the data showing what product went to which store. That is Walmart, with about as much leverage as a buyer can have. It is a fair guide to what a mid-sized operator should expect to be offered." },
+      { type: "h2", text: "What happens if you just sign the vendor's paper" },
+      { type: "p", text: "In July 2025 a Wisconsin appeals court decided a case that puts a number on this. A buyer ordered a custom packaging machine for $259,450 and paid $129,725 up front. The vendor never delivered it. The court found the vendor had breached." },
+      { type: "p", text: "The buyer still recovered only the money it had already paid, and no consequential damages. The vendor's own warranty clause capped its maximum liability at the amount paid to it. The court held that limit did not fail of its essential purpose [5]. The clause covered not just faulty equipment but 'failure to supply' it at all, which is how a total non-delivery ended up governed by a warranty term." },
+      { type: "p", text: "One caution on how much weight to put on this. It is a state intermediate appellate decision with a dissent, so it does not bind courts elsewhere. We cite it as a concrete illustration of a limitation clause working exactly as written, not as settled national law." },
+      { type: "p", text: "The lesson is not that vendors are villains. Their standard terms are written to protect them, which is what standard terms are for. The lesson is that those terms are the default only until someone negotiates them, and on a pilot the person with the most to lose is usually the one who does not." },
+      { type: "h2", text: "Where this connects to the rest of the work" },
+      { type: "p", text: "A contract can only enforce what someone measured. If your acceptance test says the system must hit a pick rate, that number needs conditions attached or it will not survive a dispute, which is the argument we made about vendor performance claims. And if you cannot produce a trial record afterwards, the burden that lands on you at acceptance is one you cannot discharge." },
+      { type: "p", text: "Write the pass mark before the pilot. Record every trial. Then put both in the contract. That sequence is the same one we use in our own evaluations, including the one where it caught us out." },
+      { type: "h2", text: "Sources" },
+      { type: "p", text: "Statutory text is the uniform Uniform Commercial Code as published by Cornell's Legal Information Institute. Every state enacts its own version, with variations and its own numbering, so check your state's text. Contract language is quoted from exhibits filed with the SEC and is reproduced verbatim in Figure 2's underlying data. We have not spoken to any party to these agreements, and portions of both are redacted, which we flag where it affects the point." },
+      { type: "ol", items: [
+        "UCC 2-326, Sale on Approval and Sale or Return, law.cornell.edu: 'if delivered goods may be returned by the buyer even though they conform to the contract, the transaction is (a) a \"sale on approval\" if the goods are delivered primarily for use'.",
+        "UCC 2-327, Special Incidents of Sale on Approval and Sale or Return, law.cornell.edu: 'the risk of loss and the title do not pass to the buyer until acceptance'; 'use of the goods consistent with the purpose of trial is not acceptance but failure seasonably to notify the seller of election to return the goods is acceptance'.",
+        "UCC 2-607, Effect of Acceptance, law.cornell.edu: '(1) The buyer must pay at the contract rate for any goods accepted'; '(3)(a) the buyer must within a reasonable time after he discovers or should have discovered any breach notify the seller of breach or be barred from any remedy'; '(4) The burden is on the buyer to establish any breach with respect to the goods accepted'.",
+        "UCC 2-513, Buyer's Right to Inspection of Goods, law.cornell.edu: 'A place or method of inspection fixed by the parties is presumed to be exclusive'.",
+        "Buddy's Plant Plus Corp. v. Viking Masek Global Packaging Technologies, LLC, 2025 WI App 46, Wisconsin Court of Appeals, decided 30 July 2025, appeal no. 2023AP2428, opinion PDF at wicourts.gov. Grogan, J., dissenting.",
+        "Amended and Restated Master Automation Agreement among Walmart Inc., Symbotic LLC and Warehouse Technologies LLC, dated 29 January 2019, filed as Exhibit 10.29 with the SEC (CIK 0001837240).",
+        "Master Agreement and Project Agreement for Automated Material Handling Solution between Berkshire Grey, Inc. and Target Corporation, effective 31 January 2018, filed as Exhibits 10.25 and 10.26 with the SEC (CIK 0001824734).",
+      ] },
+    ],
+  },
   {
     slug: "amr-agv-cube-storage-fit",
     title: "AMR, AGV or cube storage: your building decides more than your robot does",

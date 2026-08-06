@@ -13,6 +13,7 @@ import { BarComparison, RecordChecklist } from "@/components/blog/method-figures
 import { DetectabilityCurve } from "@/components/blog/detectability-figure";
 import { ClaimsScorecard, RateQuestions } from "@/components/blog/pickrate-figures";
 import { HeightComparison, FloorStandards } from "@/components/blog/architecture-figures";
+import { AcceptanceHinge, ClauseChecklist } from "@/components/blog/contract-figures";
 import { BLOG_POSTS, formatPostDate, getPost, type BlogBlock } from "@/data/blog-posts";
 
 // Client components must be imported as named exports to stay valid
@@ -39,6 +40,8 @@ const FIGURES = {
   "rate-questions": RateQuestions,
   heights: HeightComparison,
   floors: FloorStandards,
+  hinge: AcceptanceHinge,
+  clauses: ClauseChecklist,
 } as const;
 
 export function generateStaticParams() {
