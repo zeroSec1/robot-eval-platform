@@ -10,7 +10,7 @@ export type BlogBlock =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
-  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" };
+  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" };
 
 export type BlogPost = {
   slug: string;
@@ -91,6 +91,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "How big the gap was between plan and outcome" },
       { type: "p", text: "When the partnership launched in 2018, the two companies identified 20 potential sites. They opened eight [8]. Three closed in January 2026, one planned site in Charlotte was cancelled [3], and five remain. The chief financial officer said the retained sites would be monitored 'with a focus on improving operating efficiency'." },
       { type: "p", text: "So a programme scoped at 20 sites delivered eight, kept five, and wrote off $2.5 billion on the way [4]." },
+      { type: "figure", figure: "funnel" },
       { type: "h2", text: "Four causes, each with evidence" },
       { type: "p", text: "Kroger never named a root cause. Its filings and its critics between them make four visible." },
       { type: "p", text: "Not enough orders. Kroger says it will keep using automation 'in geographies where Kroger sees higher density of demand' [3]. A former Kroger executive was blunter. The centres were 'just not processing enough orders to pay for all that technology investment you had to make' [5]." },
@@ -99,6 +100,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "p", text: "Throughput that never covered the capital. This is the accounting consequence of the first three, and it is what the recoverability test measured [2]." },
       { type: "h2", text: "The warnings were visible two years early" },
       { type: "p", text: "Kroger paused development of new fulfilment centres in September 2023. In March 2024 it closed three smaller spoke facilities, with a spokesperson saying they 'did not meet the benchmarks we set for success' [6]. The full site-by-site review came in September 2025, and the write-off followed in November." },
+      { type: "figure", figure: "timeline" },
       { type: "p", text: "So the operator had benchmarks, had sites failing them, and kept the network running for two more years. The lesson is not that nobody measured. It is that measuring is only useful if a failing number triggers a decision." },
       { type: "h2", text: "What was never disclosed, and why that matters to you" },
       { type: "p", text: "Neither company has ever published a throughput figure for any of these sites. No utilisation number. No orders per site. Ocado called the closed sites 'underutilised' without quantifying it [7]. The public record of the sector's largest automation failure contains no operating metric at all." },

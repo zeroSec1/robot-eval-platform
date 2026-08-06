@@ -1,0 +1,78 @@
+{
+ "generatedBy": "scripts/build-kroger-figures.py",
+ "funnel": [
+  {
+   "stage": "Sites identified in 2018",
+   "count": 20,
+   "note": "candidate locations at partnership launch"
+  },
+  {
+   "stage": "Facilities actually opened",
+   "count": 8,
+   "note": "Monroe, Groveland, Forest Park, Dallas, Pleasant Prairie, Romulus, Aurora, Frederick"
+  },
+  {
+   "stage": "Still open after January 2026",
+   "count": 5,
+   "note": "three closed, one planned site cancelled"
+  }
+ ],
+ "funnelAttrition": {
+  "identifiedToOpened": 60,
+  "openedToRemaining": 38,
+  "identifiedToRemaining": 75
+ },
+ "timeline": [
+  {
+   "date": "2018",
+   "sort": 2018.0,
+   "label": "Partnership launched",
+   "kind": "milestone"
+  },
+  {
+   "date": "Apr 2021",
+   "sort": 2021.3,
+   "label": "First site opens, Monroe OH",
+   "kind": "milestone"
+  },
+  {
+   "date": "Sep 2023",
+   "sort": 2023.7,
+   "label": "Development of new sites paused",
+   "kind": "warning"
+  },
+  {
+   "date": "Mar 2024",
+   "sort": 2024.2,
+   "label": "Three spoke sites closed, missed benchmarks",
+   "kind": "warning"
+  },
+  {
+   "date": "Sep 2025",
+   "sort": 2025.7,
+   "label": "Site-by-site review announced",
+   "kind": "warning"
+  },
+  {
+   "date": "Nov 2025",
+   "sort": 2025.9,
+   "label": "$2.6B impairment announced",
+   "kind": "writeoff"
+  },
+  {
+   "date": "Jan 2026",
+   "sort": 2026.05,
+   "label": "Three sites close",
+   "kind": "writeoff"
+  }
+ ],
+ "warningLeadYears": 2.2,
+ "charges": {
+  "q3ChargeGross": 2585,
+  "q3ChargeNetOfTax": 1968,
+  "fullYearGross": 2497,
+  "fullYearNetOfTax": 1908,
+  "cashToOcado": 350,
+  "note": "Q3 charge of $2,585M was revised to $2,497M for the full year, so about $88M reversed in Q4."
+ }
+}
