@@ -1,0 +1,78 @@
+{
+ "generatedBy": "scripts/build-detectability.py",
+ "episodes": 206,
+ "passed": 92,
+ "failed": 114,
+ "bar": 0.9,
+ "aucCurve": [
+  {
+   "watchedFraction": 0.2,
+   "auc": 0.453
+  },
+  {
+   "watchedFraction": 0.4,
+   "auc": 0.511
+  },
+  {
+   "watchedFraction": 0.6,
+   "auc": 0.55
+  },
+  {
+   "watchedFraction": 0.8,
+   "auc": 0.613
+  },
+  {
+   "watchedFraction": 0.9,
+   "auc": 0.662
+  },
+  {
+   "watchedFraction": 0.95,
+   "auc": 0.674
+  },
+  {
+   "watchedFraction": 1.0,
+   "auc": 1.0
+  }
+ ],
+ "earlyFeatures": [
+  {
+   "feature": "coverage mean, first 40%",
+   "auc": 0.503
+  },
+  {
+   "feature": "agent speed mean, first 40%",
+   "auc": 0.445
+  },
+  {
+   "feature": "agent speed variability, first 40%",
+   "auc": 0.508
+  },
+  {
+   "feature": "tracking error mean, first 40%",
+   "auc": 0.442
+  },
+  {
+   "feature": "tracking error variability, first 40%",
+   "auc": 0.511
+  },
+  {
+   "feature": "trial length",
+   "auc": 0.589
+  }
+ ],
+ "bestEarlyFeature": {
+  "feature": "trial length",
+  "auc": 0.589
+ },
+ "verdict": {
+  "anyEarlySignal": false,
+  "aucAt40Pct": 0.511,
+  "aucAt95Pct": 0.674,
+  "note": "The outcome only becomes rankable in the final frames, so no early-warning method can work on this dataset."
+ },
+ "peakDistribution": {
+  "mean": 0.8923,
+  "std": 0.0265,
+  "barPercentile": 55
+ }
+}

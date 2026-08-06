@@ -10,7 +10,7 @@ export type BlogBlock =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
-  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" | "funding" | "scorecard" | "comparison" | "record" };
+  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" | "funding" | "scorecard" | "comparison" | "record" | "detectability" };
 
 export type BlogPost = {
   slug: string;
@@ -61,6 +61,10 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "p", text: "After publishing this, a second check found that the detector described in steps 3 and 4 does not discriminate on our data. It fires on 40% of passing trials and only 29.6% of failing ones. Firing more on the good runs than the bad ones means it carries no signal, and its precision is below what you would get by calling everything a failure." },
       { type: "p", text: "The cause is upstream of the detector. Peak performance in this dataset is one tight cluster, mean 0.89 with a standard deviation of 0.025, so our pass mark cut a single population near its middle rather than separating two. Step 5 is what caught it, eventually. Step 5 done properly, comparing the false-alarm rate against the hit rate rather than reporting it alone, would have caught it immediately." },
       { type: "p", text: "So take the five steps, and take this with them: a detector that fires more often on your good runs than your bad ones is not a detector. Compare the two rates. We reported ours side by side only after someone else did it for us." },
+      { type: "h2", text: "Step 6, which we learned the hard way: prove the detector beats a coin flip" },
+      { type: "p", text: "Before trusting any early-warning rule, including your own, check two things. First, does it fire more often on bad runs than good ones? If not, it carries no signal, whatever its hit rate looks like alone." },
+      { type: "p", text: "Second, and better, measure whether the outcome is predictable at all. Watch the first part of each trial, rank the trials by whatever feature you like, and compute the AUC against what actually happened. On our data that number sits at a coin flip for most of the trial. When we ran it properly, the answer was that nothing could be predicted early, so no rule could have worked." },
+      { type: "p", text: "This is the step that turns an evaluation into evidence. Without it you cannot tell a detector from a coin, and we could not either." },
       { type: "h2", text: "What is actually hard" },
       { type: "ul", items: [
         "Getting a usable signal out of the robot at all. Many systems expose a dashboard and no export.",
@@ -503,7 +507,14 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "p", text: "Put the two numbers below side by side, which we never did. The rule fires on 8 of the 27 trials we called failures, a 29.6% hit rate. It fires on 10 of the 25 we called passes, a 40% false-alarm rate. It fires MORE often on the good trials than the bad ones. A rule that does that has no discriminative power at all. Its precision when it fires is 44.4%, which is worse than the 51.9% you would get by labelling every trial a failure without looking." },
       { type: "p", text: "There is a reason, and it is structural rather than a tuning problem. Peak reward across these episodes has a mean of 0.89 and a standard deviation of 0.025, and our 0.9 bar sits near the middle of that. We were not separating two populations of good and bad runs. We were splitting one tight population near its median and then asking a detector to recover a boundary that was never there." },
       { type: "p", text: "Two further claims in the original version do not survive either. We described 19 trials as having run out of time. There is no time limit in this data: episode lengths run from 49 to 246 frames with only one at the maximum, so nothing was truncated by a clock. And these are not robots. The source is a 2D physics simulation driven by a person with a mouse, which our platform records correctly but this article described loosely." },
-      { type: "p", text: "We are leaving the original analysis below so the record is legible, but read it as a worked example of a method failing, not succeeding. The honest conclusion is that this dataset cannot support the demonstration we built on it." },
+      { type: "p", text: "We are leaving the original analysis below so the record is legible, but read it as a worked example of a method failing, not succeeding." },
+      { type: "h2", text: "The fix: ask whether anything is predictable at all" },
+      { type: "p", text: "Retracting is not enough, so we ran the test we should have run first. Instead of asking when our rule fires, ask a prior question: watching the first part of a trial, how well can you rank which trials end well? The standard measure is AUC, where 0.5 is a coin flip and 1.0 is perfect." },
+      { type: "figure", figure: "detectability" },
+      { type: "p", text: "The answer is that nothing is predictable until the end. After watching 40% of a trial the AUC is 0.51, a coin flip. At 95% it is still 0.67. It only reaches 1.0 at 100%, and that is circular, because the outcome is defined by the final value." },
+      { type: "p", text: "We also checked the signals that are not the labelling variable, since a multimodal method is supposed to draw on independent channels. Agent speed and tracking error, measured over the first 40%, score AUC 0.44 to 0.51. The best feature of any kind was simply how long the trial ran, at 0.59. None of that is a signal." },
+      { type: "p", text: "So the conclusion is not that our detector needed tuning. It is that no early-warning method can work on this dataset, and any method that appears to work here is fitting noise. That is a stronger and more useful result than the one we originally published, and it is the test we now run before believing any predictive monitoring claim, including our own." },
+      { type: "p", text: "For a buyer, this becomes a question to ask a vendor selling predictive maintenance or early fault detection: show the curve above for your system. If it only rises at the end, the product is reporting failures, not predicting them." },
       { type: "h2", text: "We measured our own detector too" },
       { type: "p", text: "Run the same rule on the passing trials. It fires on 10 of the 25 at some point. That is a 40% false-alarm rate at this threshold, because passing runs also dip below the line and recover. One caveat we owe you: the envelope is built from those same 25 trials, so this is an in-sample estimate. A held-out set would almost certainly score worse. We publish the number on purpose. Every monitoring rule trades sensitivity against false alarms. An evaluation that hides its own error rate is marketing." },
       { type: "h2", text: "Check our work" },
