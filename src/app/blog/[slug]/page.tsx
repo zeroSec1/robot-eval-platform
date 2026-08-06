@@ -11,6 +11,7 @@ import { SiteFunnel, WarningTimeline } from "@/components/blog/kroger-figures";
 import { FundingChart, DisclosureScorecard } from "@/components/blog/humanoid-figures";
 import { BarComparison, RecordChecklist } from "@/components/blog/method-figures";
 import { DetectabilityCurve } from "@/components/blog/detectability-figure";
+import { ClaimsScorecard, RateQuestions } from "@/components/blog/pickrate-figures";
 import { BLOG_POSTS, formatPostDate, getPost, type BlogBlock } from "@/data/blog-posts";
 
 // Client components must be imported as named exports to stay valid
@@ -33,6 +34,8 @@ const FIGURES = {
   comparison: BarComparison,
   record: RecordChecklist,
   detectability: DetectabilityCurve,
+  claims: ClaimsScorecard,
+  "rate-questions": RateQuestions,
 } as const;
 
 export function generateStaticParams() {

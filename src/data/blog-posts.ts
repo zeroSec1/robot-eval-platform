@@ -10,7 +10,7 @@ export type BlogBlock =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
-  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" | "funding" | "scorecard" | "comparison" | "record" | "detectability" };
+  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" | "funding" | "scorecard" | "comparison" | "record" | "detectability" | "claims" | "rate-questions" };
 
 export type BlogPost = {
   slug: string;
@@ -22,6 +22,49 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "reading-vendor-pick-rates",
+    title: "How to read a pick rate: we audited eight vendor claims and none are comparable",
+    date: "2026-08-06",
+    summary:
+      "Seven published numbers from four robot vendors. Not one states how it was measured, so no two can be compared. Here is what each claim leaves out, and the six questions that make a rate mean something.",
+    tags: ["buyer-guide", "warehouse-robotics", "vendor-claims"],
+    body: [
+      { type: "p", text: "Here are three real claims, read in August 2026 from three robot vendors' own home pages. One promises two to three times the productivity. One promises up to 600 containers an hour. One reports 533 pieces per person-hour. Now answer the question any buyer would ask: which of these is fastest?" },
+      { type: "p", text: "You cannot answer it. Not because the work is hard, but because the question has no answer. The three numbers measure different things, over different periods, under conditions none of the three vendors published. Putting them side by side looks like a comparison. It is closer to comparing a distance, a speed and a price." },
+      { type: "p", text: "So we read every performance claim these vendors publish on their own live pages. Here is what we found, and what to ask instead." },
+      { type: "h2", text: "The audit" },
+      { type: "p", text: "We collected every performance claim we could read on four vendors' own sites, plus one vendor who publishes none. We then asked one question of each claim: does the vendor say how it was measured? Not in a whitepaper behind a form. On the page where the number appears." },
+      { type: "figure", figure: "claims" },
+      { type: "p", text: "Seven numbers. Not one says how it was measured. One of them, AutoStore's 63-second order fulfilment time, at least names the customer site it came from, which is more than the rest offer. But naming a site is provenance, not method. It still leaves out the order profile, the measurement window, and whether the clock ran through exceptions. A claim without conditions is not a small measurement problem. It is an unfalsifiable statement." },
+      { type: "p", text: "We should be precise about what we checked and what we did not. We read what these vendors publish openly. Some of them will have detailed measurement data they share under a mutual non-disclosure agreement once you are in a sales process, and if you are buying, you should ask for exactly that. Our point is narrower and still holds: the numbers doing the marketing work, the ones that reach a buyer before any conversation starts, carry no conditions at all." },
+      { type: "h2", text: "What each number leaves out" },
+      { type: "p", text: "Take them one at a time, because each hides something different." },
+      { type: "p", text: "\"Increase your warehouse productivity by 2-3x.\" Productivity of what, against what baseline? A site picking badly by hand has more room to triple than a well-run one. The multiple describes the old process as much as the new robots. Worse, the better your operation already is, the smaller your gain, which is the opposite of how the claim reads." },
+      { type: "p", text: "\"Pick from up to 600 containers per hour at each station.\" Three problems in nine words. \"Up to\" makes it a ceiling, not an expectation. \"At each station\" invites you to multiply, but only if every station can be fed at once, which depends on the robot fleet behind them. And a container is not a pick. If an order line needs three containers, your line rate is a third of the container rate." },
+      { type: "p", text: "\"Picking productivity jumped from 149 to 533 pieces per person-hour.\" This one has the most detail and is still the most slippery, because of the words \"per person\". Pieces per person-hour can rise while the site gets slower, if you remove people faster than you lose throughput. It is a labour productivity number, not a throughput number. Those are different purchases." },
+      { type: "p", text: "\"Maintain 99.9% uptime during peak seasons.\" Uptime of what, and measured how? If a fleet of 100 robots has one down all week, is that 99% or 100%? Both readings are defensible, which means the number is not." },
+      { type: "h2", text: "The vendor who publishes nothing" },
+      { type: "p", text: "One of the companies we checked, Berkshire Grey, publishes no performance figure on its landing page at all. Its pages talk about reliability and scale without a number attached." },
+      { type: "p", text: "This is not worse than the others, and it may be more honest. A vendor who declines to publish a number they cannot qualify is behaving reasonably. But it leaves a buyer with nothing to work from, and it means the loudest number in your shortlist is not the best system. It is the vendor most willing to publish an unconditioned figure." },
+      { type: "p", text: "That is the real risk here. Unconditioned claims do not just mislead individually. They sort the market the wrong way round, and they punish the vendors being careful." },
+      { type: "h2", text: "Why there is nothing to check the claims against" },
+      { type: "p", text: "In most industries you would resolve this by pointing at a standard. A tested load rating or a fuel economy figure means something because a published method says how to measure it, and everyone uses the same one." },
+      { type: "p", text: "Warehouse robotics has no equivalent for picks per hour. We could not find a published standard test method for pick rate from any standards body. More to the point, not one of the claims above cites a standard, a method, or a test protocol. The second half is the part we can state without qualification, because we read all eight claims ourselves." },
+      { type: "p", text: "There is real standards work in this area. It covers navigation, docking and safety, which matter. None of it tells you how to count a pick, or over what window, or whether the clock stops when a robot waits." },
+      { type: "p", text: "So there is no neutral referee. Which means the conditions have to come from you." },
+      { type: "h2", text: "The six questions" },
+      { type: "p", text: "Send these to every vendor on your shortlist, about every number in their deck. They are short, and none of them is hostile." },
+      { type: "figure", figure: "rate-questions" },
+      { type: "p", text: "The replies are worth as much as the answers. A vendor who has measured their system properly will answer in a day, because they already know. A vendor who has not will send a case study instead, or offer a call. Treat that as an answer too." },
+      { type: "h2", text: "What to do with the number once you have it" },
+      { type: "p", text: "Put it in the contract, with its conditions attached. A rate in a sales deck costs the vendor nothing. The same rate in a pilot agreement, defined as picks per hour measured over a full shift on your own order profile, with the clock running through exceptions, is a commitment." },
+      { type: "p", text: "Write down the pass mark before the pilot starts. We have made the opposite mistake ourselves, and published the correction. In our own first evaluation we chose a looser bar than the benchmark's own. That alone turned a dataset where nothing clears the standard into a 48.1% headline. Nothing about the robots changed. Only the bar did. A number set after everyone has watched the system run will bend toward whoever is holding the pen." },
+      { type: "p", text: "And measure the thing you are actually buying. If you are buying throughput, do not accept a per-person figure. If you are buying labour savings, do not accept a peak-hour ceiling. The gap between those two is where most disappointing pilots live." },
+      { type: "h2", text: "Sources" },
+      { type: "p", text: "All vendor claims were read directly from the companies' live public pages in August 2026 and are quoted verbatim in Figure 1, with the page named for each. We deliberately excluded two further claims that we could not verify at first hand, one attributed to a named customer site and one to an academic simulation study, because we could not reach the original source to confirm the wording. If a vendor believes we have misread a claim, or publishes measurement conditions we could not find, we will correct this post and say what changed." },
+    ],
+  },
   {
     slug: "run-your-own-robot-evaluation",
     title: "How to run your own robot evaluation: our full methodology, free",
