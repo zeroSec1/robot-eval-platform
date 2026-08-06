@@ -1,0 +1,61 @@
+{
+ "generatedBy": "scripts/build-method-figures.py",
+ "barComparison": {
+  "bars": [
+   {
+    "label": "Our chosen bar (peak reward 0.9)",
+    "passed": 25,
+    "total": 52,
+    "pct": 48.1,
+    "kind": "ours"
+   },
+   {
+    "label": "The benchmark's bar (coverage above 0.95)",
+    "passed": 0,
+    "total": 52,
+    "pct": 0.0,
+    "kind": "benchmark"
+   }
+  ],
+  "maxRewardObserved": 0.949,
+  "datasetShipsSuccessFlag": true,
+  "episodesWhereDatasetFlagTrue": 0,
+  "episodesInSourceDataset": 206
+ },
+ "record": [
+  {
+   "item": "A pass mark, written down before the run",
+   "why": "Set afterwards, it bends toward the result you want."
+  },
+  {
+   "item": "Every trial, including the ones that went badly",
+   "why": "Failures carry the diagnostic information."
+  },
+  {
+   "item": "One timestamped signal of task progress",
+   "why": "Without a time series you can only count, not diagnose."
+  },
+  {
+   "item": "Trial start and end times",
+   "why": "Needed to tell a mid-task failure from running out of time."
+  },
+  {
+   "item": "Whether a person intervened, and when",
+   "why": "An unrecorded intervention turns a failure into a success."
+  },
+  {
+   "item": "The raw log, kept",
+   "why": "So the numbers can be recomputed and disputed later."
+  }
+ ],
+ "worked": {
+  "trials": 52,
+  "passed": 25,
+  "below": 27,
+  "divergedMidTask": 8,
+  "ranOutOfTime": 19,
+  "falseAlarms": 10,
+  "falseAlarmOf": 25,
+  "falseAlarmPct": 40
+ }
+}

@@ -10,7 +10,7 @@ export type BlogBlock =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
-  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" | "funding" | "scorecard" };
+  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" | "funding" | "scorecard" | "comparison" | "record" };
 
 export type BlogPost = {
   slug: string;
@@ -22,6 +22,63 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "run-your-own-robot-evaluation",
+    title: "How to run your own robot evaluation: our full methodology, free",
+    date: "2026-08-06",
+    summary:
+      "Five steps, no special software, and the mistake we made ourselves. Includes the figure showing how one pass mark turned a dataset where nothing succeeds into a 48% headline.",
+    tags: ["methodology", "evaluation", "buyer-guide"],
+    body: [
+      { type: "p", text: "This is our whole evaluation method, given away. It is not complicated, it needs no special software, and once you have read it you could run it yourself with a spreadsheet." },
+      { type: "p", text: "We are aware that publishing it looks odd for a company that sells evaluations. Our view is that the readers who try it will discover which parts are hard, and the ones who never try were never going to hire anyone anyway." },
+      { type: "h2", text: "Step 1: write the pass mark down before you start" },
+      { type: "p", text: "Decide what counts as success, in numbers, and record it before a single trial runs. Pick rate, cycle time, uptime, how often a person has to step in. Whatever matters to you." },
+      { type: "p", text: "This sounds obvious and it is the step people skip. A bar set after everyone has watched the robot run will drift toward the result the room wants. There is no malice needed for this to happen." },
+      { type: "p", text: "Use the accepted bar for your task if one exists. We will show you in a moment what happens when you do not." },
+      { type: "h2", text: "Step 2: record every trial, especially the bad ones" },
+      { type: "p", text: "Log every run, not the good ones. Failures carry almost all of the diagnostic value, and a log with the embarrassing runs deleted cannot tell you anything you did not already believe." },
+      { type: "figure", figure: "record" },
+      { type: "p", text: "The single most valuable item on that list is the timestamped progress signal. Without a time series you can count outcomes, which tells you a robot failed. With one you can see when it started failing, which tells you why." },
+      { type: "h2", text: "Step 3: build the reference from the runs that worked" },
+      { type: "p", text: "Take your successful trials and, at each moment in time, find the level of progress that most of them beat. We used the 10th percentile across the passing trials, so the reference line is the pace a slow-but-successful run keeps [1]." },
+      { type: "p", text: "This is a standard idea in execution monitoring, and it is decades old [4]. Model what good looks like, then watch for departures from it." },
+      { type: "h2", text: "Step 4: flag the first sustained deviation" },
+      { type: "p", text: "A trial is flagged at the first moment it falls below that reference line and stays below it. We required half a second of persistence, so one noisy reading does not trigger an alarm [1]." },
+      { type: "p", text: "Fix both numbers, the percentile and the persistence, before you look at the failures. Otherwise you are tuning the detector to produce the story you expected." },
+      { type: "h2", text: "Step 5: measure your own detector, and publish that too" },
+      { type: "p", text: "Run the same rule against your successful trials. Every time it fires there, it is a false alarm. Ours fired on 10 of 25, a 40% rate, and we published it [1]." },
+      { type: "p", text: "Be honest about one more thing. Our envelope was built from the same 25 trials we then measured against, so that figure is in-sample and a held-out set would score worse. A monitoring system that reports no error rate is not reporting confidence, it is withholding it." },
+      { type: "h2", text: "What this produced, on real data" },
+      { type: "p", text: "On 52 recorded trials of a pushing task, taken from an open dataset of human demonstrations [2], 25 cleared our bar. Of the 27 that did not, only 8 went wrong mid-task. The other 19 looked normal the whole way and simply ran out of time [1]." },
+      { type: "p", text: "That split is the entire payoff of the method. A success rate alone would have told you 48%. The timing analysis tells you that two-thirds of the failures were not control problems at all, and that fixing the controller would have addressed the smaller half of the problem." },
+      { type: "h2", text: "Now the part we got wrong" },
+      { type: "p", text: "We chose a pass mark of 0.9 on the task's reward scale. The benchmark's own bar is coverage above 0.95, and because reward is coverage divided by 0.95, our 0.9 works out near 0.855 coverage [3]. Ours was the looser test, and we did not say so at first." },
+      { type: "figure", figure: "comparison" },
+      { type: "p", text: "Scored at the benchmark's bar, the same trials produce zero passes. No episode in the source data ever exceeds a peak reward of 0.949, and the dataset ships its own success flag which is false for all 206 episodes [3]. An outside check caught this, and we corrected it in public rather than quietly." },
+      { type: "p", text: "We include it here because it is the most useful thing in this article. Step 1 is not advice we are handing down from a position of having always got it right. It is the step we ourselves got wrong, and the figure above is what that mistake looks like when you draw it." },
+      { type: "h2", text: "What is actually hard" },
+      { type: "ul", items: [
+        "Getting a usable signal out of the robot at all. Many systems expose a dashboard and no export.",
+        "Holding the pass mark when the number comes back badly and the room wants it moved.",
+        "Running enough trials for the answer to mean anything. Ours is 52, which is small, and we say so.",
+        "Covering peak conditions, not just a quiet Tuesday.",
+        "Resisting the temptation to tune the detector until the story looks tidy.",
+      ] },
+      { type: "h2", text: "Why give it away" },
+      { type: "p", text: "Because the alternative is what the sector has now. In the largest automation failure on record, neither the operator nor the vendor ever published a single throughput or utilisation figure [6]. Buyers are asked to spend hundreds of millions against demonstrations, and buyers say they want to see a system running before they commit [5]." },
+      { type: "p", text: "A market where more buyers measure their own pilots is a better market for anyone selling honest evaluation, and a worse one for anyone selling a demo reel. Take the method. If you get stuck at the parts listed above, that is the point at which people call us." },
+      { type: "h2", text: "Sources" },
+      { type: "ol", items: [
+        "Robot Eval, Evaluation #1: when do robot failures actually begin? (this site). The worked example, the detection rule and the correction described here all come from that evaluation. Every figure in it regenerates from scripts/build-eval-report.py, which cross-checks against the source data and fails on any mismatch.",
+        "Dataset: lerobot/pusht on Hugging Face, a conversion of the Diffusion Policy Push-T demonstrations (Chi et al., Robotics: Science and Systems 2023, arxiv.org/abs/2303.04137). 206 human teleoperation episodes.",
+        "Success criterion and reward definition: huggingface/gym-pusht, gym_pusht/envs/pusht.py. The environment terminates successfully at coverage above 0.95, and reward is coverage divided by 0.95, clipped at 1.0. We read the source data directly: no episode exceeds a peak reward of 0.949, and the dataset's own success flag is false for all 206 episodes.",
+        "Execution-monitoring formulation: Park et al., Multimodal execution monitoring for anomaly detection during robot manipulation, ICRA 2016. Build the reference model from successful executions, then flag the first sustained deviation.",
+        "Interact Analysis Mobile Robots Buyer Survey, July 2024 (300 buyers): buyers expect to see a system in action, through a demonstration, a reference site visit or a supplier demo centre, before purchasing. Via The Robot Report, therobotreport.com/what-do-customers-expect-from-mobile-robots",
+        "Robot Eval, The true cost of a robot that doesn't work (this site), on Kroger's $2.5 billion write-off and the absence of any published operating metric in the sector's largest automation failure",
+      ] },
+    ],
+  },
   {
     slug: "humanoids-pilot-data-vs-demos",
     title: "Humanoids in the warehouse: what the pilot data says vs what the demos show",

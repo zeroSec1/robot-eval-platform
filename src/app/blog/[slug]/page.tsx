@@ -9,6 +9,7 @@ import { BankruptcyClauses } from "@/components/blog/bankruptcy-clauses";
 import { PaybackGrid } from "@/components/blog/labor-figures";
 import { SiteFunnel, WarningTimeline } from "@/components/blog/kroger-figures";
 import { FundingChart, DisclosureScorecard } from "@/components/blog/humanoid-figures";
+import { BarComparison, RecordChecklist } from "@/components/blog/method-figures";
 import { BLOG_POSTS, formatPostDate, getPost, type BlogBlock } from "@/data/blog-posts";
 
 // Client components must be imported as named exports to stay valid
@@ -28,6 +29,8 @@ const FIGURES = {
   timeline: WarningTimeline,
   funding: FundingChart,
   scorecard: DisclosureScorecard,
+  comparison: BarComparison,
+  record: RecordChecklist,
 } as const;
 
 export function generateStaticParams() {
