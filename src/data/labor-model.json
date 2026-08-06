@@ -1,0 +1,130 @@
+{
+ "generatedBy": "scripts/build-labor-model.py",
+ "wages": {
+  "allEmployeesMay2026": 26.66,
+  "allEmployeesMay2025": 25.46,
+  "yoyPct": 4.71,
+  "productionNonsupervisoryMay2026": 25.92,
+  "note": "BLS CES series for NAICS 493. Wage only, no benefits multiplier applied."
+ },
+ "assumptions": {
+  "hoursPerShift": 8,
+  "daysPerYear": 250,
+  "robotPriceUSD": {
+   "low": 30000,
+   "mid": 55000,
+   "high": 80000
+  },
+  "annualMaintenanceShareOfCapex": 0.15,
+  "oneTimeIntegrationUSD": 40000,
+  "rampMonthsAtHalfOutput": 6,
+  "fleet": 10
+ },
+ "annualLaborCostPerWorker": {
+  "1shift": 51840,
+  "2shift": 103680,
+  "3shift": 155520
+ },
+ "grid": [
+  [
+   {
+    "shifts": 1,
+    "displacement": 0.5,
+    "paybackMonths": 44,
+    "beyondThreeYears": true,
+    "beyondOneYear": true
+   },
+   {
+    "shifts": 1,
+    "displacement": 0.7,
+    "paybackMonths": 29,
+    "beyondThreeYears": false,
+    "beyondOneYear": true
+   },
+   {
+    "shifts": 1,
+    "displacement": 0.9,
+    "paybackMonths": 22,
+    "beyondThreeYears": false,
+    "beyondOneYear": true
+   }
+  ],
+  [
+   {
+    "shifts": 2,
+    "displacement": 0.5,
+    "paybackMonths": 20,
+    "beyondThreeYears": false,
+    "beyondOneYear": true
+   },
+   {
+    "shifts": 2,
+    "displacement": 0.7,
+    "paybackMonths": 15,
+    "beyondThreeYears": false,
+    "beyondOneYear": true
+   },
+   {
+    "shifts": 2,
+    "displacement": 0.9,
+    "paybackMonths": 12,
+    "beyondThreeYears": false,
+    "beyondOneYear": false
+   }
+  ],
+  [
+   {
+    "shifts": 3,
+    "displacement": 0.5,
+    "paybackMonths": 14,
+    "beyondThreeYears": false,
+    "beyondOneYear": true
+   },
+   {
+    "shifts": 3,
+    "displacement": 0.7,
+    "paybackMonths": 11,
+    "beyondThreeYears": false,
+    "beyondOneYear": false
+   },
+   {
+    "shifts": 3,
+    "displacement": 0.9,
+    "paybackMonths": 9,
+    "beyondThreeYears": false,
+    "beyondOneYear": false
+   }
+  ]
+ ],
+ "byPrice": [
+  {
+   "priceKey": "low",
+   "price": 30000,
+   "paybackMonths": 9
+  },
+  {
+   "priceKey": "mid",
+   "price": 55000,
+   "paybackMonths": 15
+  },
+  {
+   "priceKey": "high",
+   "price": 80000,
+   "paybackMonths": 20
+  }
+ ],
+ "base": {
+  "shifts": 2,
+  "displacement": 0.7,
+  "paybackMonths": 15,
+  "paybackMonthsIgnoringRamp": 11.0,
+  "rampCostMonths": 4.0
+ },
+ "summary": {
+  "fastestMonths": 9,
+  "slowestMonths": 44,
+  "cellsBeyondThreeYears": 1,
+  "cellsWithinOneYear": 3,
+  "totalCells": 9
+ }
+}

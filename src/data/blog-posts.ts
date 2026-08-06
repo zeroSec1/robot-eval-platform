@@ -10,7 +10,7 @@ export type BlogBlock =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
-  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" };
+  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" };
 
 export type BlogPost = {
   slug: string;
@@ -22,6 +22,55 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "labor-math-2026",
+    title: "Labor math 2026: at $26.66 an hour, when does automation actually pay back?",
+    date: "2026-08-05",
+    summary:
+      "The wage data everyone quotes, done honestly. Payback swings from 9 to 44 months on two assumptions most business cases never write down, and only 3 of 9 scenarios clear the 12-month bar buyers now set.",
+    tags: ["buyer-guide", "economics", "labor"],
+    body: [
+      { type: "p", text: "Warehouse pay reached $26.66 an hour in May 2026, up 4.7% in a year [1]. That number appears in every automation sales deck, and the argument writes itself: labour costs keep climbing, so robots pay for themselves. The argument is sound. The arithmetic is usually wrong, and it is wrong in a predictable direction." },
+      { type: "p", text: "We built the model and published the script that generates every number below [7]. Here is what payback actually looks like when you write down the assumptions people leave out." },
+      { type: "h2", text: "Start with the right wage" },
+      { type: "p", text: "The $26.66 figure is the average for everyone in the warehousing industry, including supervisors, managers and office staff [1]. The people a picking robot displaces earn less. Frontline production and nonsupervisory workers averaged $25.92 [1]. We use the lower number, because using the higher one inflates the saving." },
+      { type: "p", text: "We also use wage only, with no benefits, payroll taxes or turnover costs added. That understates what a worker really costs you, so it understates the saving too. Every choice in this model leans against the robots on purpose. If the case still works, it works." },
+      { type: "p", text: "At $25.92 an hour, an eight-hour shift and 250 operating days, one worker costs $51,840 a year on one shift, $103,680 across two, and $155,520 across three." },
+      { type: "h2", text: "The two numbers that decide everything" },
+      { type: "p", text: "Almost every disagreement about robot payback comes down to two assumptions that rarely appear in writing." },
+      { type: "p", text: "How many shifts you run. A robot that works around the clock displaces three times the labour of one working days only, for the same purchase price. This is the single largest lever in the model, and it is a fact about your operation, not about the robot." },
+      { type: "p", text: "How much of a worker each robot really replaces. Not all of one. Robots charge, get blocked in aisles, and hand exceptions back to people. Vendors model this optimistically. We show 50%, 70% and 90% so you can see what it does." },
+      { type: "figure", figure: "payback" },
+      { type: "p", text: "Payback ranges from 9 months to 44 months across that grid. Same robots, same wage, same price. Only the operating assumptions change. The robot costs come from the same published estimates as our rent-versus-buy model, and carry the same warning: no major vendor publishes a price list [3]." },
+      { type: "h2", text: "Does it clear the bar buyers now set?" },
+      { type: "p", text: "In 2024, 80% of robot buyers said they expected payback within three years [2]. By May 2026 the same research firm reported that 61% want it inside 12 months [2]. That is a much harder test." },
+      { type: "p", text: "Against a 12-month bar, only 3 of the 9 scenarios pass, and all three need two or three shifts plus high displacement. Against the older three-year bar, 8 of 9 pass. The bar moved, and most single-shift operations no longer clear it." },
+      { type: "h2", text: "The month nobody budgets for" },
+      { type: "p", text: "Business cases usually start counting savings on day one. Real deployments ramp. We assume six months at half output, which is not aggressive." },
+      { type: "p", text: "In the base case, two shifts and 70% displacement, that ramp turns an 11-month payback into 15 months. Four months of the answer come from an assumption most models omit entirely. If your ramp is longer or rockier, the gap widens." },
+      { type: "h2", text: "What this model still does not capture" },
+      { type: "ul", items: [
+        "The cost of capital. $590,000 spent on robots is money not spent elsewhere, and borrowing it costs interest.",
+        "Benefits and turnover, which push the saving up and are deliberately excluded here.",
+        "Whether the robots hit their designed throughput at all. Only 34% of senior leaders say they are fully satisfied with their deployments [5], and 89% of operations leaders say technology investments have not fully delivered [6].",
+        "Redeployment rather than reduction. Most operations move people to other work rather than cutting headcount, in which case the saving is capacity, not payroll.",
+      ] },
+      { type: "p", text: "That last point matters more than the arithmetic. If nobody leaves, the robot has not saved a wage. It has bought you throughput, which may be worth more, but it is a different number and it belongs in a different business case." },
+      { type: "h2", text: "The failure mode this math is meant to prevent" },
+      { type: "p", text: "In November 2025 Kroger told the SEC it would take about $2.6 billion in impairment and related charges on closing automated fulfilment centres, because the network was not meeting financial expectations [4]. It then filed again to disclose a cash payment of about $350 million to its vendor [4]. Nothing broke. The machines worked. The business case did not." },
+      { type: "p", text: "That is what an optimistic payback model buys you at scale. Run yours with your own shift pattern, your own frontline wage and a displacement figure you can defend, and be honest about the ramp." },
+      { type: "h2", text: "Sources" },
+      { type: "ol", items: [
+        "US Bureau of Labor Statistics, series CES4349300008 (NAICS 493 Warehousing and Storage, average hourly earnings, production and nonsupervisory employees): $25.92 in May 2026. Series CES4349300003 (all employees): $25.46 in May 2025 and $26.66 in May 2026, a 4.71% rise. Retrieved from the BLS public API. api.bls.gov",
+        "Interact Analysis Mobile Robots Buyer Survey, July 2024 (300 buyers): 80% expected return on investment within three years, most between 18 months and three years. Via The Robot Report, therobotreport.com/what-do-customers-expect-from-mobile-robots. Interact Analysis Voice of Market, May 2026: 61% now expect ROI within 12 months. Via SCDigest, scdigest.com/ontarget/26-05-29.php",
+        "Robot price and cost inputs are the same published industry estimates used in our rent-versus-buy model, and carry the same warning: no major vendor publishes a price list. See Rent vs. buy: the real math on Robots-as-a-Service (this site)",
+        "The Kroger Co., Form 8-K filed November 18 2025, Item 2.06: approximately $2.6 billion of impairment and related charges on closing US fulfilment centres, the network 'not meeting financial expectations'. Form 8-K/A filed December 5 2025: the charges include a cash payment to Ocado of approximately $350 million. sec.gov EDGAR, CIK 56873",
+        "DHL Supply Chain Insight 2030 survey, Nov 2025 (350 North American supply chain and C-level executives): only 34% of VP and Director level leaders are fully satisfied with warehouse robotics deployments. warehouseautomation.ca/news/dhl-report",
+        "PwC 2026 Digital Trends in Operations Survey (767 US operations and supply chain leaders): 89% say their technology investments have not fully delivered expected results, with integration complexity, data issues and user adoption among the leading causes. pwc.com",
+        "Model and figures: scripts/build-labor-model.py in the repository. All assumptions are listed in the article and in the script header.",
+      ] },
+    ],
+  },
   {
     slug: "vendor-bankruptcy-checklist",
     title: "The vendor bankruptcy checklist: 7 contract clauses that protect you when your robot company folds",
