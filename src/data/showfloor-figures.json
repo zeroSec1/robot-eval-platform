@@ -1,0 +1,120 @@
+{
+ "generatedBy": "scripts/build-showfloor-figures.py",
+ "show": {
+  "lastShow": "MODEX 2026",
+  "lastShowWhen": "13 to 16 April 2026",
+  "lastShowWhere": "Georgia World Congress Center, Atlanta",
+  "registeredVisitors": 50000,
+  "exhibitors": 1057,
+  "netSquareFeet": 630000,
+  "quote": "The 2026 event, sponsored by MHI, welcomed 50,000 registered visitors from every U.S. state and 132 countries, alongside 1,057 exhibitors covering 630,000 net square feet",
+  "nextShow": "ProMat 2027",
+  "nextShowWhen": "19 to 21 April 2027",
+  "nextShowWhere": "McCormick Place, Chicago",
+  "nextQuote": "ProMat 2027 will be held in Chicago's McCormick Place from April 19-21, 2027.",
+  "source": "MHI press release, 20 April 2026"
+ },
+ "questions": [
+  {
+   "group": "Establish what you are looking at",
+   "q": "Is this running your production software, or a demo build?",
+   "good": "A straight yes or no. A demo build is fine; not knowing is not."
+  },
+  {
+   "group": "Establish what you are looking at",
+   "q": "How many of these are in production today, and at how many sites?",
+   "good": "Two numbers. A large unit count across one site is a different risk from a small count across many."
+  },
+  {
+   "group": "Establish what you are looking at",
+   "q": "Is the demo running on a fixed route, or is it deciding where to go?",
+   "good": "Fixed-path and free-roaming systems make different demands on your floor and your building."
+  },
+  {
+   "group": "Test any number they quote",
+   "q": "That rate, per what, and measured over how long?",
+   "good": "Per station, per robot, per person, and a window longer than an hour. Vagueness here is the answer."
+  },
+  {
+   "group": "Test any number they quote",
+   "q": "Does the clock include travel, charging, exceptions and idle time?",
+   "good": "Yes, with the definition. A rate measured only while picking is not one you can staff to."
+  },
+  {
+   "group": "Test any number they quote",
+   "q": "Will you put that number in a pilot contract as an acceptance test?",
+   "good": "Yes, or a clear reason why not. This is the single most informative question on the sheet."
+  },
+  {
+   "group": "Safety and compliance",
+   "q": "Which safety standard does this conform to, and which edition?",
+   "good": "A named standard and year. See the standards card below for what each one actually covers."
+  },
+  {
+   "group": "Safety and compliance",
+   "q": "Who does the task-based risk assessment, and when do I see it?",
+   "good": "Before commissioning, produced by the integrator with your people involved."
+  },
+  {
+   "group": "What happens after the sale",
+   "q": "Who owns the data this system generates in my building?",
+   "good": "A clear answer. In at least one major filed agreement, the vendor owns it."
+  },
+  {
+   "group": "What happens after the sale",
+   "q": "What does the software license cost after year one, and is it transferable?",
+   "good": "A number, and whether you can sell the site with a working system in it."
+  },
+  {
+   "group": "What happens after the sale",
+   "q": "Can I have a reference site running my SKU profile, not your best one?",
+   "good": "A name and a phone number, or an honest no."
+  }
+ ],
+ "groups": [
+  "Establish what you are looking at",
+  "Test any number they quote",
+  "Safety and compliance",
+  "What happens after the sale"
+ ],
+ "standards": [
+  {
+   "id": "ANSI/ITSDF B56.5-2024",
+   "covers": "safety",
+   "what": "Safety Standard for Driverless, Automatic Guided Industrial Vehicles and Automated Functions of Manned Industrial Vehicles. Effective 16 Dec 2025.",
+   "note": "Free on request from ITSDF, in exchange for your name, company and email and an agreement not to resell it.",
+   "quote": "Copies of these standards are available for free upon request",
+   "source": "itsdf.org"
+  },
+  {
+   "id": "ANSI/A3 R15.08, parts 1 to 3",
+   "covers": "safety",
+   "what": "Industrial mobile robot safety. Part 1 covers the robot, part 2 the system and application, part 3 the use of it.",
+   "note": "Part 3 is the operator's part, published 2026. Asking whether deployment guidance conforms to it is a fair question.",
+   "quote": "",
+   "source": "automate.org standards store"
+  },
+  {
+   "id": "ASTM Committee F45",
+   "covers": "performance, not safety",
+   "what": "Performance test methods for robotics and autonomous systems: navigation, docking, obstacle detection, communication, terminology.",
+   "note": "Do not cite F45 as a safety credential. Its own navigation test method points you at the safety standards instead.",
+   "quote": "This standard does not purport to address all of the safety concerns, if any, associated with its use. Safety standards such as ANSI/ITSDF B56.5, ISO 3691-4:2020, or other safety standards should be followed.",
+   "source": "ASTM F3244-21, scope clause 1.3"
+  },
+  {
+   "id": "FEM 9.222",
+   "covers": "acceptance testing",
+   "what": "European rules for commissioning, hand-over and testing installations with storage and retrieval machines. Free download.",
+   "note": "Useful as a model for a contractual acceptance test. It tells you to agree the target before signing, not what the target should be.",
+   "quote": "The availability of the installation should be specified, at the latest, before signing the contract with the customer.",
+   "source": "FEM 9.222, clause 4.6.3, 06.1989"
+  }
+ ],
+ "counts": {
+  "questions": 11,
+  "groups": 4,
+  "standards": 4,
+  "safetyStandards": 2
+ }
+}

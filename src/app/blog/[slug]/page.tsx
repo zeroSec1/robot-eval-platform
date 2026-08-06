@@ -14,6 +14,7 @@ import { DetectabilityCurve } from "@/components/blog/detectability-figure";
 import { ClaimsScorecard, RateQuestions } from "@/components/blog/pickrate-figures";
 import { HeightComparison, FloorStandards } from "@/components/blog/architecture-figures";
 import { AcceptanceHinge, ClauseChecklist } from "@/components/blog/contract-figures";
+import { ShowFloorSheet, StandardsCard } from "@/components/blog/showfloor-figures";
 import { BLOG_POSTS, formatPostDate, getPost, type BlogBlock } from "@/data/blog-posts";
 
 // Client components must be imported as named exports to stay valid
@@ -42,6 +43,8 @@ const FIGURES = {
   floors: FloorStandards,
   hinge: AcceptanceHinge,
   clauses: ClauseChecklist,
+  sheet: ShowFloorSheet,
+  standards: StandardsCard,
 } as const;
 
 export function generateStaticParams() {
