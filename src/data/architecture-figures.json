@@ -1,0 +1,80 @@
+{
+ "generatedBy": "scripts/build-architecture-figures.py",
+ "heights": [
+  {
+   "system": "AutoStore grid, 220mm bins",
+   "config": "26 levels",
+   "metresStack": 5.8,
+   "metresTotal": 7.8,
+   "feetTotal": 25.7,
+   "serviceSpacePublished": true,
+   "quote": "220mm Bin x 26 levels This configuration totals 5.8m (19.1ft) With enough space for Robots and recommended servicing, the maximum total height is 7.8m (25.7ft).",
+   "source": "autostoresystem.com/system/grid"
+  },
+  {
+   "system": "AutoStore grid, 330mm bins",
+   "config": "18 levels",
+   "metresStack": 6.0,
+   "metresTotal": 8.0,
+   "feetTotal": 26.2,
+   "serviceSpacePublished": true,
+   "quote": "330mm Bins x 18 levels 425mm Bins x 14 levels These configurations total 6m (19.7ft) With enough operating space for the Robots and recommended service, the maximum total height is 8m (26.2ft).",
+   "source": "autostoresystem.com/system/grid"
+  },
+  {
+   "system": "Exotec Skypod racks",
+   "config": "rack-climbing robots",
+   "metresStack": 14.0,
+   "metresTotal": 14.0,
+   "feetTotal": 45.0,
+   "quote": "Utilize vertical space with racks reaching up to 45 feet (14 meters)",
+   "source": "exotec.com/skypod-system",
+   "serviceSpacePublished": false
+  }
+ ],
+ "clearance": {
+  "minimumMetres": 0.6,
+  "minimumFeet": 2.0,
+  "recommendedMetres": 2.0,
+  "recommendedFeet": 6.5,
+  "quote": "For safe operation of the Robot fleet, the system needs 600mm (2ft) of clearance above the Grid. There should also be adequate room for service and support staff to safely operate AutoStore service vehicles on top of the Grid: We recommend a minimum height of 2m (6.5ft) of clear space above the Grid.",
+  "source": "autostoresystem.com/system/grid"
+ },
+ "floors": [
+  {
+   "traffic": "Free-roaming AMRs",
+   "pattern": "random traffic, no fixed path",
+   "standard": "ASTM E1155",
+   "title": "Standard Test Method for Determining FF Floor Flatness and FL Floor Levelness Numbers",
+   "applies": true,
+   "note": "Written for randomly trafficked floors, which is what a free-roaming fleet produces.",
+   "quote": "Establish compliance of randomly trafficked floor surfaces with specified FF Flatness and FL Levelness tolerances",
+   "source": "astm.org/e1155-20.html"
+  },
+  {
+   "traffic": "Fixed-path AGVs and narrow aisle",
+   "pattern": "same wheel path, every trip",
+   "standard": "ASTM E1486",
+   "title": "Standard Test Method for Determining Floor Tolerances Using Waviness, Wheel Path and Levelness Criteria",
+   "applies": true,
+   "note": "Measures the defined wheel paths a fixed-path vehicle actually runs on.",
+   "quote": "elevation differences of defined wheel paths",
+   "source": "astm.org/e1486.html"
+  }
+ ],
+ "exclusion": {
+  "standard": "ASTM E1155",
+  "quote": "Results of this test method shall not be used to enforce contract flatness and levelness tolerances on those floor installations primarily intended to support the operation of fixed-path vehicle systems (for example, narrow aisle warehouse floors).",
+  "clause": "section 5.3",
+  "source": "astm.org/e1155-20.html"
+ },
+ "spread": {
+  "tallest": "Exotec Skypod racks",
+  "tallestMetres": 14.0,
+  "shortest": "AutoStore grid, 220mm bins",
+  "shortestMetres": 7.8,
+  "ratio": 1.79,
+  "differenceMetres": 6.2,
+  "differenceFeet": 19.3
+ }
+}

@@ -125,6 +125,43 @@ check("stated upfront cost (590000) equals 10*mid price + integration",
 check("six-year difference is rent minus buy",
       f["sixYearDifferenceUSD"] == f["sixYearRentUSD"] - f["sixYearBuyUSD"])
 
+print("== 3b. architecture and pick-rate figure integrity ==")
+arch = json.loads((ROOT / "src" / "data" / "architecture-figures.json").read_text())
+
+# every published height must be backed by a verbatim quote containing its own number
+for hgt in arch["heights"]:
+    q = hgt["quote"]
+    metric = str(hgt["metresTotal"]).rstrip("0").rstrip(".")
+    imperial = str(hgt["feetTotal"]).rstrip("0").rstrip(".")
+    check(f"height quote for {hgt['system']} contains its own figure",
+          metric in q or imperial in q, q[:70])
+
+sp = arch["spread"]
+tall = max(arch["heights"], key=lambda h: h["metresTotal"])
+short = min(arch["heights"], key=lambda h: h["metresTotal"])
+check("height spread in metres re-derives",
+      round(tall["metresTotal"] - short["metresTotal"], 1) == sp["differenceMetres"])
+check("height spread in feet re-derives",
+      round(tall["feetTotal"] - short["feetTotal"], 1) == sp["differenceFeet"])
+check("height ratio re-derives",
+      round(tall["metresTotal"] / short["metresTotal"], 2) == sp["ratio"])
+check("E1155 exclusion quote is present and about fixed-path vehicles",
+      "shall not be used" in arch["exclusion"]["quote"]
+      and "fixed-path vehicle systems" in arch["exclusion"]["quote"])
+check("both floor standards are distinct",
+      arch["floors"][0]["standard"] != arch["floors"][1]["standard"])
+check("at least one vendor lacks a published service-space figure, and it is flagged",
+      any(h.get("serviceSpacePublished") is False for h in arch["heights"]))
+
+pr = json.loads((ROOT / "src" / "data" / "pickrate-figures.json").read_text())
+s = pr["summary"]
+check("pick-rate totals add up",
+      s["noConditions"] + s["partialConditions"] + s["noNumberPublished"] == s["total"])
+check("pick-rate claims with numbers re-derives",
+      s["total"] - s["noNumberPublished"] == s["withNumbers"])
+check("no pick-rate claim states full conditions",
+      s["fullConditionsStated"] == 0)
+
 print("== 4. readability and style ==")
 for slug, _ in posts():
     r = subprocess.run([sys.executable, "scripts/readability-check.py", slug],

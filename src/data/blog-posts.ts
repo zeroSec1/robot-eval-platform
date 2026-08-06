@@ -10,7 +10,7 @@ export type BlogBlock =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
-  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" | "funding" | "scorecard" | "comparison" | "record" | "detectability" | "claims" | "rate-questions" };
+  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" | "funding" | "scorecard" | "comparison" | "record" | "detectability" | "claims" | "rate-questions" | "heights" | "floors" };
 
 export type BlogPost = {
   slug: string;
@@ -22,6 +22,48 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "amr-agv-cube-storage-fit",
+    title: "AMR, AGV or cube storage: your building decides more than your robot does",
+    date: "2026-08-06",
+    summary:
+      "Two constraints settle this choice before any vendor demo starts: how tall your building is, and how your floor was poured. One architecture leaves 19 feet of your ceiling unused. And the floor standard most contracts cite rules itself out for fixed-path vehicles, in its own text.",
+    tags: ["buyer-guide", "warehouse-robotics", "architecture"],
+    body: [
+      { type: "p", text: "Most guides to this question compare robots. They will tell you an AMR is flexible, an AGV is cheap and repeatable, and cube storage is dense. All true, and none of it settles anything, because the choice is usually made for you by the building you already have." },
+      { type: "p", text: "Two features of that building do most of the deciding. How much clear height you have, and how your floor was poured. Both are expensive to change and neither appears in a sales demo. So start there, before you shortlist anyone." },
+      { type: "h2", text: "Height: the difference is 19 feet" },
+      { type: "p", text: "Cube storage and rack-climbing systems are both sold as dense vertical storage. Their vertical limits are not close to each other." },
+      { type: "figure", figure: "heights" },
+      { type: "p", text: "Read that gap in terms of your own roof. If you have a 30-foot clear building, a grid system can use most of it. If you have a 45-foot clear building, the same grid leaves roughly 19 feet of paid-for air above it. A rack-climbing system does not." },
+      { type: "p", text: "The reverse case matters just as much, and gets less attention. A tall system in a short building is not a bargain, it is a system you cannot install. Height is the first filter, and it is a hard one." },
+      { type: "p", text: "Two details from the vendor documentation are easy to miss and both cost you height. First, the published stack figure is not the space you need. AutoStore's own numbers put the stack at 6m but the maximum total height at 8m once operating and service space is included. Second, that total still sits under your roof. The same page asks for clearance above the grid on top of it: 600mm as a minimum, with 2m recommended so service staff can work up there." },
+      { type: "p", text: "So the useful question for a vendor is not how high the system goes. It is how much clear height the system consumes, from slab to the highest thing you must reach. Ask for that number in writing." },
+      { type: "h2", text: "The floor: two standards, and most contracts pick the wrong one" },
+      { type: "p", text: "Floor tolerance is where this gets genuinely technical, and where we think most buyers are exposed. It is also the cleanest example we have found of a specification that looks right and is not." },
+      { type: "p", text: "Robots care about the floor differently depending on how they move. A free-roaming AMR crosses the slab on a different line every trip, so what matters is the general flatness of the whole surface. A fixed-path AGV, or a narrow aisle truck, runs the same two wheel tracks thousands of times. There, what matters is the profile of those specific tracks. Those are different measurements, and they have different standards." },
+      { type: "figure", figure: "floors" },
+      { type: "p", text: "The consequence is concrete. FF and FL numbers are the flatness figures most people in this industry know. They are the ones that tend to end up in specifications by default. But read ASTM E1155, the test method that defines them. It says its results must not be used to enforce contract tolerances on floors built for fixed-path vehicle systems. It names narrow aisle warehouse floors as the example." },
+      { type: "p", text: "Say you are buying fixed-path AGVs and your contract specifies FF and FL numbers. You have specified a tolerance by a method that disclaims that use. The floor can pass the test you wrote and still be wrong for the vehicles you bought. Nobody finds out until the trucks are running." },
+      { type: "p", text: "We are describing what the standards say, not giving engineering advice. Get a floor engineer to write this clause. The point is only that you must know which of the two questions you are asking. The answer follows from the architecture you chose, not from habit." },
+      { type: "h2", text: "What each architecture actually asks of your building" },
+      { type: "p", text: "Putting the two constraints together gives a rough order of operations." },
+      { type: "p", text: "Free-roaming AMRs are the least demanding structurally. They work with the height you have, because they do not use it. They need a broadly flat floor rather than a precisely profiled one. And they tolerate an imperfect building, because they route around it. That flexibility is the product. You pay for it in density: the goods stay where they were, so your storage cube does not improve." },
+      { type: "p", text: "Fixed-path AGVs ask the most of your floor and the least of your imagination. They repeat one route accurately and cheaply. The tradeoff is that the route is infrastructure. Changing it is a project, and the wheel-path tolerance on that route is a real construction specification, not a formality." },
+      { type: "p", text: "Grid and cube storage ask the most of your building and give the most density back. They want a flat slab, a defined footprint, and a height budget that includes service access. They also concentrate risk: the grid is one system, and its published height ceiling is a hard number you cannot negotiate up." },
+      { type: "p", text: "Rack-climbing systems sit between the last two. They reach much higher than a grid, so they suit tall buildings, and they keep the aisle structure rather than replacing it with a solid cube." },
+      { type: "h2", text: "Three questions to ask before the demo" },
+      { type: "p", text: "These are cheap to ask and they filter a shortlist fast." },
+      { type: "ol", items: [
+        "How much clear height does your system consume, slab to the highest serviceable point, including the clearance you require above it? Ask for one number, in writing, not a stack height.",
+        "Which floor tolerance standard applies to the traffic your system produces, and what values do you require? If the answer is FF and FL numbers for a fixed-path system, ask them to reconcile that with what ASTM E1155 says about fixed-path floors.",
+        "What survives if we change the building? A new mezzanine, a moved wall, a different SKU profile. The answer tells you what you are really buying: equipment, or infrastructure.",
+      ] },
+      { type: "p", text: "The first two have objectively correct answers that a competent vendor will have ready. A vendor who cannot answer them quickly is telling you something useful about how many buildings they have actually surveyed." },
+      { type: "h2", text: "Sources" },
+      { type: "p", text: "Height figures are quoted verbatim from AutoStore's grid documentation and Exotec's Skypod page, both read in August 2026, and both are reproduced in Figure 1's underlying data. The clearance requirements are from the same AutoStore page. The floor standards are ASTM E1155, Standard Test Method for Determining FF Floor Flatness and FL Floor Levelness Numbers, and ASTM E1486, Standard Test Method for Determining Floor Tolerances Using Waviness, Wheel Path and Levelness Criteria; titles and the exclusion in E1155 section 5.3 are quoted from ASTM's own catalogue pages. We have not independently measured any system, and we do not test commercial robot fleets. Where a figure is a vendor's own published claim we say so, because as we have written elsewhere, an unconditioned vendor number is not a measurement." },
+    ],
+  },
   {
     slug: "reading-vendor-pick-rates",
     title: "How to read a pick rate: we audited eight vendor claims and none are comparable",
