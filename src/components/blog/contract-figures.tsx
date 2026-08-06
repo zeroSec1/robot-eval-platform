@@ -88,7 +88,7 @@ export function ClauseChecklist() {
         </p>
       </div>
       <figcaption className="mt-2.5 text-[12.5px] leading-relaxed text-faint">
-        Figure 2. {DATA.counts.clauses} clauses worth writing into a pilot agreement, each paired with
+        Figure 2. {DATA.counts.clauses}{" "}clauses worth writing into a pilot agreement, each paired with
         language from a real filed contract rather than a template. The box below shows what happens
         when a buyer relies on the vendor&apos;s standard terms instead.
       </figcaption>
