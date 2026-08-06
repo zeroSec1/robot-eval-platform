@@ -27,6 +27,13 @@ WAGE_ALL_MAY26 = 26.66      # CES4349300003, May 2026
 WAGE_ALL_MAY25 = 25.46      # CES4349300003, May 2025
 WAGE_PROD_MAY26 = 25.92     # CES4349300008, May 2026, frontline workers
 
+# BLS Employer Costs for Employee Compensation, Q1 2026, Transportation and
+# warehousing (NAICS 430000, the finest cut BLS publishes): total compensation
+# $49.04/hr against wages of $32.60/hr. Benefits are 50.4% on top of wages.
+# Shown as a sensitivity, not the base case, because 430000 includes trucking,
+# rail and air, which carry richer benefits than warehousing alone.
+LOADED_MULTIPLIER = 49.04 / 32.60
+
 # --- robot cost inputs, from the RaaS model's published ranges ---
 ROBOT_PRICE = {"low": 30_000, "mid": 55_000, "high": 80_000}
 MAINT_RATE = 0.15
@@ -86,6 +93,8 @@ def main():
         by_price.append({"priceKey": k, "price": ROBOT_PRICE[k], "paybackMonths": t})
 
     base = payback_months(ROBOT_PRICE["mid"], wage, 2, 0.7)
+    loaded_wage = round(wage * LOADED_MULTIPLIER, 2)
+    loaded_base = payback_months(ROBOT_PRICE["mid"], loaded_wage, 2, 0.7)
     no_ramp_monthly = (annual_labor_cost(wage, 2) * 0.7 * 10
                        - 10 * ROBOT_PRICE["mid"] * MAINT_RATE) / 12
     no_ramp = round((10 * ROBOT_PRICE["mid"] + INTEGRATION) / no_ramp_monthly, 1)
@@ -115,6 +124,13 @@ def main():
         },
         "grid": grid,
         "byPrice": by_price,
+        "loadedCost": {
+            "multiplier": round(LOADED_MULTIPLIER, 4),
+            "loadedHourlyUSD": loaded_wage,
+            "paybackMonthsBaseCase": loaded_base,
+            "monthsFasterThanWageOnly": round(base - loaded_base, 1) if base and loaded_base else None,
+            "source": "BLS ECEC Q1 2026, NAICS 430000: total comp $49.04/hr vs wages $32.60/hr",
+        },
         "base": {
             "shifts": 2,
             "displacement": 0.7,
@@ -141,6 +157,8 @@ def main():
     print(f"base case (2 shifts, 70% displacement, $55k robots): {base} months "
           f"({no_ramp} ignoring ramp, so ramp costs {model['base']['rampCostMonths']} months)")
     print(f"grid payback range: {min(solved)} to {max(solved)} months")
+    print(f"fully loaded: ${loaded_wage}/hr (x{LOADED_MULTIPLIER:.4f}) -> base case "
+          f"{loaded_base} months, {round(base-loaded_base,1)} faster than wage-only")
     print(f"cells beyond 3 years: {model['summary']['cellsBeyondThreeYears']}"
           f"/{model['summary']['totalCells']}; within 12 months: "
           f"{model['summary']['cellsWithinOneYear']}")

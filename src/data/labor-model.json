@@ -113,6 +113,13 @@
    "paybackMonths": 20
   }
  ],
+ "loadedCost": {
+  "multiplier": 1.5043,
+  "loadedHourlyUSD": 38.99,
+  "paybackMonthsBaseCase": 11,
+  "monthsFasterThanWageOnly": 4,
+  "source": "BLS ECEC Q1 2026, NAICS 430000: total comp $49.04/hr vs wages $32.60/hr"
+ },
  "base": {
   "shifts": 2,
   "displacement": 0.7,
