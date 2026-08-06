@@ -10,7 +10,7 @@ export type BlogBlock =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
-  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" };
+  | { type: "figure"; figure: "outcomes" | "envelope" | "timing" | "usecases" | "questions" | "raas-chart" | "raas-grid" | "bankruptcy" | "payback" | "funnel" | "timeline" | "funding" | "scorecard" };
 
 export type BlogPost = {
   slug: string;
@@ -31,19 +31,15 @@ export const BLOG_POSTS: BlogPost[] = [
     tags: ["humanoids", "buyer-guide", "warehouse-robotics"],
     body: [
       { type: "p", text: "Humanoid robot companies have raised extraordinary money. Figure passed $1 billion at a $39 billion valuation in September 2025 [4]. Apptronik raised $520 million at about $5 billion in February 2026 [5]. Agility raised about $400 million in April 2025, with Amazon taking part. It built a factory sized for 10,000 units a year [6]." },
+      { type: "figure", figure: "funding" },
       { type: "p", text: "Now here is everything the flagship warehouse deployment has publicly disclosed about its performance." },
       { type: "h2", text: "One number, in seventeen months" },
       { type: "p", text: "In November 2025 Agility announced that Digit 'has moved over 100,000 totes at GXO's Flowery Branch facility' [1]. That is the headline, and it is real. It is also the only operating figure anyone has published." },
       { type: "p", text: "We read the full release. It gives no robot count. No rate. No time window. No comparison to the people doing the same job [1]. The GXO agreement dates from June 2024 [2], so the milestone covers about seventeen months." },
       { type: "p", text: "Do the arithmetic and you see why the details might be missing. Spread 100,000 totes over seventeen months of working days. That lands near 200 totes a day. One warehouse worker moves that in a couple of hours. We cannot say whether that is the whole story. The fleet size is undisclosed, so the rate per robot is unknowable. That is exactly the problem." },
       { type: "h2", text: "What has never been disclosed" },
-      { type: "ul", items: [
-        "How many robots are deployed at the flagship site. Neither company has said, in seventeen months.",
-        "Throughput per robot per hour, against the human benchmark for the same task.",
-        "Uptime, or how often a person intervenes.",
-        "Cost per tote moved, or any unit economics at all.",
-        "Whether any pilot has converted to a production deployment at scale.",
-      ] },
+      { type: "figure", figure: "scorecard" },
+      { type: "p", text: "One measure out of six. And the one that is public is a cumulative total, which is the least useful kind of number: it grows whatever the rate is." },
       { type: "p", text: "For comparison, a picking-robot vendor in the same market publishes its cumulative picks and names customer sites. That is not a rigorous benchmark either. But it is far more disclosure than the humanoid field offers." },
       { type: "h2", text: "What the analysts expect" },
       { type: "p", text: "Gartner predicted in January 2026 that fewer than 20 companies will scale humanoids to production for manufacturing and supply chain by 2028 [3]. Fewer than 100 will even take a trial past the lab stage. Read that against the funding above. The capital assumes a mass market. The forecast describes a few dozen users." },

@@ -1,0 +1,73 @@
+{
+ "generatedBy": "scripts/build-humanoid-figures.py",
+ "funding": [
+  {
+   "company": "Figure",
+   "raisedUSDm": 1000,
+   "valuationUSDb": 39.0,
+   "when": "Sept 2025",
+   "note": "Series C exceeded $1B at a $39B post-money valuation"
+  },
+  {
+   "company": "Apptronik",
+   "raisedUSDm": 520,
+   "valuationUSDb": 5.0,
+   "when": "Feb 2026",
+   "note": "raised $520M at about $5B"
+  },
+  {
+   "company": "Agility Robotics",
+   "raisedUSDm": 400,
+   "valuationUSDb": 1.75,
+   "when": "Apr 2025",
+   "note": "about $400M at $1.75B pre-money, Amazon participating"
+  }
+ ],
+ "fundingTotals": {
+  "raisedUSDm": 1920,
+  "combinedValuationUSDb": 45.75
+ },
+ "scorecard": [
+  {
+   "metric": "Totes moved, cumulative",
+   "disclosed": true,
+   "value": "over 100,000",
+   "note": "the one published figure"
+  },
+  {
+   "metric": "Number of robots deployed",
+   "disclosed": false,
+   "value": "not disclosed",
+   "note": "no unit count appears in the release"
+  },
+  {
+   "metric": "Throughput per robot per hour",
+   "disclosed": false,
+   "value": "not disclosed",
+   "note": "unknowable without the fleet size"
+  },
+  {
+   "metric": "Comparison to a human doing the task",
+   "disclosed": false,
+   "value": "not disclosed",
+   "note": "no baseline given"
+  },
+  {
+   "metric": "Uptime or intervention rate",
+   "disclosed": false,
+   "value": "not disclosed",
+   "note": "no reliability figure"
+  },
+  {
+   "metric": "Cost per tote, or any unit economics",
+   "disclosed": false,
+   "value": "not disclosed",
+   "note": "no cost figure"
+  }
+ ],
+ "scorecardSummary": {
+  "disclosed": 1,
+  "total": 6,
+  "notDisclosed": 5
+ }
+}

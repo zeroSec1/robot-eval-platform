@@ -8,6 +8,7 @@ import { BreakevenChart, BreakevenGrid } from "@/components/blog/raas-figures";
 import { BankruptcyClauses } from "@/components/blog/bankruptcy-clauses";
 import { PaybackGrid } from "@/components/blog/labor-figures";
 import { SiteFunnel, WarningTimeline } from "@/components/blog/kroger-figures";
+import { FundingChart, DisclosureScorecard } from "@/components/blog/humanoid-figures";
 import { BLOG_POSTS, formatPostDate, getPost, type BlogBlock } from "@/data/blog-posts";
 
 // Client components must be imported as named exports to stay valid
@@ -25,6 +26,8 @@ const FIGURES = {
   payback: PaybackGrid,
   funnel: SiteFunnel,
   timeline: WarningTimeline,
+  funding: FundingChart,
+  scorecard: DisclosureScorecard,
 } as const;
 
 export function generateStaticParams() {
