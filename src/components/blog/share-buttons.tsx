@@ -5,6 +5,81 @@ import { useState } from "react";
 const BTN =
   "inline-flex items-center gap-1.5 rounded-[2px] border border-border-strong px-2 py-1 text-[12px] text-faint transition-colors hover:border-border hover:text-text";
 
+type ShareNetwork = {
+  key: string;
+  label: string;
+  aria: string;
+  /** simple-icons (CC0) 24x24 fill path */
+  path: string;
+  build: (url: string, text: string) => string;
+};
+
+const NETWORKS: ShareNetwork[] = [
+  {
+    key: "x",
+    label: "X",
+    aria: "Share on X",
+    path: "M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93Zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41Z",
+    build: (url, text) => `https://x.com/intent/post?text=${text}&url=${url}`,
+  },
+  {
+    key: "linkedin",
+    label: "LinkedIn",
+    aria: "Share on LinkedIn",
+    path: "M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0Z",
+    build: (url, text) => `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+  },
+  {
+    key: "facebook",
+    label: "Facebook",
+    aria: "Share on Facebook",
+    path: "M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z",
+    build: (url, text) => `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+  },
+  {
+    key: "reddit",
+    label: "Reddit",
+    aria: "Share on Reddit",
+    path: "M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.314 3.515 8.485l-2.286 2.286C.775 23.225 1.097 24 1.738 24H12c6.627 0 12-5.373 12-12S18.627 0 12 0Zm4.388 3.199c1.104 0 1.999.895 1.999 1.999 0 1.105-.895 2-1.999 2-.946 0-1.739-.657-1.947-1.539v.002c-1.147.162-2.032 1.15-2.032 2.341v.007c1.776.067 3.4.567 4.686 1.363.473-.363 1.064-.58 1.707-.58 1.547 0 2.802 1.254 2.802 2.802 0 1.117-.655 2.081-1.601 2.531-.088 3.256-3.637 5.876-7.997 5.876-4.361 0-7.905-2.617-7.998-5.87-.954-.447-1.614-1.415-1.614-2.538 0-1.548 1.255-2.802 2.803-2.802.645 0 1.239.218 1.712.585 1.275-.79 2.881-1.291 4.64-1.365v-.01c0-1.663 1.263-3.034 2.88-3.207.188-.911.993-1.595 1.959-1.595Zm-8.085 8.376c-.784 0-1.459.78-1.506 1.797-.047 1.016.64 1.429 1.426 1.429.786 0 1.371-.369 1.418-1.385.047-1.017-.553-1.841-1.338-1.841Zm7.406 0c-.786 0-1.385.824-1.338 1.841.047 1.017.634 1.385 1.418 1.385.785 0 1.473-.413 1.426-1.429-.046-1.017-.721-1.797-1.506-1.797Zm-3.703 4.013c-.974 0-1.907.048-2.77.135-.147.015-.241.168-.183.305.483 1.154 1.622 1.964 2.953 1.964 1.33 0 2.47-.81 2.953-1.964.057-.137-.037-.29-.184-.305-.863-.087-1.795-.135-2.769-.135Z",
+    build: (url, text) => `https://www.reddit.com/submit?url=${url}&title=${text}`,
+  },
+  {
+    key: "bluesky",
+    label: "Bluesky",
+    aria: "Share on Bluesky",
+    path: "M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z",
+    build: (url, text) => `https://bsky.app/intent/compose?text=${text}%20${url}`,
+  },
+  {
+    key: "threads",
+    label: "Threads",
+    aria: "Share on Threads",
+    path: "M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z",
+    build: (url, text) => `https://www.threads.net/intent/post?text=${text}%20${url}`,
+  },
+  {
+    key: "whatsapp",
+    label: "WhatsApp",
+    aria: "Share on WhatsApp",
+    path: "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z",
+    build: (url, text) => `https://wa.me/?text=${text}%20${url}`,
+  },
+  {
+    key: "telegram",
+    label: "Telegram",
+    aria: "Share on Telegram",
+    path: "M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z",
+    build: (url, text) => `https://t.me/share/url?url=${url}&text=${text}`,
+  },
+  {
+    key: "hn",
+    label: "HN",
+    aria: "Share on Hacker News",
+    path: "M0 24V0h24v24H0ZM6.95 5.9l4.15 7.75v4.45h1.8v-4.45l4.15-7.75h-2l-3.05 6.05L8.95 5.9h-2Z",
+    build: (url, text) => `https://news.ycombinator.com/submitlink?u=${url}&t=${text}`,
+  },
+];
+
 function openPopup(url: string) {
   window.open(url, "_blank", "noopener,noreferrer,width=640,height=540");
 }
@@ -12,16 +87,16 @@ function openPopup(url: string) {
 export function ShareButtons({ title }: { title: string }) {
   const [copied, setCopied] = useState(false);
 
-  const share = (network: "x" | "linkedin" | "hn") => {
+  const share = (network: ShareNetwork) => {
     const url = encodeURIComponent(window.location.href);
     const text = encodeURIComponent(title);
-    if (network === "x") {
-      openPopup(`https://x.com/intent/post?text=${text}&url=${url}`);
-    } else if (network === "linkedin") {
-      openPopup(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`);
-    } else {
-      openPopup(`https://news.ycombinator.com/submitlink?u=${url}&t=${text}`);
-    }
+    openPopup(network.build(url, text));
+  };
+
+  const emailShare = () => {
+    const subject = encodeURIComponent(title);
+    const body = encodeURIComponent(window.location.href);
+    window.location.href = `mailto:?subject=${subject}&body=${body}`;
   };
 
   const copyLink = async () => {
@@ -37,33 +112,30 @@ export function ShareButtons({ title }: { title: string }) {
   return (
     <div className="mt-2 flex flex-wrap items-center gap-2 border-t border-divider pt-4">
       <span className="text-[12px] text-mute">Share:</span>
-      <button type="button" className={BTN} onClick={() => share("x")} aria-label="Share on X">
-        <svg viewBox="0 0 24 24" className="h-3 w-3 fill-current" aria-hidden="true">
-          <path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93Zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41Z" />
+      {NETWORKS.map((network) => (
+        <button
+          key={network.key}
+          type="button"
+          className={BTN}
+          onClick={() => share(network)}
+          aria-label={network.aria}
+        >
+          <svg viewBox="0 0 24 24" className="h-3 w-3 fill-current" aria-hidden="true">
+            <path d={network.path} />
+          </svg>
+          {network.label}
+        </button>
+      ))}
+      <button type="button" className={BTN} onClick={emailShare} aria-label="Share by email">
+        <svg
+          viewBox="0 0 24 24"
+          className="h-3 w-3 fill-none stroke-current stroke-2"
+          aria-hidden="true"
+        >
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <path d="m22 7-10 6L2 7" />
         </svg>
-        X
-      </button>
-      <button
-        type="button"
-        className={BTN}
-        onClick={() => share("linkedin")}
-        aria-label="Share on LinkedIn"
-      >
-        <svg viewBox="0 0 24 24" className="h-3 w-3 fill-current" aria-hidden="true">
-          <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0Z" />
-        </svg>
-        LinkedIn
-      </button>
-      <button
-        type="button"
-        className={BTN}
-        onClick={() => share("hn")}
-        aria-label="Share on Hacker News"
-      >
-        <svg viewBox="0 0 24 24" className="h-3 w-3 fill-current" aria-hidden="true">
-          <path d="M0 24V0h24v24H0ZM6.95 5.9l4.15 7.75v4.45h1.8v-4.45l4.15-7.75h-2l-3.05 6.05L8.95 5.9h-2Z" />
-        </svg>
-        HN
+        Email
       </button>
       <button type="button" className={BTN} onClick={copyLink} aria-label="Copy link to this post">
         <svg
