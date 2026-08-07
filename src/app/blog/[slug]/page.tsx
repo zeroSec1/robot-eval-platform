@@ -15,6 +15,7 @@ import { ClaimsScorecard, RateQuestions } from "@/components/blog/pickrate-figur
 import { HeightComparison, FloorStandards } from "@/components/blog/architecture-figures";
 import { AcceptanceHinge, ClauseChecklist } from "@/components/blog/contract-figures";
 import { ShowFloorSheet, StandardsCard } from "@/components/blog/showfloor-figures";
+import { ShareButtons } from "@/components/blog/share-buttons";
 import { BLOG_POSTS, formatPostDate, getPost, type BlogBlock } from "@/data/blog-posts";
 
 // Client components must be imported as named exports to stay valid
@@ -161,6 +162,8 @@ export default async function BlogPostPage({
           <Block key={i} block={block} />
         ))}
       </div>
+
+      <ShareButtons title={post.title} />
     </article>
   );
 }
