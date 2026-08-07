@@ -84,7 +84,7 @@ export function ComparePanel() {
       </div>
 
       {same ? (
-        <Card className="border-amber/30 bg-amber/[0.04] px-4 py-3 text-[15px] text-amber">
+        <Card className="bg-amber/[0.04] px-4 py-3 text-[15px] text-amber">
           Baseline and candidate are the same version. Pick two different versions to see a diff.
         </Card>
       ) : (

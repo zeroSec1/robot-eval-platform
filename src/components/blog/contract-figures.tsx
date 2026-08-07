@@ -7,34 +7,20 @@ import DATA from "@/data/contract-figures.json";
 // a quote. Each side of the acceptance hinge is labelled in words as
 // well as colour, and every clause carries its own source line.
 
-const BEFORE = "var(--accent)";
-const AFTER = "var(--orange)";
 
 export function AcceptanceHinge() {
   return (
     <figure className="my-1 rounded-md border border-border bg-card p-3.5">
-      <div className="mb-2.5 flex flex-wrap gap-x-4 gap-y-1">
-        <span className="flex items-center gap-1.5 text-[12px] text-dim">
-          <span className="h-2 w-2 rounded-full" style={{ background: BEFORE }} />
-          before acceptance
-        </span>
-        <span className="flex items-center gap-1.5 text-[12px] text-dim">
-          <span className="h-2 w-2 rounded-full" style={{ background: AFTER }} />
-          after acceptance
-        </span>
-      </div>
       <div className="flex flex-col">
         {DATA.hinge.map((row, i) => (
           <div key={row.question}
             className={`py-2.5 ${i < DATA.hinge.length - 1 ? "border-b border-divider" : ""}`}>
             <p className="text-[13.5px] font-medium text-text">{row.question}</p>
             <div className="mt-1.5 grid gap-1.5 sm:grid-cols-2">
-              <p className="border-l-2 pl-2 text-[12.5px] leading-relaxed text-dim"
-                style={{ borderLeftColor: BEFORE }}>
+              <p className="text-[12.5px] leading-relaxed text-dim">
                 <span className="font-semibold">Before: </span>{row.before}
               </p>
-              <p className="border-l-2 pl-2 text-[12.5px] leading-relaxed text-dim"
-                style={{ borderLeftColor: AFTER }}>
+              <p className="text-[12.5px] leading-relaxed text-dim">
                 <span className="font-semibold">After: </span>{row.after}
               </p>
             </div>
@@ -75,8 +61,7 @@ export function ClauseChecklist() {
           </div>
         ))}
       </div>
-      <div className="mt-3 rounded px-3 py-2.5"
-        style={{ background: "var(--hover)", borderLeft: "2px solid var(--orange)" }}>
+      <div className="mt-3 rounded px-3 py-2.5" style={{ background: "var(--hover)" }}>
         <p className="text-[12.5px] font-semibold text-text">
           What the default looks like: {c.citation}, {c.decided}
         </p>

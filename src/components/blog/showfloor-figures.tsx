@@ -86,8 +86,7 @@ export function StandardsCard() {
             <p className="mt-1 text-[12.5px] leading-relaxed text-faint">{st.what}</p>
             <p className="mt-1 text-[12.5px] leading-relaxed text-dim">{st.note}</p>
             {st.quote && (
-              <p className="mt-1.5 border-l-2 pl-2 text-[12px] italic leading-relaxed text-dim"
-                style={{ borderLeftColor: tagColour(st.covers) }}>
+              <p className="mt-1.5 text-[12px] italic leading-relaxed text-dim">
                 &ldquo;{st.quote}&rdquo; <span className="not-italic text-faint">{st.source}</span>
               </p>
             )}

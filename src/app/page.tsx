@@ -92,7 +92,7 @@ export default function DashboardPage() {
       </StatTileRow>
 
       {worstRegression && worstRegression.delta < 0 ? (
-        <Card className="border-red/30 bg-red/[0.04] px-4 py-3">
+        <Card className="bg-red/[0.04] px-4 py-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <p className="text-[15px] font-medium text-red">

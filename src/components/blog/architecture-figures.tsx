@@ -121,8 +121,7 @@ export function FloorStandards() {
           </div>
         ))}
       </div>
-      <div className="mt-3 rounded border-l-2 border-orange bg-hover px-3 py-2.5"
-        style={{ borderLeftColor: "var(--orange)" }}>
+      <div className="mt-3 rounded bg-hover px-3 py-2.5">
         <p className="text-[12.5px] font-semibold text-text">
           The trap, in {DATA.exclusion.standard} {DATA.exclusion.clause}
         </p>
