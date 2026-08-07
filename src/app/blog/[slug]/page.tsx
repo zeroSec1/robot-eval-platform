@@ -16,6 +16,7 @@ import { HeightComparison, FloorStandards } from "@/components/blog/architecture
 import { AcceptanceHinge, ClauseChecklist } from "@/components/blog/contract-figures";
 import { ShowFloorSheet, StandardsCard } from "@/components/blog/showfloor-figures";
 import { ShareButtons } from "@/components/blog/share-buttons";
+import { ClaimsEvidence, UpdatePlaybook } from "@/components/blog/policy-figures";
 import { BLOG_POSTS, formatPostDate, getPost, type BlogBlock } from "@/data/blog-posts";
 
 // Client components must be imported as named exports to stay valid
@@ -46,6 +47,8 @@ const FIGURES = {
   clauses: ClauseChecklist,
   sheet: ShowFloorSheet,
   standards: StandardsCard,
+  "claims-evidence": ClaimsEvidence,
+  "update-playbook": UpdatePlaybook,
 } as const;
 
 export function generateStaticParams() {
