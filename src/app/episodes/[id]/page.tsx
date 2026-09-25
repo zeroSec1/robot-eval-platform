@@ -17,6 +17,7 @@ import { SOURCE_FORMAT_LABEL } from "@/lib/types";
 import { formatDateTime, formatDuration } from "@/lib/utils";
 import { USER_DATASET_ID, useUserDataset, useUserEpisodes } from "@/lib/user-data";
 import { useSignedUpEmail } from "@/lib/signup-gate";
+import { RiskScoreCard } from "@/components/episodes/risk-score-card";
 
 export default function EpisodeDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -150,6 +151,8 @@ export default function EpisodeDetailPage() {
               </Row>
             </div>
           </Card>
+
+          <RiskScoreCard episode={episode} allEpisodes={[...EPISODES, ...userEpisodes]} />
 
           <Card>
             <CardHeader title="Metrics" />
