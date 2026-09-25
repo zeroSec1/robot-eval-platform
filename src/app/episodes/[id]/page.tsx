@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { notFound, useParams } from "next/navigation";
+import { notFound, useParams, useRouter } from "next/navigation";
 import { Card, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { OutcomeBadge, FailureBadge } from "@/components/failure-badge";
@@ -16,11 +16,14 @@ import { EpisodeTelemetry } from "@/lib/types";
 import { SOURCE_FORMAT_LABEL } from "@/lib/types";
 import { formatDateTime, formatDuration } from "@/lib/utils";
 import { USER_DATASET_ID, useUserDataset, useUserEpisodes } from "@/lib/user-data";
+import { useSignedUpEmail } from "@/lib/signup-gate";
 
 export default function EpisodeDetailPage() {
   const { id } = useParams<{ id: string }>();
+  const router = useRouter();
   const userEpisodes = useUserEpisodes();
   const userDataset = useUserDataset();
+  const signedUpEmail = useSignedUpEmail();
 
   // Uploaded episodes only exist in localStorage, which is unreadable during
   // the initial server-rendered pass. Wait for the client mount (when
@@ -29,6 +32,12 @@ export default function EpisodeDetailPage() {
   // detail link would 404 on that first render, before hydration catches up.
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
+
+  // Deep links must not bypass the /episodes signup wall — send unsigned-up
+  // visitors back there instead of rendering the full per-episode detail.
+  useEffect(() => {
+    if (mounted && !signedUpEmail) router.replace("/episodes");
+  }, [mounted, signedUpEmail, router]);
 
   const episode = useMemo(
     () => [...EPISODES, ...userEpisodes].find((e) => e.episodeId === id),
@@ -40,7 +49,7 @@ export default function EpisodeDetailPage() {
     return DATASETS.find((d) => d.datasetId === episode.datasetId);
   }, [episode, userDataset]);
 
-  if (!mounted) return null;
+  if (!mounted || !signedUpEmail) return null;
   if (!episode) notFound();
 
   return (
