@@ -52,5 +52,11 @@
     "name": "PushT sim replay buffer (Diffusion Policy, native Zarr)",
     "sourceFormat": "zarr",
     "ingestedAt": "2026-07-28T06:39:47.462415Z"
+  },
+  {
+    "datasetId": "roboarena-datadump-2026-02-03",
+    "name": "RoboArena eval dump (autonomous policy rollouts, DROID)",
+    "sourceFormat": "eval_yaml",
+    "ingestedAt": "2026-09-26T01:07:56.786Z"
   }
 ]
