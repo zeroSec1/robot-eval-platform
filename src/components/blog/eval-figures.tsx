@@ -134,7 +134,7 @@ export function OutcomesFigure() {
     <FigureShell
       tipRef={ref}
       tip={tip}
-      caption="Figure 1. Scored outcomes in the two auto-scorable datasets. The two were scored by different rules: the PushT sim set at a peak coverage reward of at least 0.9, which is our own bar and looser than the benchmark's, and the real-robot set at a reward pulse reaching 1.0, which is stricter. The two bars are not comparable. The remaining 248 of 308 episodes have no automatic success signal and stay unscored."
+      caption="Figure 1. Scored outcomes in the two auto-scorable datasets, as they stood at the time of this analysis. The two were scored by different rules: the PushT sim set at a peak coverage reward of at least 0.9, which is our own bar and looser than the benchmark's, and the real-robot set at a reward pulse reaching 1.0, which is stricter. The two bars are not comparable. The remaining 248 of the platform's 308 episodes at that time had no automatic success signal and stayed unscored; the platform has since added a third, human-evaluated real-policy dataset (see the Methodology page)."
     >
       <LegendRow items={[{ color: SUCCESS, label: "passed our bar" }, { color: FAILURE, label: "below our bar" }]} />
       <svg viewBox={`0 0 ${FIG_W} ${y}`} className="h-auto w-full" role="img"
