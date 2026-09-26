@@ -23,7 +23,15 @@ const urls = [...new Set(episodes.map(remoteOf).filter(Boolean))];
 
 function localRelPath(url) {
   // .../datasets/<org>/<repo>/resolve/main/videos/<rest...> → <org>-<repo>/<rest joined with _>
-  const m = url.match(/\/datasets\/([^/]+)\/([^/]+)\/resolve\/main\/videos\/(.+)$/);
+  // Kept as the primary pattern (rather than matching anything after
+  // resolve/main/) so re-running this script doesn't recompute new local
+  // paths for episodes downloaded under this exact layout already.
+  const strict = url.match(/\/datasets\/([^/]+)\/([^/]+)\/resolve\/main\/videos\/(.+)$/);
+  // RoboArena's layout nests video files under
+  // evaluation_sessions/<session>/<arm>/ instead of videos/, so fall back to
+  // matching anything after resolve/main/ for sources shaped like that.
+  const loose = strict ? null : url.match(/\/datasets\/([^/]+)\/([^/]+)\/resolve\/main\/(.+)$/);
+  const m = strict ?? loose;
   if (!m) throw new Error(`unexpected url shape: ${url}`);
   const [, org, repo, rest] = m;
   return path.join(`${org}-${repo}`, rest.replaceAll("/", "_"));

@@ -1,11 +1,13 @@
 import { describe, expect, it } from "vitest";
 import {
+  buildPolicyFailureRates,
   buildPolicyRiskSummaries,
   buildTaskCalibration,
   conformalPValue,
   nonconformityScore,
   scoreDuration,
   scoreEpisodeRisk,
+  wilsonScoreInterval,
 } from "./risk-score";
 import { EPISODES } from "./mock-data";
 import { Episode } from "./types";
@@ -133,7 +135,7 @@ describe("buildPolicyRiskSummaries", () => {
     // "policy-b" only has extreme-duration episodes on the same task,
     // marked as failures so they don't get folded into the calibration
     // pool themselves (buildTaskCalibration only draws from successful
-    // episodes) — they should still get scored against policy-a's
+    // episodes): they should still get scored against policy-a's
     // calibration and come out as the risky one.
     const policyBRuns = [
       makeEpisode({
@@ -190,6 +192,78 @@ describe("buildPolicyRiskSummaries", () => {
   });
 });
 
+describe("wilsonScoreInterval", () => {
+  it("matches the standard worked example (5 successes of 10, 95% CI ~= [0.237, 0.763])", () => {
+    const [lower, upper] = wilsonScoreInterval(5, 10);
+    expect(lower).toBeCloseTo(0.237, 2);
+    expect(upper).toBeCloseTo(0.763, 2);
+  });
+
+  it("returns [0, 1] for zero trials rather than dividing by zero", () => {
+    expect(wilsonScoreInterval(0, 0)).toEqual([0, 1]);
+  });
+
+  it("always contains the observed proportion and stays within [0, 1]", () => {
+    for (const [s, n] of [[0, 5], [5, 5], [1, 3], [50, 100], [99, 100]] as const) {
+      const [lower, upper] = wilsonScoreInterval(s, n);
+      const phat = s / n;
+      expect(lower).toBeLessThanOrEqual(phat);
+      expect(upper).toBeGreaterThanOrEqual(phat);
+      expect(lower).toBeGreaterThanOrEqual(0);
+      expect(upper).toBeLessThanOrEqual(1);
+    }
+  });
+
+  it("narrows as the sample size grows at a fixed observed rate", () => {
+    const [smallLower, smallUpper] = wilsonScoreInterval(5, 10);
+    const [bigLower, bigUpper] = wilsonScoreInterval(500, 1000);
+    expect(bigUpper - bigLower).toBeLessThan(smallUpper - smallLower);
+  });
+});
+
+describe("buildPolicyFailureRates", () => {
+  it("computes a real failure rate with a Wilson CI, excluding policies below the trial floor", () => {
+    const wellTested = Array.from({ length: 20 }, (_, i) =>
+      makeEpisode({
+        episodeId: `w-${i}`,
+        policyVersion: "policy-well-tested",
+        outcome: { success: i < 15, methodOfDetermination: "test" }, // 15/20 success, 5/20 fail
+      }),
+    );
+    const barelyTested = [
+      makeEpisode({ episodeId: "b-1", policyVersion: "policy-barely-tested", outcome: { success: false, methodOfDetermination: "test" } }),
+      makeEpisode({ episodeId: "b-2", policyVersion: "policy-barely-tested", outcome: { success: false, methodOfDetermination: "test" } }),
+    ];
+    const unlabeled = [
+      makeEpisode({ episodeId: "u-1", policyVersion: "policy-unlabeled", outcome: { success: null, methodOfDetermination: "n/a" } }),
+    ];
+
+    const rates = buildPolicyFailureRates([...wellTested, ...barelyTested, ...unlabeled], 5);
+
+    expect(rates.find((r) => r.policyVersion === "policy-barely-tested")).toBeUndefined();
+    expect(rates.find((r) => r.policyVersion === "policy-unlabeled")).toBeUndefined();
+
+    const wt = rates.find((r) => r.policyVersion === "policy-well-tested");
+    expect(wt).toBeDefined();
+    expect(wt!.trials).toBe(20);
+    expect(wt!.failures).toBe(5);
+    expect(wt!.failureRate).toBeCloseTo(0.25, 5);
+    expect(wt!.failureRateCI[0]).toBeLessThanOrEqual(wt!.failureRate);
+    expect(wt!.failureRateCI[1]).toBeGreaterThanOrEqual(wt!.failureRate);
+  });
+
+  it("sorts the highest failure rate first", () => {
+    const safe = Array.from({ length: 10 }, (_, i) =>
+      makeEpisode({ episodeId: `s-${i}`, policyVersion: "safe-policy", outcome: { success: true, methodOfDetermination: "test" } }),
+    );
+    const risky = Array.from({ length: 10 }, (_, i) =>
+      makeEpisode({ episodeId: `r-${i}`, policyVersion: "risky-policy", outcome: { success: i < 2, methodOfDetermination: "test" } }),
+    );
+    const rates = buildPolicyFailureRates([...safe, ...risky], 5);
+    expect(rates[0].policyVersion).toBe("risky-policy");
+  });
+});
+
 // Integration test against the real dataset. On the `develop` branch,
 // src/data/real-episodes.json is intentionally an empty array (see
 // README's "bring your own data" design), so this whole block skips
@@ -202,22 +276,28 @@ describe.skipIf(scoredEpisodes.length < 20)("real-data integration", () => {
   it("keeps the empirical false-positive rate near the nominal alpha on held-out successful episodes", () => {
     const successes = scoredEpisodes.filter((e) => e.outcome.success === true && e.metrics.durationS !== null);
     // Deterministic split so the test is reproducible: hold out every 4th
-    // successful episode as "unseen", calibrate on the rest.
+    // successful episode as "unseen" and calibrate on the rest, grouped by
+    // task via the same buildTaskCalibration + scoreEpisodeRisk path the
+    // product actually uses. Pooling every task's raw durations into one
+    // flat calibration set (an earlier version of this test did that) breaks
+    // down once the dataset spans tasks with very different typical
+    // durations: a task-scoped comparison is the only one that's honest.
     const heldOut = successes.filter((_, i) => i % 4 === 0);
-    const calibrationSet = successes.filter((_, i) => i % 4 !== 0).map((e) => e.metrics.durationS!);
+    const heldIn = successes.filter((_, i) => i % 4 !== 0);
+    const calibration = buildTaskCalibration(heldIn);
 
-    expect(calibrationSet.length).toBeGreaterThanOrEqual(5);
+    const scored = heldOut
+      .map((e) => scoreEpisodeRisk(e, calibration))
+      .filter((r): r is NonNullable<typeof r> => r !== null);
+    expect(scored.length).toBeGreaterThan(0);
 
     const alpha = 0.2; // deliberately loose given how small this dataset is
-    const falsePositives = heldOut.filter((e) => {
-      const result = scoreDuration(e.metrics.durationS!, calibrationSet);
-      return result !== null && result.pValue < alpha;
-    }).length;
+    const falsePositives = scored.filter((r) => r.pValue < alpha).length;
 
     // Conformal guarantee is P(false positive) <= alpha in expectation, not
-    // a hard per-run bound on a handful of held-out points — allow some
+    // a hard per-run bound on a handful of held-out points: allow some
     // slack (2x alpha) rather than asserting an exact rate on a small n.
-    expect(falsePositives / heldOut.length).toBeLessThanOrEqual(alpha * 2);
+    expect(falsePositives / scored.length).toBeLessThanOrEqual(alpha * 2);
   });
 
   it("flags real labeled failures as more anomalous, on average, than held-out real successes", () => {
@@ -226,11 +306,12 @@ describe.skipIf(scoredEpisodes.length < 20)("real-data integration", () => {
     expect(failures.length).toBeGreaterThan(0);
 
     const heldOutSuccesses = successes.filter((_, i) => i % 4 === 0);
-    const calibrationSet = successes.filter((_, i) => i % 4 !== 0).map((e) => e.metrics.durationS!);
+    const heldIn = successes.filter((_, i) => i % 4 !== 0);
+    const calibration = buildTaskCalibration(heldIn);
 
     const meanPValue = (episodes: Episode[]) => {
       const values = episodes
-        .map((e) => scoreDuration(e.metrics.durationS!, calibrationSet))
+        .map((e) => scoreEpisodeRisk(e, calibration))
         .filter((r): r is NonNullable<typeof r> => r !== null)
         .map((r) => r.pValue);
       return values.reduce((a, b) => a + b, 0) / values.length;
@@ -240,7 +321,11 @@ describe.skipIf(scoredEpisodes.length < 20)("real-data integration", () => {
     const successMeanP = meanPValue(heldOutSuccesses);
 
     // This is a real, falsifiable claim: if duration carried zero signal
-    // about failure, there'd be no reason for this inequality to hold.
+    // about failure, there'd be no reason for this inequality to hold. Only
+    // episodes whose task has enough same-task successful volume to
+    // calibrate against are counted (scoreEpisodeRisk returns null
+    // otherwise), so a dataset with many low-volume tasks naturally narrows
+    // this down to whichever tasks actually support the comparison.
     expect(failureMeanP).toBeLessThan(successMeanP);
   });
 });

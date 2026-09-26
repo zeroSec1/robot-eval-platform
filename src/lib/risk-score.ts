@@ -199,3 +199,67 @@ export function buildPolicyRiskSummaries(episodes: Episode[]): PolicyRiskSummary
     (a, b) => b.highlyUnusualCount - a.highlyUnusualCount || b.unusualCount - a.unusualCount || b.scoredEpisodes - a.scoredEpisodes,
   );
 }
+
+/** Wilson score interval for a Bernoulli proportion (Wilson, 1927): the
+ * standard way to bound a true success/failure rate from a finite sample
+ * without the normal-approximation interval's known failure at small n or
+ * near 0/1 (where it can produce bounds outside [0, 1]). Returns [lower,
+ * upper] for the given confidence level (95% by default, z = 1.96). */
+export function wilsonScoreInterval(successes: number, trials: number, z = 1.96): [number, number] {
+  if (trials === 0) return [0, 1];
+  const phat = successes / trials;
+  const z2 = z * z;
+  const center = phat + z2 / (2 * trials);
+  const denom = 1 + z2 / trials;
+  const margin = z * Math.sqrt((phat * (1 - phat)) / trials + z2 / (4 * trials * trials));
+  return [Math.max(0, (center - margin) / denom), Math.min(1, (center + margin) / denom)];
+}
+
+/** A policy's real, historical failure rate across every labeled episode of
+ * it we have, regardless of task: unlike the per-task duration rollup above,
+ * this pools across tasks on purpose, since a generalist policy's benchmark
+ * record is itself the signal an insurer cares about ("this exact checkpoint
+ * has failed N% of its independently evaluated attempts"), not just how one
+ * task's runs compare to each other. This is the one honestly predictive
+ * claim our data supports: an unmodified policy's future behavior on similar
+ * tasks is reasonably estimated by its own measured track record. */
+export interface PolicyFailureRate {
+  policyVersion: string;
+  trials: number;
+  failures: number;
+  failureRate: number;
+  /** 95% Wilson confidence interval on the failure rate, in [0, 1]. */
+  failureRateCI: [number, number];
+}
+
+export function buildPolicyFailureRates(episodes: Episode[], minTrials = 5): PolicyFailureRate[] {
+  const byPolicy = new Map<string, { trials: number; failures: number }>();
+  for (const episode of episodes) {
+    if (episode.outcome.success === null) continue;
+    const entry = byPolicy.get(episode.policyVersion) ?? { trials: 0, failures: 0 };
+    entry.trials += 1;
+    if (episode.outcome.success === false) entry.failures += 1;
+    byPolicy.set(episode.policyVersion, entry);
+  }
+
+  const rates: PolicyFailureRate[] = [];
+  for (const [policyVersion, { trials, failures }] of byPolicy) {
+    if (trials < minTrials) continue;
+    const successes = trials - failures;
+    // Wilson interval on the success rate, then flip to bound the failure
+    // rate: failureRate = 1 - successRate, so the failure rate's upper bound
+    // is 1 minus the success rate's lower bound, and vice versa.
+    const [successLower, successUpper] = wilsonScoreInterval(successes, trials);
+    rates.push({
+      policyVersion,
+      trials,
+      failures,
+      failureRate: failures / trials,
+      failureRateCI: [1 - successUpper, 1 - successLower],
+    });
+  }
+
+  // Worst-first, tie-broken by trial volume (more evidence behind a rate is
+  // more actionable than a similar rate backed by fewer trials).
+  return rates.sort((a, b) => b.failureRate - a.failureRate || b.trials - a.trials);
+}
