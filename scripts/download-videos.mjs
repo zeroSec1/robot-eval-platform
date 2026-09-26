@@ -32,7 +32,7 @@ function localRelPath(url) {
   // matching anything after resolve/main/ for sources shaped like that.
   const loose = strict ? null : url.match(/\/datasets\/([^/]+)\/([^/]+)\/resolve\/main\/(.+)$/);
   const m = strict ?? loose;
-  if (!m) throw new Error(`unexpected url shape: ${url}`);
+  if (!m) return null;
   const [, org, repo, rest] = m;
   return path.join(`${org}-${repo}`, rest.replaceAll("/", "_"));
 }
@@ -40,6 +40,16 @@ function localRelPath(url) {
 let done = 0;
 for (const url of urls) {
   const rel = localRelPath(url);
+  if (rel === null) {
+    // Not a per-file HF resolve URL (e.g. a dataset-level archive link some
+    // older episodes carry in sourceUrl even though video.url already
+    // points at a local file from an earlier one-off extraction): nothing
+    // to fetch here, so leave that episode's video field untouched instead
+    // of crashing the whole run over one legacy source.
+    console.log(`skip (not a per-file HF URL) ${url}`);
+    done += 1;
+    continue;
+  }
   const dest = path.join(OUT_ROOT, rel);
   fs.mkdirSync(path.dirname(dest), { recursive: true });
 
