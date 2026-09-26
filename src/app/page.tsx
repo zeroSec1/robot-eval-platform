@@ -23,6 +23,7 @@ import { formatDateTime, formatDuration, formatPercent } from "@/lib/utils";
 import { useUserDataset, useUserEpisodes } from "@/lib/user-data";
 import { UploadDataset } from "@/components/upload-dataset";
 import { PolicyRiskCard } from "@/components/policy-risk-card";
+import { PolicyFailureRateCard } from "@/components/policy-failure-rate-card";
 
 export default function DashboardPage() {
   const userEpisodes = useUserEpisodes();
@@ -120,6 +121,8 @@ export default function DashboardPage() {
           </div>
         </Card>
       ) : null}
+
+      <PolicyFailureRateCard episodes={allEpisodes} />
 
       <PolicyRiskCard episodes={allEpisodes} />
 
