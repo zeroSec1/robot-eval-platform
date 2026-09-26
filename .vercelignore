@@ -38,3 +38,7 @@ mcp-server
 # (.zip/.tfrecord), not playable video, so their local copy is load-bearing.
 public/videos/lerobot-*
 public/videos/BensoAI-*
+# RoboArena's source files are natively H.264 (unlike LeRobot's AV1), so the
+# remote sourceUrl plays directly in every browser without needing a local
+# mirror or an H.264 clip at all.
+public/videos/RoboArena-*
