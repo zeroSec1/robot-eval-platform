@@ -48,8 +48,8 @@ function SignupWall() {
     <div className="space-y-5">
       <Card>
         <CardHeader
-          title="See all 308 episodes"
-          subtitle={`Showing ${TEASER_COUNT} of 308 — sign up with your work email to browse the full dataset, filters, and per-episode telemetry.`}
+          title={`See all ${EPISODES.length} episodes`}
+          subtitle={`Showing ${TEASER_COUNT} of ${EPISODES.length}: sign up with your work email to browse the full dataset, filters, and per-episode telemetry.`}
         />
         <form onSubmit={handleSubmit} className="flex flex-wrap items-center gap-2 px-3.5 py-3">
           <input
@@ -91,7 +91,7 @@ function SignupWall() {
       </div>
 
       <p className="text-center text-sm text-zinc-500">
-        + 302 more episodes, filters, and per-episode telemetry after signup
+        + {EPISODES.length - TEASER_COUNT} more episodes, filters, and per-episode telemetry after signup
       </p>
     </div>
   );
