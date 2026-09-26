@@ -9,12 +9,16 @@
 // What this honestly is: a statistically-grounded "how unusual is this
 // episode's duration compared to known-successful runs of the same task"
 // score, with a real distribution-free coverage guarantee. What this is
-// NOT: a failure predictor. We do not claim to predict whether a robot
-// will fail before it does; our labeled data (60 of 308 episodes, all
-// from one task family, zero intervention/collision telemetry) doesn't
-// support that claim, and a demo overclaiming it already caused real
-// confusion once (the "predicts failure before it happens" pitch language
-// was walked back for exactly this reason).
+// NOT: a failure predictor. Duration-anomaly scoring in particular doesn't
+// claim to predict whether a robot will fail before it does: it's purely
+// retrospective, and a demo overclaiming that already caused real confusion
+// once (the "predicts failure before it happens" pitch language was walked
+// back for exactly this reason). Zero intervention/collision telemetry is
+// populated on any source we have, which rules out several other honest
+// signals we'd otherwise use. The one genuinely forward-looking signal our
+// data does support is buildPolicyFailureRates below: a named policy
+// checkpoint's own measured historical pass/fail record, sourced from
+// real third-party evaluations (see that function's own comment).
 //
 // The conformal p-value below answers a narrower, honest question: "if
 // this episode came from the same distribution as our successful
