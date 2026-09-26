@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import Link from "next/link";
 import { Card, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { buildTaskCalibration, scoreEpisodeRisk } from "@/lib/risk-score";
@@ -48,7 +49,11 @@ export function RiskScoreCard({ episode, allEpisodes }: { episode: Episode; allE
             </div>
             <p className="mt-1 text-[13px] text-faint">
               A duration this extreme is expected in roughly {(result.pValue * 100).toFixed(0)}% of successful
-              runs of this task. This compares duration only — it is not a failure prediction.
+              runs of this task. This compares duration only, it is not a failure prediction.{" "}
+              <Link href="/methodology" className="text-accent hover:opacity-80">
+                How we verify this
+              </Link>
+              .
             </p>
           </>
         )}
