@@ -22,6 +22,7 @@ import { TrendChart, TrendLegend } from "@/components/charts/trend-chart";
 import { formatDateTime, formatDuration, formatPercent } from "@/lib/utils";
 import { useUserDataset, useUserEpisodes } from "@/lib/user-data";
 import { UploadDataset } from "@/components/upload-dataset";
+import { PolicyRiskCard } from "@/components/policy-risk-card";
 
 export default function DashboardPage() {
   const userEpisodes = useUserEpisodes();
@@ -119,6 +120,8 @@ export default function DashboardPage() {
           </div>
         </Card>
       ) : null}
+
+      <PolicyRiskCard episodes={allEpisodes} />
 
       <Card>
         <CardHeader
