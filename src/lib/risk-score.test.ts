@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  buildPolicyRiskSummaries,
   buildTaskCalibration,
   conformalPValue,
   nonconformityScore,
@@ -8,6 +9,24 @@ import {
 } from "./risk-score";
 import { EPISODES } from "./mock-data";
 import { Episode } from "./types";
+
+function makeEpisode(overrides: Partial<Episode>): Episode {
+  return {
+    episodeId: "test",
+    datasetId: "test-dataset",
+    sourceFormat: "lerobot",
+    schemaVersion: "1.0",
+    policyVersion: "v1",
+    task: { name: "Test task", languageInstruction: "do the thing", benchmarkPack: "test" },
+    embodiment: { robotType: "arm", model: "test-arm", dof: 6, sensors: [] },
+    outcome: { success: true, methodOfDetermination: "test" },
+    failure: null,
+    metrics: { durationS: 10, interventions: null, collisions: null },
+    recordedAt: new Date().toISOString(),
+    coverage: 1,
+    ...overrides,
+  };
+}
 
 describe("nonconformityScore", () => {
   it("is zero at the exact median of the reference set", () => {
@@ -70,24 +89,6 @@ describe("scoreDuration", () => {
 });
 
 describe("buildTaskCalibration + scoreEpisodeRisk", () => {
-  function makeEpisode(overrides: Partial<Episode>): Episode {
-    return {
-      episodeId: "test",
-      datasetId: "test-dataset",
-      sourceFormat: "lerobot",
-      schemaVersion: "1.0",
-      policyVersion: "v1",
-      task: { name: "Test task", languageInstruction: "do the thing", benchmarkPack: "test" },
-      embodiment: { robotType: "arm", model: "test-arm", dof: 6, sensors: [] },
-      outcome: { success: true, methodOfDetermination: "test" },
-      failure: null,
-      metrics: { durationS: 10, interventions: null, collisions: null },
-      recordedAt: new Date().toISOString(),
-      coverage: 1,
-      ...overrides,
-    };
-  }
-
   it("only calibrates from successful episodes with a known duration", () => {
     const episodes = [
       makeEpisode({ episodeId: "a", outcome: { success: true, methodOfDetermination: "x" }, metrics: { durationS: 10, interventions: null, collisions: null } }),
@@ -114,10 +115,85 @@ describe("buildTaskCalibration + scoreEpisodeRisk", () => {
   });
 });
 
+describe("buildPolicyRiskSummaries", () => {
+  it("groups by (task, policy version) and counts unusual/highly-unusual episodes correctly", () => {
+    // 20 successful calibration runs of "policy-a" clustered tightly around
+    // 10s, so anything far from 10s reads as genuinely anomalous. Each run
+    // gets a distinct duration (not just two alternating values): with only
+    // two exact values, leaving one out collapses the remaining set's MAD to
+    // exactly 0 for most of them, which blows up the leave-one-out
+    // nonconformity scores and defeats the calibration entirely.
+    const calibrationRuns = Array.from({ length: 20 }, (_, i) =>
+      makeEpisode({
+        episodeId: `calib-${i}`,
+        policyVersion: "policy-a",
+        metrics: { durationS: 10 + (i - 10) * 0.01, interventions: null, collisions: null },
+      }),
+    );
+    // "policy-b" only has extreme-duration episodes on the same task,
+    // marked as failures so they don't get folded into the calibration
+    // pool themselves (buildTaskCalibration only draws from successful
+    // episodes) — they should still get scored against policy-a's
+    // calibration and come out as the risky one.
+    const policyBRuns = [
+      makeEpisode({
+        episodeId: "b-1",
+        policyVersion: "policy-b",
+        outcome: { success: false, methodOfDetermination: "test" },
+        metrics: { durationS: 90, interventions: null, collisions: null },
+      }),
+      makeEpisode({
+        episodeId: "b-2",
+        policyVersion: "policy-b",
+        outcome: { success: false, methodOfDetermination: "test" },
+        metrics: { durationS: 95, interventions: null, collisions: null },
+      }),
+    ];
+
+    const summaries = buildPolicyRiskSummaries([...calibrationRuns, ...policyBRuns]);
+
+    const policyA = summaries.find((s) => s.policyVersion === "policy-a");
+    const policyB = summaries.find((s) => s.policyVersion === "policy-b");
+    expect(policyA).toBeDefined();
+    expect(policyB).toBeDefined();
+    expect(policyB!.scoredEpisodes).toBe(2);
+    expect(policyB!.highlyUnusualCount).toBeGreaterThan(0);
+    // policy-a defined the calibration distribution itself, so its own
+    // in-distribution runs shouldn't be flagged highly unusual.
+    expect(policyA!.highlyUnusualCount).toBe(0);
+  });
+
+  it("sorts the riskiest policy first", () => {
+    const calibrationRuns = Array.from({ length: 10 }, (_, i) =>
+      makeEpisode({ episodeId: `calib-${i}`, policyVersion: "safe-policy", metrics: { durationS: 10, interventions: null, collisions: null } }),
+    );
+    const riskyRuns = [
+      makeEpisode({ episodeId: "r-1", policyVersion: "risky-policy", metrics: { durationS: 500, interventions: null, collisions: null } }),
+    ];
+    const summaries = buildPolicyRiskSummaries([...calibrationRuns, ...riskyRuns]);
+    expect(summaries[0].policyVersion).toBe("risky-policy");
+  });
+
+  it("does not let a task name or policy version containing a separator-like substring merge two distinct groups", () => {
+    const a = makeEpisode({
+      episodeId: "a",
+      task: { name: "task", languageInstruction: "x", benchmarkPack: "test" },
+      policyVersion: "v1::fake",
+    });
+    const b = makeEpisode({
+      episodeId: "b",
+      task: { name: "task::v1", languageInstruction: "x", benchmarkPack: "test" },
+      policyVersion: "fake",
+    });
+    const summaries = buildPolicyRiskSummaries([a, b]);
+    expect(summaries).toHaveLength(2);
+  });
+});
+
 // Integration test against the real dataset. On the `develop` branch,
 // src/data/real-episodes.json is intentionally an empty array (see
 // README's "bring your own data" design), so this whole block skips
-// cleanly rather than failing — this is the honest behavior, not a bug.
+// cleanly rather than failing: this is the honest behavior, not a bug.
 // On `main` (or any deploy with the real 308-episode dataset loaded), the
 // same file exercises the actual empirical coverage guarantee against
 // real, labeled robot episodes.

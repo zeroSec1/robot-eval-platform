@@ -24,6 +24,13 @@ export default function MethodologyPage() {
             p-value means the duration looks statistically unlike the successful runs we&apos;ve seen: worth
             a human&apos;s attention, not proof of anything on its own.
           </p>
+          <p>
+            The same scoring rolls up per policy version too: instead of asking whether one past recording
+            looked odd, it asks how often a given deployed policy&apos;s logged runs have looked unusual so
+            far. That answers the question a fleet operator or MGA actually cares about, since they insure a
+            policy running across many robots, not one past episode. It is still a rollup of the same
+            after-the-fact duration scores, not a new kind of prediction.
+          </p>
         </div>
       </Card>
 
@@ -31,10 +38,12 @@ export default function MethodologyPage() {
         <CardHeader title="What it does not do" />
         <div className="px-3.5 py-3 text-[15px] text-dim">
           <p>
-            It does not predict robot failure before it happens. Only 60 of our 308 episodes have outcome
-            labels today, all from one task family, and intervention/collision telemetry is not yet
-            populated. That data does not support a failure-prediction claim, so the product doesn&apos;t make
-            one. This scores duration-anomaly only.
+            Neither the per-episode score nor the per-policy rollup predicts robot failure before it happens.
+            Both are retrospective: they describe how past logged runs looked, not how a policy will perform
+            on a run that hasn&apos;t happened yet. Only 60 of our 308 episodes have outcome labels today, all
+            from one task family, and intervention/collision telemetry is not yet populated. That data does
+            not support a genuine pre-deployment failure-prediction claim, so the product doesn&apos;t make
+            one. Both views score duration-anomaly only.
           </p>
         </div>
       </Card>
