@@ -268,9 +268,9 @@ describe("buildPolicyFailureRates", () => {
 // src/data/real-episodes.json is intentionally an empty array (see
 // README's "bring your own data" design), so this whole block skips
 // cleanly rather than failing: this is the honest behavior, not a bug.
-// On `main` (or any deploy with the real 308-episode dataset loaded), the
-// same file exercises the actual empirical coverage guarantee against
-// real, labeled robot episodes.
+// On `main` (or any deploy with the real bundled dataset loaded), the same
+// file exercises the actual empirical coverage guarantee against real,
+// labeled robot episodes.
 const scoredEpisodes = EPISODES.filter((e) => e.outcome.success !== null);
 describe.skipIf(scoredEpisodes.length < 20)("real-data integration", () => {
   it("keeps the empirical false-positive rate near the nominal alpha on held-out successful episodes", () => {
